@@ -19,10 +19,16 @@ Clone the repository:
 git clone https://github.com/JustAPenguin9/Akyuu-bot.git
 ```
 
+To get the node packages (needs to be done in the project directory):
+```shell
+npm install
+```
+
 To update to the latest commit (needs to be done in the project directory):
 ```shell
 git pull
 ```
+
 
 ## Creating your own version of the bot
 

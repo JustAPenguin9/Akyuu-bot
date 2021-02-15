@@ -16,7 +16,7 @@ to do:
 
 Clone the repository:
 ```shell
-git clone **insert link to repo**
+git clone https://github.com/JustAPenguin9/Akyuu-bot.git
 ```
 
 To update to the latest commit (needs to be done in the project directory):

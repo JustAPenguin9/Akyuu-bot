@@ -75,8 +75,16 @@ bot.on('message', (msg) =>{
         case "version":
           msg.channel.send(`the current version is ${versionNum}`);
           break;
+        case "about":
+          msg.channel.send(
+            `Github repo: <https://github.com/JustAPenguin9/Akyuu-bot>
+Google sheet: <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>
+AOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>`)
+          break;
         case "help":
           msg.channel.send("do ![character] [move] \r an example is !reimu j5a")
+          break;
+          
         case "reimu":
           bot.characters.get("reimu").run(msg, args, doc);
           break;
@@ -131,7 +139,7 @@ bot.on('message', (msg) =>{
         case "yukari":
           bot.characters.get("yukari").run(msg, args, doc);
           break;
-        case "joon":
+        case "joon": case "jo'on": 
           bot.characters.get("joon").run(msg, args, doc);
           break;
       }

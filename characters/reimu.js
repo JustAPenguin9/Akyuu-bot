@@ -4,9 +4,6 @@ module.exports = {
   run(msg, args, doc) {
     const { MessageEmbed, MessageAttachment} = require("discord.js")
 
-    // import "discord.js"
-    // import * as lib from "./lib.js"
-
     const sheet = doc.sheetsByIndex[0];
 
     var colour = "#ff0000"

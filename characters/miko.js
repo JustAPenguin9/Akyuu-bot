@@ -199,7 +199,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "da":
+      case "da": case "66a": case "dasha":
         image = "da.gif";
         row = 183;
         attachment = new MessageAttachment(`./characters/mikoAttachments/${image}`, image);
@@ -210,7 +210,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "db":
+      case "db": case "66b": case "dashb":
         row = 184;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

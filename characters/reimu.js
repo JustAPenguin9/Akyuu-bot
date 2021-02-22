@@ -208,7 +208,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "da": case "dasha":
+      case "da": case "66a": case "dasha":
         image = "da.png";
         row = 21;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
@@ -219,7 +219,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "db": case "dashb":
+      case "db": case "66b": case "dashb":
         image = "j6a.png";
         row = 22;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
@@ -381,6 +381,26 @@ module.exports = {
           true
         );
         msg.channel.send(Embed);
+    }
+
+    function sds(colour, startup, damage, stun) {
+      const Embed = new MessageEmbed()
+      .setColor(colour)
+      .addField(
+        "Startup",
+        startup,
+        true
+      )
+      .addField(
+        "Damage",
+        damage,
+        true
+      )
+      .addField(
+        "Stun",
+        stun,
+        true
+      )
     }
     
     function sc(colour, startup, active, recovery, damage, stun, cost) {

@@ -32,7 +32,7 @@ setInterval(async () => {
 
 // BOT SETUP
 const prefix = "!";
-var versionNum = "1.0";
+var versionNum = "1.2";
 const fs = require("fs");
 bot.characters = new Discord.Collection();
 
@@ -50,13 +50,13 @@ bot.on("ready", () => {
   console.log("<bot online>");
   bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
 
-  // function status() {
-  //   setInterval(function () {
-  //     bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
-  //   }, 900000);
-  // }
+  function status() {
+    setInterval(function () {
+      bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
+    }, 900000);
+  }
 
-  // status();
+  status();
 });
 
 bot.on('message', (msg) =>{
@@ -75,14 +75,11 @@ bot.on('message', (msg) =>{
         case "version":
           msg.channel.send(`the current version is ${versionNum}`);
           break;
-        case "about":
-          msg.channel.send(
-            `Github repo: <https://github.com/JustAPenguin9/Akyuu-bot>
-Google sheet: <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>
-AOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>`)
+        case "links":
+          msg.channel.send("Github repo: <https://github.com/JustAPenguin9/Akyuu-bot>\nGoogle sheet: <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\nAOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>")
           break;
         case "help":
-          msg.channel.send("do ![character] [move] \r an example is !reimu j5a")
+          msg.channel.send("Use **![character] [move/help]** to get the data. An example would be !reimu j5a or !koishi help\nYou can also use **!links** to get the links.")
           break;
           
         case "reimu":
@@ -139,7 +136,7 @@ AOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>`)
         case "yukari":
           bot.characters.get("yukari").run(msg, args, doc);
           break;
-        case "joon": case "jo'on": 
+        case "joon": case "jo'on":
           bot.characters.get("joon").run(msg, args, doc);
           break;
       }

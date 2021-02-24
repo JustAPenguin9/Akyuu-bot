@@ -129,7 +129,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb":
+      case "cb": case "chargeb": case "[b]":
         row = 592;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

@@ -127,7 +127,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb":
+      case "cb": case "chargeb": case "[b]":
         row = 497;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -146,13 +146,7 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "5c": case "c":
-        row = 499;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        msg.channel.send("```Doremy turns on her vacuum, pulling the opponent towards her and sucking up any dream souls present in the stage. The vacuum itself has no hitbox, but the dream souls do as they quickly make their way towards the vacuum, potentially dealing huge damage on hit or chip damage on block. An important move to master, as it greatly improves on her blockstrings, okizemi and even combos.```");
         break;
       case "6c":
         row = 500;

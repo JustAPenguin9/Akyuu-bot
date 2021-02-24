@@ -136,7 +136,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb":
+      case "cb": case "chargeb": case "[b]":
         row = 110;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -155,7 +155,7 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "chant":
-        msg.channel.send("```Byakuren stores up chants for her special moves. Who would've thought? If done in the air, she stops moving for a moment, then slowly drifts towards middle lane.```")
+        msg.channel.send("```Byakuren stores up chants for her special moves. Who would've thought? If done in the air, she stops moving for a moment, then slowly drifts towards middle lane.```");
         break;
       case "5c": case "c":
         row = 113;

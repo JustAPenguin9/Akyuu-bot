@@ -32,7 +32,7 @@ setInterval(async () => {
 
 // BOT SETUP
 const prefix = "!";
-var versionNum = "1.2";
+var versionNum = "1.3";
 const fs = require("fs");
 bot.characters = new Discord.Collection();
 

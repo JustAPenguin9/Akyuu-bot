@@ -129,7 +129,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb":
+      case "cb": case "chargeb": case "[b]":
         row = 340;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -184,16 +184,10 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "8c":
-        row = 346;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        msg.channel.send("```Kasen grabs onto her eagle, which then floats slightly upwards and back. She can drop off it by pressing 2. Interacts with [b] and Hawk Beacon. Has three follow-up moves that can be performed. (accessed with 8ca, 8cb, 8cbbeacon)```");
         break;
       case "8ca":
-        row = 346;
+        row = 347;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
@@ -202,7 +196,7 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "8cb":
-        row = 346;
+        row = 348;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
@@ -210,8 +204,8 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "8cbbecon":
-        row = 346;
+      case "8cbbeacon": case "8cbeacon":
+        row = 349;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
@@ -315,7 +309,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

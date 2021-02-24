@@ -11,24 +11,20 @@ const creds = require("./key.json");
 const doc = new GoogleSpreadsheet("1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0");
 
 // GOOGLE API
-async function accessSheet() {
-    await doc.useServiceAccountAuth({
-      client_email: creds.client_email,
-      private_key: creds.private_key,
-    });
-  
-    await doc.loadInfo();
+async function loadSheet() {
+  await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0];
     await sheet.loadCells();
 }
+
+async function accessSheet() {
+  await doc.useServiceAccountAuth({
+    client_email: creds.client_email,
+    private_key: creds.private_key,
+  });
+  loadSheet
+}
 accessSheet();
-
-setInterval(async () => {
-  await doc.loadInfo();
-  const sheet = doc.sheetsByIndex[0];
-  await sheet.loadCells();
-}, 180000);
-
 
 // BOT SETUP
 const prefix = "!";
@@ -51,7 +47,7 @@ bot.on("ready", () => {
   bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
 
   function status() {
-    setInterval(function () {
+    setInterval( () => {
       bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
     }, 900000);
   }
@@ -74,6 +70,9 @@ bot.on('message', (msg) =>{
       switch (args[0]) {
         case "version":
           msg.channel.send(`the current version is ${versionNum}`);
+          break;
+        case "sync":
+          loadSheet().then(msg.channel.send("```data now synced!```"))
           break;
         case "links":
           msg.channel.send("Github repo: <https://github.com/JustAPenguin9/Akyuu-bot>\nGoogle sheet: <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\nAOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>")

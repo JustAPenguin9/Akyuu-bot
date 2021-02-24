@@ -383,6 +383,7 @@ module.exports = {
         msg.channel.send(Embed);
     }
 
+    //startup damage stun
     function sds(colour, startup, damage, stun) {
       const Embed = new MessageEmbed()
       .setColor(colour)
@@ -401,6 +402,7 @@ module.exports = {
         stun,
         true
       )
+      msg.channel.send(Embed);
     }
     
     function sc(colour, startup, active, recovery, damage, stun, cost) {

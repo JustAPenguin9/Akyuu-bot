@@ -13,8 +13,8 @@ const doc = new GoogleSpreadsheet("1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0"
 // GOOGLE API
 async function loadSheet() {
   await doc.loadInfo();
-    const sheet = doc.sheetsByIndex[0];
-    await sheet.loadCells();
+  const sheet = doc.sheetsByIndex[0];
+  await sheet.loadCells();
 }
 
 async function accessSheet() {
@@ -22,7 +22,7 @@ async function accessSheet() {
     client_email: creds.client_email,
     private_key: creds.private_key,
   });
-  loadSheet
+  loadSheet()
 }
 accessSheet();
 

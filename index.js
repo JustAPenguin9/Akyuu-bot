@@ -64,7 +64,7 @@ bot.on('message', (msg) =>{
   
   //WITH PREFIX
     if (msg.content.toLowerCase().startsWith(prefix)) {
-      let args = msg.content.substring(prefix.length).split(" ");
+      let args = msg.content.toLocaleLowerCase().substring(prefix.length).split(" ");
 
       switch (args[0]) {
         case "version":

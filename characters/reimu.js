@@ -10,7 +10,7 @@ module.exports = {
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER 
     switch (args[1]) {
-      case "5a": case "a": case "4a":
+      case "5a": case "a": case "4a": case "c5a":
         image = "5a.png";
         row = 1;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);

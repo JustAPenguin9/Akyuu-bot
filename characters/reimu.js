@@ -10,6 +10,18 @@ module.exports = {
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER 
     switch (args[1]) {
+      case "about":
+        msg.channel.send("The main heroine of the series. A well-rounded character with strong bullets, melee special attacks and setups.")
+        break;
+      // case "help":
+      //   const Embed = new MessageEmbed()
+      //   .setColor(colour)
+      //   .setTitle("Available Commands")
+      //   .addField(
+      //   ``
+      //   )
+      // break;
+
       case "5a": case "a": case "4a": case "c5a":
         image = "5a.png";
         row = 1;
@@ -116,7 +128,7 @@ module.exports = {
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        sds(colour, startup, damage, stun)
         break;
       case "2b":
         row = 11;

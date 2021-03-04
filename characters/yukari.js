@@ -192,12 +192,14 @@ module.exports = {
         break;
       case "8c":
         row = 564;
+        image = "Yukari8c no projectile.gif"
+        attachment = new MessageAttachment(`./characters/yukariAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "da": case "66a": case "dasha":
         row = 565;

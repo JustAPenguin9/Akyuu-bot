@@ -1,5 +1,4 @@
 // DISCORD
-const { Client, RichEmbed, Attachment, member } = require("discord.js");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 
@@ -72,7 +71,7 @@ bot.on('message', (msg) =>{
           msg.channel.send(`the current version is ${versionNum}`);
           break;
         case "sync":
-          loadSheet().then(msg.channel.send("```data now synced!```"))
+          loadSheet().then(msg.channel.send("**data now synced!**"))
           break;
         case "links":
           msg.channel.send("Github repo: <https://github.com/JustAPenguin9/Akyuu-bot>\nGoogle sheet: <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\nAOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>")
@@ -105,7 +104,7 @@ bot.on('message', (msg) =>{
         case "koishi":
           bot.characters.get("koishi").run(msg, args, doc);
           break;
-        case "mamizou":
+        case "mamizou": case "mami":
           bot.characters.get("mamizou").run(msg, args, doc);
           break;
         case "kokoro":
@@ -120,7 +119,7 @@ bot.on('message', (msg) =>{
         case "sukuna":
           bot.characters.get("sukuna").run(msg, args, doc);
           break;
-        case "sumireko":
+        case "sumireko": case "sumi":
           bot.characters.get("sumireko").run(msg, args, doc);
           break;
         case "reisen":

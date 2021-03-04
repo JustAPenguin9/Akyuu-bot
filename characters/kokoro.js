@@ -10,7 +10,7 @@ module.exports = {
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER 
     switch (args[1]) {
-      case "5a": case "a": case "4a":
+      case "5a": case "a": case "4a": case "c5a":
         row = 290;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

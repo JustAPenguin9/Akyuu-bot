@@ -1,5 +1,4 @@
 // DISCORD
-const { Client, RichEmbed, Attachment, member } = require("discord.js");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 
@@ -11,28 +10,24 @@ const creds = require("./key.json");
 const doc = new GoogleSpreadsheet("1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0");
 
 // GOOGLE API
-async function accessSheet() {
-    await doc.useServiceAccountAuth({
-      client_email: creds.client_email,
-      private_key: creds.private_key,
-    });
-  
-    await doc.loadInfo();
-    const sheet = doc.sheetsByIndex[0];
-    await sheet.loadCells();
-}
-accessSheet();
-
-setInterval(async () => {
+async function loadSheet() {
   await doc.loadInfo();
   const sheet = doc.sheetsByIndex[0];
   await sheet.loadCells();
-}, 180000);
+}
 
+async function accessSheet() {
+  await doc.useServiceAccountAuth({
+    client_email: creds.client_email,
+    private_key: creds.private_key,
+  });
+  loadSheet()
+}
+accessSheet();
 
 // BOT SETUP
 const prefix = "!";
-var versionNum = "1.2";
+var versionNum = "1.3";
 const fs = require("fs");
 bot.characters = new Discord.Collection();
 
@@ -51,7 +46,7 @@ bot.on("ready", () => {
   bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
 
   function status() {
-    setInterval(function () {
+    setInterval( () => {
       bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
     }, 900000);
   }
@@ -74,6 +69,9 @@ bot.on('message', (msg) =>{
       switch (args[0]) {
         case "version":
           msg.channel.send(`the current version is ${versionNum}`);
+          break;
+        case "sync":
+          loadSheet().then(msg.channel.send("**data now synced!**"))
           break;
         case "links":
           msg.channel.send("Github repo: <https://github.com/JustAPenguin9/Akyuu-bot>\nGoogle sheet: <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\nAOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>")
@@ -106,7 +104,7 @@ bot.on('message', (msg) =>{
         case "koishi":
           bot.characters.get("koishi").run(msg, args, doc);
           break;
-        case "mamizou":
+        case "mamizou": case "mami":
           bot.characters.get("mamizou").run(msg, args, doc);
           break;
         case "kokoro":
@@ -121,7 +119,7 @@ bot.on('message', (msg) =>{
         case "sukuna":
           bot.characters.get("sukuna").run(msg, args, doc);
           break;
-        case "sumireko":
+        case "sumireko": case "sumi":
           bot.characters.get("sumireko").run(msg, args, doc);
           break;
         case "reisen":

@@ -10,7 +10,7 @@ module.exports = {
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER 
     switch (args[1]) {
-      case "5a": case "a": case "4a":
+      case "5a": case "a": case "4a": case "c5a":
         image = "5a.png";
         row = 1;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
@@ -145,7 +145,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb":
+      case "cb": case "chargeb": case "[b]":
         row = 14;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -383,6 +383,7 @@ module.exports = {
         msg.channel.send(Embed);
     }
 
+    //startup damage stun
     function sds(colour, startup, damage, stun) {
       const Embed = new MessageEmbed()
       .setColor(colour)
@@ -401,6 +402,7 @@ module.exports = {
         stun,
         true
       )
+      msg.channel.send(Embed);
     }
     
     function sc(colour, startup, active, recovery, damage, stun, cost) {

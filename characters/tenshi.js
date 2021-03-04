@@ -10,7 +10,7 @@ module.exports = {
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER 
     switch (args[1]) {
-      case "5a": case "a": case "4a":
+      case "5a": case "a": case "4a": case "c5a":
         row = 514;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -127,7 +127,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb":
+      case "cb": case "chargeb": case "[b]":
         row = 527;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

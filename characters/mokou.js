@@ -334,7 +334,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "[b] trajectories": case "charge b trajectory": case "charge b trajectories":
+      case "trajectory":
         row = 373;
         image = "(B)_Trajectories.png"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);

@@ -23,57 +23,69 @@ module.exports = {
         break;
       case "f5a":
         row = 580;
+        image = "Joonf5a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "6a":
         row = 581;
+        image = "Joon6a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "8a":
         row = 582;
+        image = "Joon8a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "2a":
         row = 583;
+        image = "Joon2a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ja": case "j5a":
         row = 584;
+        image = "Joonj5a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j6a":
         row = 585;
+        image = "Joonj6a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j8a":
         image = "j8a.gif";
@@ -88,12 +100,14 @@ module.exports = {
         break;
       case "j2a":
         row = 587;
+        image = "Joonj2a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "5b": case "b":
         row = 588;
@@ -131,7 +145,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb": case "[b]":
+      case "cb": case "chargeb":
         row = 592;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -196,21 +210,25 @@ module.exports = {
         break;
       case "da": case "66a": case "dasha":
         row = 599;
+        image = "Joon66a.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "db": case "66b": case "dashb":
         row = 600;
+        image = "Joon66b.png"
+        attachment = new MessageAttachment(`./characters/joonAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ab": case "occult":
         row = 601;

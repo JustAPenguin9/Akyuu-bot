@@ -23,75 +23,91 @@ module.exports = {
         break;
       case "f5a":
         row = 66;
+        image = "Ichirinf5a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "6a":
         row = 67;
+        image = "Ichirin6a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "8a":
         row = 68;
+        image = "Ichirin8a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "2a":
         row = 69;
+        image = "Ichirin2a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ja": case "j5a":
         row = 70;
+        image = "Ichirinf5a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j6a":
         row = 71;
+        image = "Ichirin6a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j8a":
         row = 72;
+        image = "Ichirin8a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j2a":
         row = 73;
+        image = "Ichirin2a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "5b": case "b":
         row = 74;
@@ -203,21 +219,25 @@ module.exports = {
         break;
       case "da": case "66a": case "dasha":
         row = 86;
+        image = "Ichirin66a.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "db": case "66b": case "dashb":
         row = 87;
+        image = "Ichirin66b.png"
+        attachment = new MessageAttachment(`./characters/ichirinAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ab": case "occult":
         row = 88;

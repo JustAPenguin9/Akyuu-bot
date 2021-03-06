@@ -23,39 +23,47 @@ module.exports = {
         break;
       case "f5a":
         row = 328;
+        image = "Kasenf5a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "6a":
         row = 329;
+        image = "Kasen6a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "8a":
         row = 330;
+        image = "Kasen8a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "2a":
         row = 331;
+        image = "Kasen2a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ja": case "j5a":
         image = "j5a.gif"
@@ -70,30 +78,36 @@ module.exports = {
         break;
       case "j6a":
         row = 333;
+        image = "Kasenj6a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j8a":
         row = 334;
+        image = "Kasen8a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j2a":
         row = 335;
+        image = "Kasen2a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "5b": case "b":
         row = 336;
@@ -131,7 +145,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "cb": case "chargeb": case "[b]":
+        case "cb": case "chargeb": case "[b]":
         row = 340;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -206,7 +220,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "8cbbeacon": case "8cbeacon":
+        case "8cbbeacon": case "8cbeacon":
         row = 349;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -217,21 +231,25 @@ module.exports = {
         break;
       case "da": case "66a": case "dasha":
         row = 350;
+        image = "Kasen66a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "db": case "66b": case "dashb":
         row = 351;
+        image = "Kasen2a.png"
+        attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ab": case "occult":
         row = 352;
@@ -311,7 +329,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-
+  
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

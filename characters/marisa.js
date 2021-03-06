@@ -100,15 +100,12 @@ module.exports = {
         break;
       case "j2a":
         row = 40;
-        image = "Marisaj2a.png";
-        image = "Marisa2a.png";
-        attachment = new MessageAttachment(`./characters/marisaAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        std(colour, startup, active, recovery, damage, stun)
         break;
       case "5b": case "b":
         row = 41;
@@ -235,6 +232,8 @@ module.exports = {
         // ab will send ab1 2 3 4 all at once as 4 seperate messages
         // i need to work on this but im lazy so not rn
         // I guess this was fixed? -SoG
+        // lol no
+        // break;
       case "ab1": case "occult1": case "ab": case "occult":
         row = 54;
         startup = (sheet.getCell(row, 2)).value;

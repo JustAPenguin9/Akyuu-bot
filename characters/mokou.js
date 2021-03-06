@@ -334,17 +334,6 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "trajectory":
-        row = 373;
-        image = "(B)_Trajectories.png"
-        attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
-        break;
     }
 
 // MESSAGE EMBED

@@ -248,7 +248,7 @@ module.exports = {
         break;
       case "db": case "66b": case "dashb":
         row = 351;
-        image = "Kasen66b.png"
+        image = "Kasen2a.png"
         attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

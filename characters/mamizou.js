@@ -23,75 +23,91 @@ module.exports = {
         break;
       case "f5a":
         row = 257;
+        image = "Mamizouf5a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "6a":
         row = 258;
+        image = "Mamizou6a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "8a":
         row = 259;
+        image = "Mamizou8a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "2a":
         row = 260;
+        image = "Mamizou2a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ja": case "j5a":
         row = 261;
+        image = "Mamizouj5a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j6a":
         row = 262;
+        image = "Mamizou6a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j8a":
         row = 263;
+        image = "Mamizou8a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j2a":
         row = 264;
+        image = "Mamizou2a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "5b": case "b":
         row = 265;
@@ -203,21 +219,25 @@ module.exports = {
         break;
       case "da": case "66a": case "dasha":
         row = 277;
+        image = "Mamizou66a.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "db": case "66b": case "dashb":
         row = 278;
+        image = "Mamizou66b.png"
+        attachment = new MessageAttachment(`./characters/mamizouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
         recovery = (sheet.getCell(row, 4)).value;
         damage =  (sheet.getCell(row, 5)).value;
         stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ab": case "occult": case "abball":
         image = "ab.gif"

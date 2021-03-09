@@ -8,9 +8,7 @@ Stable but still needs work.
 
 to do:
 
-* add help commands for each character
-* add more thumbnail attachments
-* add character descriptions (about?)
+my guy there is so much still to do
 
 ## Downloading the source code
 
@@ -61,6 +59,6 @@ when running the bot make sure that you are using the current LTS version of nod
 
 ## Links
 
-* [AOCF discord server](https://discord.com/invite/kfJTRBq) (the only place the official bot is being used)
-* [AOCF wiki](https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki) (where most of the data is taken from)
-* [Google sheet](https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing) (where all the data the bot uses is stored)
+* [AOCF discord server](https://discord.com/invite/kfJTRBq) - the only place the official bot is being used
+* [AOCF wiki](https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki) - where most of the data is taken from
+* [Google sheet](https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing) - where all the data the bot uses is stored

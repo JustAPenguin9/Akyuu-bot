@@ -232,7 +232,7 @@ module.exports = {
         // ab will send ab1 2 3 4 all at once as 4 seperate messages
         // i need to work on this but im lazy so not rn
         // I guess this was fixed? -SoG
-        // lol no
+        // lol no -P
         // break;
       case "ab1": case "occult1": case "ab": case "occult":
         row = 54;
@@ -339,7 +339,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

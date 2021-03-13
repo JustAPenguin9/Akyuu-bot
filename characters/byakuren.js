@@ -8,7 +8,7 @@ module.exports = {
 
     colour = "#160857"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 96;
@@ -98,7 +98,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "j2a": case "highj2a":
+      case "j2a": case "highj2a": case "hj2a": case "h.j2a":
         row = 104;
         image = "Hijirij2a.png"
         attachment = new MessageAttachment(`./characters/byakurenAttachments/${image}`, image);
@@ -109,7 +109,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "lowj2a":
+      case "lowj2a": case "lj2a": case "l.j2a":
         row = 105;
         image = "Hijiri2a.png"
         attachment = new MessageAttachment(`./characters/byakurenAttachments/${image}`, image);
@@ -340,7 +340,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

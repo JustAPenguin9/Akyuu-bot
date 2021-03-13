@@ -8,7 +8,7 @@ module.exports = {
 
     colour = "#007aff"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 193;
@@ -87,7 +87,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "j8a": case "highj8a":
+      case "j8a": case "highj8a": case "hj8a": case "h.j8a":
         row = 200;
         image = "Nitori66a.png"
         attachment = new MessageAttachment(`./characters/nitoriAttachments/${image}`, image);
@@ -98,7 +98,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "lowj8a":
+      case "lowj8a": case "lj8a": case "l.j8a":
         row = 201;
         image = "Nitori8a.png"
         attachment = new MessageAttachment(`./characters/nitoriAttachments/${image}`, image);
@@ -192,7 +192,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "lowj6c":
+      case "lowj6c": case "lj6c": case "l.j6c":
         row = 211;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -201,7 +201,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "highj6c": case "highj6c":
+      case "highj6c": case "hj6c": case "h.j6c":
         row = 212;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -337,7 +337,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

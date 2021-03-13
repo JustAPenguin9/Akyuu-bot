@@ -8,7 +8,7 @@ module.exports = {
 
     colour = "#0000ff"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 65;
@@ -208,7 +208,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "high8c": case "j8c":
+      case "high8c": case "j8c": case "h8c": case "h.8c":
         row = 85;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -315,7 +315,7 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
     }
-    
+
 // MESSAGE EMBED
     function std(colour, startup, active, recovery, damage, stun) {
     const Embed = new MessageEmbed()

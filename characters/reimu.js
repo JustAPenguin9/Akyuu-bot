@@ -8,7 +8,7 @@ module.exports = {
 
     var colour = "#ff0000"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         image = "5a.png";
@@ -88,7 +88,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j8a":
-        image = "ja.png";
+        image = "8a.png";
         row = 8;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -349,7 +349,7 @@ module.exports = {
         );
         msg.channel.send(Embed);
     }
-    
+
     function stdimg(colour, startup, active, recovery, damage, stun, image, attachment) {
       const Embed = new MessageEmbed()
         .setColor(colour)
@@ -404,7 +404,7 @@ module.exports = {
       )
       msg.channel.send(Embed);
     }
-    
+
     function sc(colour, startup, active, recovery, damage, stun, cost) {
       const Embed = new MessageEmbed()
         .setColor(colour)

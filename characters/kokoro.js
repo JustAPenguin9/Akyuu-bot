@@ -7,8 +7,8 @@ module.exports = {
     const sheet = doc.sheetsByIndex[0];
 
     colour = "#FFB2E4";
-    collectorTime = 30000;
 
+    collectorTime = 60000;
     var messageEmbed;
     var filter = (reaction, user) => ["⚪", "🔴", "🟢", "🔵"].includes(reaction.emoji.name) && (user.id === msg.author.id);
     var noEmoEmbed;
@@ -142,7 +142,7 @@ module.exports = {
         messageEmbed.react("🟢");
         messageEmbed.react("🔵");
 
-        var collector = messageEmbed.createReactionCollector(filter, { time: 30000 });
+        var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch(reaction.emoji.name) {
             case "🔴":

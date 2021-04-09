@@ -1,14 +1,17 @@
 module.exports = {
   name: "marisa",
   description: "command",
-  run(msg, args, doc) {
-    const { MessageEmbed, MessageAttachment} = require("discord.js")
+  async run(msg, args, doc) {
+    const { MessageEmbed, MessageAttachment, Message} = require("discord.js")
 
     const sheet = doc.sheetsByIndex[0];
 
     colour = "#ffff00"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+    collectorTime = 60000;
+    var filter = (reaction, user) => ["⬅️", "➡️"].includes(reaction.emoji.name) && (user.id === msg.author.id);
+
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 32;
@@ -228,47 +231,63 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      //case "ab":
-        // ab will send ab1 2 3 4 all at once as 4 seperate messages
-        // i need to work on this but im lazy so not rn
-        // I guess this was fixed? -SoG
-        // lol no -P
-        // break;
-      case "ab1": case "occult1": case "ab": case "occult":
-        row = 54;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
-        break;
-      case "ab2": case "occult2":
-        row = 55;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
-        break;
-      case "ab3": case "occult3":
-        row = 56;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
-        break;
-      case "ab4": case "occult4":
-        row = 57;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+      case "ab": case "occult":
+        var ab1 = new MessageEmbed()
+          .setColor(colour)
+          .setTitle("AB 1")
+          .addField("Startup", (sheet.getCell(54, 2)).value, true)
+          .addField("Active", (sheet.getCell(54, 3)).value, true)
+          .addField("Recovery", (sheet.getCell(54, 4)).value, true)
+          .addField("Damage", (sheet.getCell(54, 5)).value, true)
+          .addField("Stun", (sheet.getCell(54, 6)).value, true);
+        var ab2 = new MessageEmbed()
+          .setColor(colour)
+          .setTitle("AB 2")
+          .addField("Startup", (sheet.getCell(55, 2)).value, true)
+          .addField("Active", (sheet.getCell(55, 3)).value, true)
+          .addField("Recovery", (sheet.getCell(55, 4)).value, true)
+          .addField("Damage", (sheet.getCell(55, 5)).value, true)
+          .addField("Stun", (sheet.getCell(55, 6)).value, true);
+        var ab3 = new MessageEmbed()
+          .setColor(colour)
+          .setTitle("AB 3")
+          .addField("Startup", (sheet.getCell(56, 2)).value, true)
+          .addField("Active", (sheet.getCell(56, 3)).value, true)
+          .addField("Recovery", (sheet.getCell(56, 4)).value, true)
+          .addField("Damage", (sheet.getCell(56, 5)).value, true)
+          .addField("Stun", (sheet.getCell(56, 6)).value, true);
+        var ab4 = new MessageEmbed()
+          .setColor(colour)
+          .setTitle("AB 4")
+          .addField("Startup", (sheet.getCell(57, 2)).value, true)
+          .addField("Active", (sheet.getCell(57, 3)).value, true)
+          .addField("Recovery", (sheet.getCell(57, 4)).value, true)
+          .addField("Damage", (sheet.getCell(57, 5)).value, true)
+          .addField("Stun", (sheet.getCell(57, 6)).value, true);
+
+        var embeds = [ab1, ab2, ab3, ab4];
+        var page = 0;
+
+        messageEmbed = await msg.channel.send(embeds[page])
+        messageEmbed.react("⬅️");
+        messageEmbed.react("➡️");
+
+        var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
+        collector.on("collect", async (reaction) => {
+          switch(reaction.emoji.name) {
+            case "⬅️":
+              if(page === 0) page = 3;
+              else page--;
+              await messageEmbed.edit(embeds[page]);
+              break;
+            case "➡️":
+              if(page === embeds.length - 1) page = 0;
+              else page++;
+              await messageEmbed.edit(embeds[page]);
+              break;
+            }
+        })
+
         break;
       case "ta": case "taga":
         row = 58;

@@ -1,14 +1,17 @@
 module.exports = {
   name: "kasen",
   description: "command",
-  run(msg, args, doc) {
+  async run(msg, args, doc) {
     const { MessageEmbed, MessageAttachment} = require("discord.js")
 
     const sheet = doc.sheetsByIndex[0];
 
     colour = "#00ff00"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+    collectorTime = 60000;
+    var filter = (reaction, user) => ["⬅️", "➡️"].includes(reaction.emoji.name) && (user.id === msg.author.id);
+
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 327;
@@ -200,34 +203,57 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "8c":
-        msg.channel.send("```Kasen grabs onto her eagle, which then floats slightly upwards and back. She can drop off it by pressing 2. Interacts with [b] and Hawk Beacon. Has three follow-up moves that can be performed. (accessed with 8ca, 8cb, 8cbbeacon)```");
-        break;
-      case "8ca":
-        row = 347;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
-        break;
-      case "8cb":
-        row = 348;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
-        break;
-        case "8cbbeacon": case "8cbeacon":
-        row = 349;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        //var page1 = "```Kasen grabs onto her eagle, which then floats slightly upwards and back. She can drop off it by pressing 2. Interacts with [b] and Hawk Beacon. Has three follow-up moves that can be performed. (accessed with 8ca, 8cb, 8cbbeacon)```";
+        var page1 = new MessageEmbed()
+          .setColor(colour)
+          .setDescription("Kasen grabs onto her eagle, which then floats slightly upwards and back. She can drop off it by pressing 2. Interacts with [b] and Hawk Beacon. Has three follow-up moves that can be performed.");
+        var page2 = new MessageEmbed()
+          .setColor(colour)
+          .setTitle("8C A")
+          .addField("Startup", (sheet.getCell(347, 2)).value, true)
+          .addField("Active", (sheet.getCell(347, 3)).value, true)
+          .addField("Recovery", (sheet.getCell(347, 4)).value, true)
+          .addField("Damage", (sheet.getCell(347, 5)).value, true)
+          .addField("Stun", (sheet.getCell(347, 6)).value, true);
+        var page3 = new MessageEmbed()
+          .setColor(colour)
+          .setTitle("8C B")
+          .addField("Startup", (sheet.getCell(348, 2)).value, true)
+          .addField("Active", (sheet.getCell(348, 3)).value, true)
+          .addField("Recovery", (sheet.getCell(348, 4)).value, true)
+          .addField("Damage", (sheet.getCell(348, 5)).value, true)
+          .addField("Stun", (sheet.getCell(348, 6)).value, true);
+        var page4 = new MessageEmbed()
+          .setColor(colour)
+          .setTitle("8C B With Beacon")
+          .addField("Startup", (sheet.getCell(349, 2)).value, true)
+          .addField("Active", (sheet.getCell(349, 3)).value, true)
+          .addField("Recovery", (sheet.getCell(349, 4)).value, true)
+          .addField("Damage", (sheet.getCell(349, 5)).value, true)
+          .addField("Stun", (sheet.getCell(349, 6)).value, true);
+
+        var pages  = [page1, page2, page3, page4];
+        var page = 0;
+
+        messageEmbed = await msg.channel.send(pages[page])
+        messageEmbed.react("⬅️");
+        messageEmbed.react("➡️");
+
+        var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
+        collector.on("collect", async (reaction) => {
+          switch(reaction.emoji.name) {
+            case "⬅️":
+              if(page === 0) page = 3;
+              else page--;
+              await messageEmbed.edit(pages[page]);
+              break;
+            case "➡️":
+              if(page === pages.length - 1) page = 0;
+              else page++;
+              await messageEmbed.edit(pages[page]);
+              break;
+            }
+        })
         break;
       case "da": case "66a": case "dasha":
         row = 350;
@@ -329,7 +355,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

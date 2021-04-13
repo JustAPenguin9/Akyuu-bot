@@ -2,7 +2,7 @@ module.exports = {
   name: "marisa",
   description: "command",
   async run(msg, args, doc) {
-    const { MessageEmbed, MessageAttachment, Message} = require("discord.js")
+    const { MessageEmbed, MessageAttachment} = require("discord.js")
 
     const sheet = doc.sheetsByIndex[0];
 
@@ -287,7 +287,6 @@ module.exports = {
               break;
             }
         })
-
         break;
       case "ta": case "taga":
         row = 58;

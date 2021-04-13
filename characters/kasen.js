@@ -9,7 +9,7 @@ module.exports = {
     colour = "#00ff00"
 
     collectorTime = 60000;
-    var filter = (reaction, user) => ["⬅️", "➡️"].includes(reaction.emoji.name) && (user.id === msg.author.id);
+    var filter = (reaction, user) => ["⬅️", "➡️", "💠", "🇦", "🇧", "🅱️"].includes(reaction.emoji.name) && (user.id === msg.author.id);
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
@@ -203,7 +203,6 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "8c":
-        //var page1 = "```Kasen grabs onto her eagle, which then floats slightly upwards and back. She can drop off it by pressing 2. Interacts with [b] and Hawk Beacon. Has three follow-up moves that can be performed. (accessed with 8ca, 8cb, 8cbbeacon)```";
         var page1 = new MessageEmbed()
           .setColor(colour)
           .setDescription("Kasen grabs onto her eagle, which then floats slightly upwards and back. She can drop off it by pressing 2. Interacts with [b] and Hawk Beacon. Has three follow-up moves that can be performed.");
@@ -236,24 +235,52 @@ module.exports = {
         var page = 0;
 
         messageEmbed = await msg.channel.send(pages[page])
-        messageEmbed.react("⬅️");
-        messageEmbed.react("➡️");
+        // messageEmbed.react("⬅️");
+        // messageEmbed.react("➡️");
+        messageEmbed.react("💠");
+        messageEmbed.react("🇦");
+        messageEmbed.react("🇧");
+        messageEmbed.react("🅱️");
 
         var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch(reaction.emoji.name) {
-            case "⬅️":
-              if(page === 0) page = 3;
-              else page--;
+            case "💠":
+              if(page === 0) return;
+              page = 0;
               await messageEmbed.edit(pages[page]);
               break;
-            case "➡️":
-              if(page === pages.length - 1) page = 0;
-              else page++;
+            case "🇦":
+              if(page === 1) return;
+              page = 1;
               await messageEmbed.edit(pages[page]);
               break;
-            }
+            case "🇧":
+              if(page === 2) return;
+              page = 2;
+              await messageEmbed.edit(pages[page]);
+              break;
+            case "🅱️":
+              if(page === 3) return;
+              page = 3;
+              await messageEmbed.edit(pages[page]);
+              break;
+          }
         })
+        // collector.on("collect", async (reaction) => {
+        //   switch(reaction.emoji.name) {
+        //     case "⬅️":
+        //       if(page === 0) page = 3;
+        //       else page--;
+        //       await messageEmbed.edit(pages[page]);
+        //       break;
+        //     case "➡️":
+        //       if(page === pages.length - 1) page = 0;
+        //       else page++;
+        //       await messageEmbed.edit(pages[page]);
+        //       break;
+        //     }
+        // })
         break;
       case "da": case "66a": case "dasha":
         row = 350;

@@ -42,7 +42,7 @@ for (const file of characterFiles) {
 
 bot.on("error", console.error);
 bot.on("ready", () => {
-  console.log("<bot online>");
+  console.log(`<${bot.user.username} online>`);
   bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
 
   function status() {
@@ -55,16 +55,16 @@ bot.on("ready", () => {
 });
 
 bot.on('message', (msg) =>{
+  if (bot.user.id !== msg.author.id) {
 
   //WITHOUT PREFIX
-  if (bot.user.id !== msg.author.id) {
     if (msg.content === "o/") {
       msg.channel.send("o/");
     }
 
   //WITH PREFIX
     if (msg.content.toLowerCase().startsWith(prefix)) {
-      let args = msg.content.toLocaleLowerCase().substring(prefix.length).split(" ");
+      let args = msg.content.toLowerCase().substring(prefix.length).split(" ");
 
       switch (args[0]) {
         case "version":
@@ -78,6 +78,9 @@ bot.on('message', (msg) =>{
           break;
         case "help":
           msg.channel.send("Use **![character] [move]** to get the frame data. An example would be !reimu j5a\nYou can also use **!links** to get the links the the important stuff.")
+          break;
+        case "wiki":
+          bot.characters.get("wiki").run(msg, args);
           break;
 
         case "reimu":

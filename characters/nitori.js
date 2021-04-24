@@ -78,7 +78,7 @@ module.exports = {
         break;
       case "j6a":
         row = 199;
-        image = "Nitorij6a.png"
+        image = "Nitori6a.png"
         attachment = new MessageAttachment(`./characters/nitoriAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

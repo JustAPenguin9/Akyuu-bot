@@ -134,7 +134,7 @@ bot.on('message', (msg) =>{
         case "yukari":
           bot.characters.get("yukari").run(msg, args, doc);
           break;
-        case "joon": case "jo'on":
+        case "joon": case "jo'on": case "jyoon":
           bot.characters.get("joon").run(msg, args, doc);
           break;
       }

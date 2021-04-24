@@ -69,7 +69,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ja": case "j5a":
-        image = "j5a.gif"
+        image = "Kasenj5a.gif"
         row = 332;
         attachment = new MessageAttachment(`./characters/kasenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -235,8 +235,6 @@ module.exports = {
         var page = 0;
 
         messageEmbed = await msg.channel.send(pages[page])
-        // messageEmbed.react("⬅️");
-        // messageEmbed.react("➡️");
         messageEmbed.react("💠");
         messageEmbed.react("🇦");
         messageEmbed.react("🇧");
@@ -267,20 +265,6 @@ module.exports = {
               break;
           }
         })
-        // collector.on("collect", async (reaction) => {
-        //   switch(reaction.emoji.name) {
-        //     case "⬅️":
-        //       if(page === 0) page = 3;
-        //       else page--;
-        //       await messageEmbed.edit(pages[page]);
-        //       break;
-        //     case "➡️":
-        //       if(page === pages.length - 1) page = 0;
-        //       else page++;
-        //       await messageEmbed.edit(pages[page]);
-        //       break;
-        //     }
-        // })
         break;
       case "da": case "66a": case "dasha":
         row = 350;

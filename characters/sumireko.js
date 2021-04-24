@@ -12,7 +12,7 @@ module.exports = {
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 421;
-        image = "Sumic5a.gif"
+        image = "Usamic5a.gif"
         attachment = new MessageAttachment(`./characters/sumirekoAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

@@ -211,7 +211,7 @@ module.exports = {
         break;
       case "da": case "66a": case "dasha":
         row = 52;
-        image = "Marisafa.png"
+        image = "Marisaf5a.png"
         attachment = new MessageAttachment(`./characters/marisaAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

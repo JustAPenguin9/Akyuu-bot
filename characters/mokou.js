@@ -8,7 +8,7 @@ module.exports = {
 
     colour = "#ff0000"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 360;
@@ -261,7 +261,7 @@ module.exports = {
         break;
       case "ta": case "taga":
         row = 383;
-        image = "Mokou66aa.png"
+        image = "Mokou66a.png"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -294,7 +294,7 @@ module.exports = {
         break;
       case "sc1": case "sc": case "spellcard": case "spellcard1":
         row = 386;
-        image = "Mokou_0.png"
+        image = "Mokousc1.png"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -305,7 +305,7 @@ module.exports = {
         break;
       case "sc2": case "spellcard2":
         row = 387;
-        image = "Mokou_1.png"
+        image = "Mokousc2.png"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -316,7 +316,7 @@ module.exports = {
         break;
       case "sc3": case "spellcard3":
         row = 388;
-        image = "Mokou_2.png"
+        image = "Mokousc3.png"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -337,7 +337,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

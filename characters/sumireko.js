@@ -8,7 +8,7 @@ module.exports = {
 
     colour = "#ff0000"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 421;
@@ -190,7 +190,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "low2c":
+      case "low2c": case "l2c": case "l.2c":
         row = 439;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -199,7 +199,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "2c": case "high2c":
+      case "2c": case "high2c": case "h2c": case "h.2c":
         row = 440;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -239,7 +239,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "abhigh": case "occulthigh":
+      case "abhigh": case "occulthigh": case "abh":
         row = 444;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -248,7 +248,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "ab": case "occult": case "abmid": case "occultmid":
+      case "ab": case "occult": case "abmid": case "occultmid": case "abm":
         row = 445;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -257,7 +257,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         std(colour, startup, active, recovery, damage, stun)
         break;
-      case "ablow": case "occultlow":
+      case "ablow": case "occultlow": case "abl":
         row = 446;
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -335,7 +335,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

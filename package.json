@@ -1,5 +1,5 @@
 {
-  "name": "Akyuu-bot",
+  "name": "akyuu-bot",
   "version": "1.0.0",
   "description": "Discord bot for touhou AOCF",
   "main": "index.js",
@@ -7,10 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JustAPenguin",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "discord-paginationembed": "^2.1.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "google-spreadsheet": "^3.0.14"
+    "google-spreadsheet": "^3.1.15"
   }
 }

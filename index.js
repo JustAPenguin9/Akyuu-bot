@@ -35,14 +35,14 @@ const characterFiles = fs
   .readdirSync("./characters/")
   .filter((file) => file.endsWith(".js"));
 for (const file of characterFiles) {
-  
+
   const character = require(`./characters/${file}`);
   bot.characters.set(character.name, character);
 }
 
 bot.on("error", console.error);
 bot.on("ready", () => {
-  console.log("<bot online>");
+  console.log(`<${bot.user.username} online>`);
   bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
 
   function status() {
@@ -55,16 +55,16 @@ bot.on("ready", () => {
 });
 
 bot.on('message', (msg) =>{
-  
-  //WITHOUT PREFIX
   if (bot.user.id !== msg.author.id) {
+
+  //WITHOUT PREFIX
     if (msg.content === "o/") {
       msg.channel.send("o/");
     }
-  
+
   //WITH PREFIX
     if (msg.content.toLowerCase().startsWith(prefix)) {
-      let args = msg.content.toLocaleLowerCase().substring(prefix.length).split(" ");
+      let args = msg.content.toLowerCase().substring(prefix.length).split(" ");
 
       switch (args[0]) {
         case "version":
@@ -74,12 +74,15 @@ bot.on('message', (msg) =>{
           loadSheet().then(msg.channel.send("**data now synced!**"))
           break;
         case "links":
-          msg.channel.send("Github repo: <https://github.com/JustAPenguin9/Akyuu-bot>\nGoogle sheet: <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\nAOCF wiki: <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>")
+          msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>\n**Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\n**AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>")
           break;
         case "help":
-          msg.channel.send("Use **![character] [move/help]** to get the data. An example would be !reimu j5a or !koishi help\nYou can also use **!links** to get the links.")
+          msg.channel.send("Use **![character] [move]** to get the frame data. An example would be !reimu j5a\nYou can also use **!links** to get the links the the important stuff.")
           break;
-          
+        case "wiki":
+          bot.characters.get("wiki").run(msg, args);
+          break;
+
         case "reimu":
           bot.characters.get("reimu").run(msg, args, doc);
           break;

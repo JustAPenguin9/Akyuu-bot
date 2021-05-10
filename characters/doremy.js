@@ -67,7 +67,7 @@ module.exports = {
         break;
       case "ja": case "j5a":
         row = 489;
-        image = "Doremyj5a.png"
+        image = "Doremyj5a.gif"
         attachment = new MessageAttachment(`./characters/doremyAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

@@ -22,7 +22,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "f5a":
-        image = "f5a.gif";
+        image = "Koishif5a.gif";
         row = 227;
         attachment = new MessageAttachment(`./characters/koishiAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -67,7 +67,7 @@ module.exports = {
         break;
       case "ja": case "j5a":
         row = 231;
-        image = "Koishij5a.png"
+        image = "Koishij5a.gif"
         attachment = new MessageAttachment(`./characters/koishiAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

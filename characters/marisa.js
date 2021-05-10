@@ -48,7 +48,7 @@ module.exports = {
         break;
       case "8a":
         row = 35;
-        image = "Marisa8a.png"
+        image = "Marisa8a.gif"
         attachment = new MessageAttachment(`./characters/marisaAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -92,7 +92,7 @@ module.exports = {
         break;
       case "j8a":
         row = 39;
-        image = "Marisa8a.png"
+        image = "Marisa8a.gif"
         attachment = new MessageAttachment(`./characters/marisaAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

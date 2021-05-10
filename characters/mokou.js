@@ -66,7 +66,7 @@ module.exports = {
         break;
       case "ja": case "j5a":
         row = 365;
-        image = "Mokouj5a.png"
+        image = "Mokouj5a.gif"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -99,7 +99,7 @@ module.exports = {
         break;
       case "j2a":
         row = 368;
-        image = "Mokouj2a.png"
+        image = "Mokouj2a.gif"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -230,7 +230,7 @@ module.exports = {
         break;
       case "da": case "66a": case "dasha":
         row = 380;
-        image = "Mokou66a.png"
+        image = "Mokou66a.gif"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

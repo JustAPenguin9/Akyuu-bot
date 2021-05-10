@@ -22,7 +22,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "f5a":
-        image = "f5a.png";
+        image = "Reimuf5a.gif";
         row = 2;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;

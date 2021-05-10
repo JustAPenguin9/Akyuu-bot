@@ -44,7 +44,7 @@ module.exports = {
         break;
       case "8a":
         row = 363;
-        image = "Mokou8a.png"
+        image = "Mokou8a.gif"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -208,7 +208,7 @@ module.exports = {
         break;
       case "2c":
         row = 378;
-        image = "Mokou2c.png"
+        image = "Mokou2c.gif"
         attachment = new MessageAttachment(`./characters/mokouAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

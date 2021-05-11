@@ -56,7 +56,7 @@ module.exports = {
         break;
       case "2a":
         row = 197;
-        image = "Nitori2a.png"
+        image = "Nitori2a.gif"
         attachment = new MessageAttachment(`./characters/nitoriAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -100,7 +100,7 @@ module.exports = {
         break;
       case "lowj8a": case "lj8a": case "l.j8a":
         row = 201;
-        image = "Nitori8a.png"
+        image = "Nitorilj8a.gif"
         attachment = new MessageAttachment(`./characters/nitoriAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

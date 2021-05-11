@@ -67,7 +67,7 @@ module.exports = {
         break;
       case "ja": case "j5a":
         row = 459;
-        image = "Reisenj5a.png"
+        image = "Reisenj5a.gif"
         attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;
@@ -100,7 +100,7 @@ module.exports = {
         break;
       case "j2a":
         row = 462;
-        image = "Reisenj2a.png"
+        image = "Reisenj2a.gif"
         attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

@@ -100,7 +100,7 @@ module.exports = {
         break;
       case "j2a":
         row = 170;
-        image = "Miko2a.png"
+        image = "Mikoj2a.gif"
         attachment = new MessageAttachment(`./characters/mikoAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

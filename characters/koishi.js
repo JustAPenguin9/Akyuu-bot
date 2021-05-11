@@ -67,7 +67,7 @@ module.exports = {
         break;
       case "ja": case "j5a":
         row = 231;
-        image = "Koishij5a.png"
+        image = "Koishij5a.gif"
         attachment = new MessageAttachment(`./characters/koishiAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

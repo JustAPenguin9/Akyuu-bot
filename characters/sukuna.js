@@ -56,7 +56,7 @@ module.exports = {
         break;
       case "2a":
         row = 394;
-        image = "Sukuna2a.png"
+        image = "Sukuna2a.gif"
         attachment = new MessageAttachment(`./characters/sukunaAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

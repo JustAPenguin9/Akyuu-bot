@@ -8,7 +8,7 @@ module.exports = {
 
     colour = "#ff0000"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 226;
@@ -98,7 +98,7 @@ module.exports = {
         stun = (sheet.getCell(row, 6)).value;
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
-      case "j2a": 
+      case "j2a":
         row = 234;
         image = "Koishi2a.png"
         attachment = new MessageAttachment(`./characters/koishiAttachments/${image}`, image);
@@ -308,7 +308,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

@@ -11,7 +11,7 @@ module.exports = {
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
-        image = "5a.png";
+        image = "Reimuc5a.gif";
         row = 1;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -22,7 +22,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "f5a":
-        image = "Reimuf5a.gif";
+        image = "Reimucf5a.png";
         row = 2;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -33,7 +33,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "6a":
-        image = "6a.png";
+        image = "Reimuc6a.png";
         row = 3;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -44,7 +44,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "8a":
-        image = "8a.png";
+        image = "Reimuc8a.png";
         row = 4;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -55,7 +55,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "2a":
-        image = "2a.png";
+        image = "Reimuc2a.png";
         row = 5;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -66,7 +66,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "ja": case "j5a":
-        image = "ja.png";
+        image = "Reimucja.png";
         row = 6;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -77,7 +77,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j6a":
-        image = "j6a.png";
+        image = "Reimucj6a.png";
         row = 7;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -88,7 +88,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j8a":
-        image = "8a.png";
+        image = "Reimuc8a.png";
         row = 8;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -99,7 +99,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "j2a":
-        image = "2a.png";
+        image = "Reimuc2a.png";
         row = 9;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -209,7 +209,7 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "da": case "66a": case "dasha":
-        image = "da.png";
+        image = "Reimuc66a.png";
         row = 21;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -220,7 +220,7 @@ module.exports = {
         stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
         break;
       case "db": case "66b": case "dashb":
-        image = "j6a.png";
+        image = "Reimucj6a.png";
         row = 22;
         attachment = new MessageAttachment(`./characters/reimuAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;

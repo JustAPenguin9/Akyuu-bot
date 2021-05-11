@@ -8,7 +8,7 @@ module.exports = {
 
     colour = "#ffcc00"
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         row = 162;
@@ -218,7 +218,7 @@ module.exports = {
         std(colour, startup, active, recovery, damage, stun)
         break;
       case "da": case "66a": case "dasha":
-        image = "da.gif";
+        image = "Mikoda.gif";
         row = 183;
         attachment = new MessageAttachment(`./characters/mikoAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
@@ -317,7 +317,7 @@ module.exports = {
     }
 
 // MESSAGE EMBED
-  
+
     function std(colour, startup, active, recovery, damage, stun) {
       const Embed = new MessageEmbed()
         .setColor(colour)

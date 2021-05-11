@@ -2,13 +2,9 @@
 
 Akyuu is a discord bot created with the [discord.js](https://github.com/discordjs/discord.js) node module. The purpose of the bot is to give players information regarding the characters in the 15.5 installment of the Touhou series *Touhou Hyouibana ~ Antinomy of Common Flowers* developed by Tasofro.
 
-## Status
 
-Stable but still needs work.
+### If You Are Looking To Get Into The Game Click [HERE](./STARTHERE.md)
 
-to do:
-
-my guy there is so much still to do
 
 ## Downloading the source code
 
@@ -41,7 +37,7 @@ The key.json file should be the file given to you when you set up the google she
 ```json
 {
   "type": "service_account",
-  "project_id": "discord-bot",
+  "project_id": "",
   "private_key_id": "",
   "private_key": "",
   "client_email": "",

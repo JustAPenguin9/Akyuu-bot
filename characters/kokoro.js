@@ -75,7 +75,7 @@ module.exports = {
         break;
       case "ja": case "j5a":
         row = 295;
-        image = "Kokoroj5a.png"
+        image = "Kokorof5a.png"
         attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
         startup = (sheet.getCell(row, 2)).value;
         active = (sheet.getCell(row, 3)).value;

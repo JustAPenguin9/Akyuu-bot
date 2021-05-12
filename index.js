@@ -92,7 +92,7 @@ bot.on('message', (msg) =>{
         case "ichirin":
           bot.characters.get("ichirin").run(msg, args, doc);
           break;
-        case "byakuren":
+        case "byakuren": case "hijiri":
           bot.characters.get("byakuren").run(msg, args, doc);
           break;
         case "futo":
@@ -122,7 +122,7 @@ bot.on('message', (msg) =>{
         case "sukuna":
           bot.characters.get("sukuna").run(msg, args, doc);
           break;
-        case "sumireko": case "sumi":
+        case "sumireko": case "sumi": case "usami":
           bot.characters.get("sumireko").run(msg, args, doc);
           break;
         case "reisen":

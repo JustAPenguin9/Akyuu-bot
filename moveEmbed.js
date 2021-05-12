@@ -1,11 +1,11 @@
-module.exports = function(move, sheet) {
+module.exports = function(move, character, colour, sheet) {
   const { MessageEmbed, MessageAttachment } = require("discord.js")
   const Embed = new MessageEmbed();
 
-  if (move.colour) Embed.setColor(move.colour);
-  if (move.image && move.character) {
+  Embed.setColor(colour);
+  if (move.image) {
     Embed
-      .attachFiles(new MessageAttachment(`./characters/${move.character.toLowerCase()}Attachments/${move.image}`, move.image))
+      .attachFiles(new MessageAttachment(`./characters/${character.toLowerCase()}Attachments/${move.image}`, move.image))
       .setThumbnail(`attachment://${move.image}`);
   };
   if (move.row) {

@@ -2,11 +2,12 @@ module.exports = {
   name: "ichirin",
   description: "command",
   run(msg, args, doc) {
-    const { MessageEmbed, MessageAttachment} = require("discord.js")
+    const moveEmbed = require("../moveEmbed")
 
     const sheet = doc.sheetsByIndex[0];
 
-    colour = "#0000ff"
+    const colour = "#0000ff";
+    const character = "Ichirin";
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {

@@ -2,18 +2,19 @@ module.exports = {
   name: "futo",
   description: "command",
   run(msg, args, doc) {
-    const { MessageEmbed, MessageAttachment} = require("discord.js")
+    const moveEmbed = require("../moveEmbed")
 
     const sheet = doc.sheetsByIndex[0];
 
-    colour = "#0000ff"
+    const colour = "#0000ff";
+    const character = "Futo";
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 130,
-          image: "Futoc5a.png",
+          image: "Futoc5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

@@ -92,7 +92,7 @@ bot.on('message', (msg) =>{
         case "ichirin":
           bot.characters.get("ichirin").run(msg, args, doc);
           break;
-        case "byakuren": case "hijiri":
+        case "byakuren": case "hijiri": case "byak":
           bot.characters.get("byakuren").run(msg, args, doc);
           break;
         case "futo":
@@ -104,13 +104,13 @@ bot.on('message', (msg) =>{
         case "nitori":
           bot.characters.get("nitori").run(msg, args, doc);
           break;
-        case "koishi":
+        case "koishi": case "koi":
           bot.characters.get("koishi").run(msg, args, doc);
           break;
         case "mamizou": case "mami":
           bot.characters.get("mamizou").run(msg, args, doc);
           break;
-        case "kokoro":
+        case "kokoro": case "koko":
           bot.characters.get("kokoro").run(msg, args, doc);
           break;
         case "kasen":
@@ -128,16 +128,16 @@ bot.on('message', (msg) =>{
         case "reisen": case "udonge":
           bot.characters.get("reisen").run(msg, args, doc);
           break;
-        case "doremy":
+        case "doremy": case "santa":
           bot.characters.get("doremy").run(msg, args, doc);
           break;
-        case "tenshi":
+        case "tenshi": case "tenko":
           bot.characters.get("tenshi").run(msg, args, doc);
           break;
-        case "yukari":
+        case "yukari": case "bestcharacterdont@me":
           bot.characters.get("yukari").run(msg, args, doc);
           break;
-        case "joon": case "jo'on": case "jyoon":
+        case "joon": case "jo'on": case "jyoon": case "june": case "john":
           bot.characters.get("joon").run(msg, args, doc);
           break;
       }

@@ -2,411 +2,209 @@ module.exports = {
   name: "reisen",
   description: "command",
   run(msg, args, doc) {
-    const { MessageEmbed, MessageAttachment} = require("discord.js")
+    const moveEmbed = require("../moveEmbed")
 
     const sheet = doc.sheetsByIndex[0];
 
-    colour = "#E36CFF"
+    const colour = "#E36CFF";
+    const character = "Reisen";
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER 
+// CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
-        row = 454;
-        image = "Reisenc5a.gif"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 454,
+          image: "Reisenc5a.gif",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "f5a":
-        row = 455;
-        image = "Reisenf5a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 455,
+          image: "Reisenf5a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "6a":
-        row = 456;
-        image = "Reisen6a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 456,
+          image: "Reisen6a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "8a":
-        row = 457;
-        image = "Reisen8a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 457,
+          image: "Reisen8a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "2a":
-        row = 458;
-        image = "Reisen2a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 458,
+          image: "Reisen2a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "ja": case "j5a":
-        row = 459;
-        image = "Reisenj5a.gif"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 459,
+          image: "Reisenj5a.gif",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "j6a":
-        row = 460;
-        image = "Reisenj6a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 460,
+          image: "Reisenj6a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "j8a":
-        row = 461;
-        image = "Reisen8a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 461,
+          image: "Reisen8a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "j2a":
-        row = 462;
-        image = "Reisenj2a.gif"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 462,
+          image: "Reisenj2a.gif",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "5b": case "b":
-        row = 463;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 463,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "2b":
-        row = 464;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 464,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "8b":
-        row = 465;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 465,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "6b":
-        row = 466;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 466,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "cb": case "chargeb": case "[b]":
-        row = 467;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 467,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "bbb": case "tenkai":
-        row = 468;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 468,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "5c": case "c":
-        row = 469;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 469,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "6c":
-        row = 470;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 470,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "4c":
-        row = 471;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 471,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "2c":
-        row = 472;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 472,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "8c":
-        row = 473;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 473,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "da": case "66a": case "dasha":
-        row = 474;
-        image = "Reisen66a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 474,
+          image: "Reisen66a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "db": case "66b": case "dashb":
-        row = 475;
-        image = "Reisenj6a.png"
-        attachment = new MessageAttachment(`./characters/reisenAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 475,
+          image: "Reisenj6a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "ab": case "occult":
-        row = 476;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 476,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "ta": case "taga":
-        row = 477;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 477,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "tja": case "tagja":
-        row = 478;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 478,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "tb": case "tagb":
-        row = 479;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 479,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "sc1": case "sc": case "spellcard": case "spellcard1":
-        row = 480;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        cost = (sheet.getCell(row, 7)).value;
-        sc(colour, startup, active, recovery, damage, stun, cost)
+        var embed = moveEmbed({
+          row: 480,
+          isSC: true,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "sc2": case "spellcard2":
-        row = 481;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        cost = (sheet.getCell(row, 7)).value;
-        sc(colour, startup, active, recovery, damage, stun, cost)
+        var embed = moveEmbed({
+          row: 481,
+          isSC: true,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "sc3": case "spellcard3":
-        row = 482;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        cost = (sheet.getCell(row, 7)).value;
-        sc(colour, startup, active, recovery, damage, stun, cost)
+        var embed = moveEmbed({
+          row: 482,
+          isSC: true,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "lw": case "lastword":
-        row = 483;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 483,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
-    }
-
-// MESSAGE EMBED
-  
-    function std(colour, startup, active, recovery, damage, stun) {
-      const Embed = new MessageEmbed()
-        .setColor(colour)
-        .addField(
-          "Startup",
-          startup,
-          true
-        )
-        .addField(
-          "Active",
-          active,
-          true
-        )
-        .addField(
-          "Recovery",
-          recovery,
-          true
-        )
-        .addField(
-          "Damage",
-          damage,
-          true
-        )
-        .addField(
-          "Stun",
-          stun,
-          true
-        );
-        msg.channel.send(Embed);
-    }
-
-    function stdimg(colour, startup, active, recovery, damage, stun, image, attachment) {
-      const Embed = new MessageEmbed()
-        .setColor(colour)
-        .attachFiles(attachment)
-        .setThumbnail (`attachment://${image}`)
-        .addField(
-          "Startup",
-          startup,
-          true
-        )
-        .addField(
-          "Active",
-          active,
-          true
-        )
-        .addField(
-          "Recovery",
-          recovery,
-          true
-        )
-        .addField(
-          "Damage",
-          damage,
-          true
-        )
-        .addField(
-          "Stun",
-          stun,
-          true
-        );
-        msg.channel.send(Embed);
-    }
-
-    function sc(colour, startup, active, recovery, damage, stun, cost) {
-      const Embed = new MessageEmbed()
-        .setColor(colour)
-        .addField(
-          "Startup",
-          startup,
-          true
-        )
-        .addField(
-          "Active",
-          active,
-          true
-        )
-        .addField(
-          "Recovery",
-          recovery,
-          true
-        )
-        .addField(
-          "Damage",
-          damage,
-          true
-        )
-        .addField(
-          "Stun",
-          stun,
-          true
-        )
-        .addField(
-          "Cost",
-          cost,
-          true
-        );
-        msg.channel.send(Embed);
     }
   }
 }

@@ -27,7 +27,7 @@ accessSheet();
 
 // BOT SETUP
 const prefix = "!";
-var versionNum = "1.3";
+var versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track dont judge)~~";
 const fs = require("fs");
 bot.characters = new Discord.Collection();
 
@@ -68,7 +68,7 @@ bot.on('message', (msg) =>{
 
       switch (args[0]) {
         case "version":
-          msg.channel.send(`the current version is ${versionNum}`);
+          msg.channel.send(`the current version of the bot is ${versionNum}`);
           break;
         case "sync":
           loadSheet().then(msg.channel.send("**data now synced!**"))
@@ -119,13 +119,13 @@ bot.on('message', (msg) =>{
         case "mokou":
           bot.characters.get("mokou").run(msg, args, doc);
           break;
-        case "sukuna":
+        case "sukuna": case "sinmyoumaru":
           bot.characters.get("sukuna").run(msg, args, doc);
           break;
         case "sumireko": case "sumi": case "usami":
           bot.characters.get("sumireko").run(msg, args, doc);
           break;
-        case "reisen":
+        case "reisen": case "udonge":
           bot.characters.get("reisen").run(msg, args, doc);
           break;
         case "doremy":

@@ -1,13 +1,20 @@
 module.exports = {
   name: "mamizou",
   description: "command",
-  run(msg, args, doc) {
+  async run(msg, args, doc) {
     const moveEmbed = require("../moveEmbed")
 
     const sheet = doc.sheetsByIndex[0];
 
     const colour = "#00ff00";
     const character = "Mamizou";
+
+    collectorTime = 60000;
+    var filter = (reaction, user) => ["💠", "🔵", "🔴", "🟢"].includes(reaction.emoji.name) && (user.id === msg.author.id);
+    var ab;
+    var abB;
+    var abR;
+    var abG;
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
@@ -161,29 +168,55 @@ module.exports = {
         msg.channel.send(embed);
         break;
       case "ab": case "occult": case "abball":
-        var embed = moveEmbed({
+        ab = moveEmbed({
           row: 279,
           image: "Mamizouab.gif",
         }, character, colour, sheet);
-        msg.channel.send(embed);
-        break;
-      case "abblue": case "occultblue": case "abb": case "occultb":
-        var embed = moveEmbed({
+        abB = moveEmbed({
           row: 280,
+          image: "Mamizouab.gif",
         }, character, colour, sheet);
-        msg.channel.send(embed);
-        break;
-      case "abred": case "occultred": case "abr": case "occultr":
-        var embed = moveEmbed({
+        abR = moveEmbed({
           row: 281,
+          image: "Mamizouab.gif",
         }, character, colour, sheet);
-        msg.channel.send(embed);
-        break;
-      case "abgreen": case "occultgreen": case "abg": case "occultg":
-        var embed = moveEmbed({
+        abG = moveEmbed({
           row: 282,
+          image: "Mamizouab.gif",
         }, character, colour, sheet);
-        msg.channel.send(embed);
+
+        Embed = await msg.channel.send(ab)
+        var page = "ab"
+        Embed.react("💠");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
+
+        var collector = Embed.createReactionCollector(filter, { time: collectorTime });
+        collector.on("collect", async (reaction) => {
+          switch(reaction.emoji.name) {
+            case "💠":
+              if(page === "ab") return;
+              await Embed.edit(ab);
+              page = "ab";
+              break;
+            case "🔵":
+              if(page === "abB") return;
+              await Embed.edit(abB);
+              page = "abB";
+              break;
+            case "🔴":
+              if(page === "abR") return;
+              await Embed.edit(abR);
+              page = "abR";
+              break;
+            case "🟢":
+              if(page === "abG") return;
+              await Embed.edit(abG);
+              page = "abG";
+              break;
+          }
+        })
         break;
       case "ta": case "taga":
         var embed = moveEmbed({

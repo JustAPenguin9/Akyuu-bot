@@ -27,7 +27,7 @@ accessSheet();
 
 // BOT SETUP
 const prefix = "!";
-var versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track dont judge)~~";
+var versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track)~~";
 const fs = require("fs");
 bot.characters = new Discord.Collection();
 
@@ -73,15 +73,17 @@ bot.on('message', (msg) =>{
         case "sync":
           loadSheet().then(msg.channel.send("**data now synced!**"))
           break;
-        case "links":
-          msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>\n**Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\n**AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>")
+        case "links": case "link":
+          msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>\n**Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\n**AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>\n**AOCF starter pack** <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>")
           break;
         case "help":
-          msg.channel.send("Use **![character] [move]** to get the frame data. An example would be !reimu j5a\nYou can also use **!links** to get the links the the important stuff.")
+          msg.channel.send("Use **![character] [move]** to get the frame data. An example would be !reimu j5a\nYou can also use **!links** and **!starterpack** to get the links the the important stuff and SoG's starterpack respectivly.")
           break;
         case "wiki":
           bot.characters.get("wiki").run(msg, args);
           break;
+        case "starthere": case "starterpack": case "start":
+          msg.channel.send("Here is the link to SoG's starter pack: <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>\nHere is the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>")
 
         case "reimu":
           bot.characters.get("reimu").run(msg, args, doc);
@@ -134,7 +136,7 @@ bot.on('message', (msg) =>{
         case "tenshi": case "tenko":
           bot.characters.get("tenshi").run(msg, args, doc);
           break;
-        case "yukari": case "bestcharacterdont@me":
+        case "yukari": case "bestthcharacterdont@me":
           bot.characters.get("yukari").run(msg, args, doc);
           break;
         case "joon": case "jo'on": case "jyoon": case "june": case "john":

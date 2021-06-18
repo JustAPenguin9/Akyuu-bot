@@ -1,16 +1,29 @@
 module.exports = function(move, character, colour, sheet) {
   const { MessageEmbed, MessageAttachment } = require("discord.js")
-  const Embed = new MessageEmbed();
+  const Embed = new MessageEmbed().setColor(colour);
 
-  Embed.setColor(colour);
   if (move.image) {
     Embed
       .attachFiles(new MessageAttachment(`./characters/${character.toLowerCase()}Attachments/${move.image}`, move.image))
       .setThumbnail(`attachment://${move.image}`);
   };
   if (move.row) {
-    Embed
-      .setTitle((sheet.getCell(move.row, 1)).value)
+    if (typeof move.row === "number") {
+      Embed.setTitle((sheet.getCell(move.row, 1)).value)
+
+      if (typeof move.descOnly === "string") {
+        Embed.setDescription(move.descOnly)
+        return Embed
+      } else if (typeof move.desOnly === "boolean" && move.descOnly === true) {
+        Embed.addField(
+          "Description",
+          (sheet.getCell(move.row, 8)).value,
+          // true
+        )
+        return Embed
+      }
+
+      Embed
       .addField(
         "Startup",
         (sheet.getCell(move.row, 2)).value,
@@ -36,20 +49,35 @@ module.exports = function(move, character, colour, sheet) {
         (sheet.getCell(move.row, 6)).value,
         true
       )
-  };
-  if (move.isSC === true) {
-    Embed.addField(
-      "Cost",
-      (sheet.getCell(move.row, 7)).value,
-      true
-    )
-  }
-  if (move.desc === true) {
-    Embed.addField(
-      "Description",
-      (sheet.getCell(move.row, 8)).value,
+    }
 
-    )
+    if (move.isSC === true) {
+      Embed.addField(
+        "Cost",
+        (sheet.getCell(move.row, 7)).value,
+        true
+      )
+    }
+
+    if (move.desc === true) {
+      Embed.addField(
+        "Description",
+        (sheet.getCell(move.row, 8)).value,
+        // true
+      )
+    }
+
+    if (move.title) {
+      if (typeof move.title === "string") Embed.setTitle(move.title)
+    }
+  } else {
+    if (move.title) {
+      if (typeof move.title === "string") Embed.setTitle(move.title)
+    }
+
+    if (move.descOnly) {
+      if (typeof move.descOnly === "string") Embed.setDescription(move.descOnly)
+    }
   }
 
   return Embed;

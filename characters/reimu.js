@@ -210,6 +210,7 @@ module.exports = {
           row: 31,
         }, character, colour, sheet);
         msg.channel.send(embed);
+        break;
     }
   }
 }

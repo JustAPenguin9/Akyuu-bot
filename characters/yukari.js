@@ -1,13 +1,16 @@
 module.exports = {
   name: "yukari",
   description: "command",
-  run(msg, args, doc) {
+  async run(msg, args, doc) {
     const moveEmbed = require("../moveEmbed")
 
     const sheet = doc.sheetsByIndex[0];
 
     const colour = "#ffd400";
     const character = "Yukari";
+
+    collectorTime = 60000;
+    var filter = (reaction, user) => ["⬅️", "➡️"].includes(reaction.emoji.name) && (user.id === msg.author.id);
 
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
@@ -162,34 +165,49 @@ module.exports = {
         msg.channel.send(embed);
         break;
       case "ab": case "occult":
-        var embed = moveEmbed({
+        var ab1 = moveEmbed({
           row: 567,
+          title: "AB",
         }, character, colour, sheet);
-        msg.channel.send(embed);
-        break;
-      case "aba": case "occulta":
-        var embed = moveEmbed({
+        var ab2 = moveEmbed({
           row: 568,
+          title: "AB A",
         }, character, colour, sheet);
-        msg.channel.send(embed);
-        break;
-      case "abb": case "occultb":
-        var embed = moveEmbed({
+        var ab3 = moveEmbed({
           row: 569,
+          title: "AB B",
         }, character, colour, sheet);
-        msg.channel.send(embed);
-        break;
-      case "ab4c": case "occult4c":
-        var embed = moveEmbed({
+        var ab4 = moveEmbed({
           row: 570,
+          title: "AB 4c",
         }, character, colour, sheet);
-        msg.channel.send(embed);
-        break;
-      case "ab5c": case "occult5c": case "ab6c": case "occult6c": case "ab8c": case "occult8c": case "ab2c": case "occult2c":
-        var embed = moveEmbed({
+        var ab5 = moveEmbed({
           row: 571,
+          title: "AB 5/6/8/2c",
         }, character, colour, sheet);
-        msg.channel.send(embed);
+
+        var embeds = [ab1, ab2, ab3, ab4, ab5];
+        var page = 0;
+
+        messageEmbed = await msg.channel.send(embeds[page])
+        messageEmbed.react("⬅️");
+        messageEmbed.react("➡️");
+
+        var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
+        collector.on("collect", async (reaction) => {
+          switch(reaction.emoji.name) {
+            case "⬅️":
+              if(page === 0) page = 3;
+              else page--;
+              await messageEmbed.edit(embeds[page]);
+              break;
+            case "➡️":
+              if(page === embeds.length - 1) page = 0;
+              else page++;
+              await messageEmbed.edit(embeds[page]);
+              break;
+            }
+        })
         break;
       case "ta": case "taga":
         var embed = moveEmbed({

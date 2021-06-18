@@ -2,14 +2,14 @@ module.exports = {
   name: "kokoro",
   description: "command",
   async run(msg, args, doc) {
-    const { MessageEmbed, MessageAttachment, createReactionCollector } = require("discord.js")
+    const moveEmbed = require("../moveEmbed")
 
     const sheet = doc.sheetsByIndex[0];
 
-    colour = "#FFB2E4";
+    const colour = "#FFB2E4";
+    const character = "Kokoro";
 
     collectorTime = 60000;
-    var messageEmbed;
     var filter = (reaction, user) => ["⚪", "🔴", "🟢", "🔵"].includes(reaction.emoji.name) && (user.id === msg.author.id);
     var noEmoEmbed;
     var angerEmbed;
@@ -19,558 +19,310 @@ module.exports = {
 // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
-        row = 290;
-        image = "Kokoroc5a.gif"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        stdimg(colour, startup, active, recovery, damage, stun, image, attachment);
+        var embed = moveEmbed({
+          row: 290,
+          image: "Kokoroc5a.gif",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "f5a":
-        row = 291;
-        image = "Kokorof5a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 291,
+          image: "Kokorof5a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "6a":
-        row = 292;
-        image = "Kokoro6a.gif"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 292,
+          image: "Kokoro6a.gif",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "8a":
-        row = 293;
-        image = "Kokoro8a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 293,
+          image: "Kokoro8a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "2a":
-        row = 294;
-        image = "Kokoro2a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 294,
+          image: "Kokoro2a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "ja": case "j5a":
-        row = 295;
-        image = "Kokorof5a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 295,
+          image: "Kokorof5a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "j6a":
-        row = 296;
-        image = "Kokoroj6a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 296,
+          image: "Kokoroj6a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "j8a":
-        row = 297;
-        image = "Kokoro8a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 297,
+          image: "Kokoro8a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "j2a":
-        row = 298;
-        image = "Kokoro2a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 298,
+          image: "Kokoro2a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "5b": case "b": case "2b": case "8b":
-        noEmoEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("5b No Emotion")
-          .addField("Startup", (sheet.getCell(229, 2)).value, true)
-          .addField("Active", (sheet.getCell(229, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(229, 4)).value, true)
-          .addField("Damage", (sheet.getCell(229, 5)).value, true)
-          .addField("Stun", (sheet.getCell(229, 6)).value, true);
-        angerEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("5b Anger")
-          .addField("Startup", (sheet.getCell(300, 2)).value, true)
-          .addField("Active", (sheet.getCell(300, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(300, 4)).value, true)
-          .addField("Damage", (sheet.getCell(300, 5)).value, true)
-          .addField("Stun", (sheet.getCell(300, 6)).value, true);
-        joyEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("5b Joy")
-          .addField("Startup", (sheet.getCell(301, 2)).value, true)
-          .addField("Active", (sheet.getCell(301, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(301, 4)).value, true)
-          .addField("Damage", (sheet.getCell(301, 5)).value, true)
-          .addField("Stun", (sheet.getCell(301, 6)).value, true);
-        melEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("5b Melancholy")
-          .addField("Startup", (sheet.getCell(302, 2)).value, true)
-          .addField("Active", (sheet.getCell(302, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(302, 4)).value, true)
-          .addField("Damage", (sheet.getCell(302, 5)).value, true)
-          .addField("Stun", (sheet.getCell(302, 6)).value, true);
+        var noEmoEmbed = moveEmbed({
+          row: 299,
+        }, character, colour, sheet);
+        var angerEmbed = moveEmbed({
+          row: 300,
+        }, character, colour, sheet);
+        var joyEmbed = moveEmbed({
+          row: 301,
+        }, character, colour, sheet);
+        var melEmbed = moveEmbed({
+          row: 302,
+        }, character, colour, sheet);
 
-        messageEmbed = await msg.channel.send(noEmoEmbed)
+        var Embed = await msg.channel.send(noEmoEmbed)
         var page = "noEmo"
-        messageEmbed.react("⚪");
-        messageEmbed.react("🔴");
-        messageEmbed.react("🟢");
-        messageEmbed.react("🔵");
+        Embed.react("⚪");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
 
-        var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector(filter, { time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch(reaction.emoji.name) {
             case "🔴":
               if(page === "anger") return;
-              await messageEmbed.edit(angerEmbed);
+              await Embed.edit(angerEmbed);
               page = "anger";
               break;
             case "⚪":
               if(page === "noEmo") return;
-              await messageEmbed.edit(noEmoEmbed);
+              await Embed.edit(noEmoEmbed);
               page = "noEmo";
               break;
             case "🟢":
               if(page === "joy") return;
-              await messageEmbed.edit(joyEmbed);
+              await Embed.edit(joyEmbed);
               page = "joy";
               break;
             case "🔵":
               if(page === "mel") return;
-              await messageEmbed.edit(melEmbed);
+              await Embed.edit(melEmbed);
               page = "mel";
               break;
           }
         })
         break;
       case "6b":
-        noEmoEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("6b No Emotion")
-          .addField("Startup", (sheet.getCell(303, 2)).value, true)
-          .addField("Active", (sheet.getCell(303, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(303, 4)).value, true)
-          .addField("Damage", (sheet.getCell(303, 5)).value, true)
-          .addField("Stun", (sheet.getCell(303, 6)).value, true);
-        angerEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("6b Anger")
-          .addField("Startup", (sheet.getCell(304, 2)).value, true)
-          .addField("Active", (sheet.getCell(304, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(304, 4)).value, true)
-          .addField("Damage", (sheet.getCell(304, 5)).value, true)
-          .addField("Stun", (sheet.getCell(304, 6)).value, true);
-        joyEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("6b Joy")
-          .addField("Startup", (sheet.getCell(305, 2)).value, true)
-          .addField("Active", (sheet.getCell(305, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(305, 4)).value, true)
-          .addField("Damage", (sheet.getCell(305, 5)).value, true)
-          .addField("Stun", (sheet.getCell(305, 6)).value, true);
-        melEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("6b Melancholy")
-          .addField("Startup", (sheet.getCell(306, 2)).value, true)
-          .addField("Active", (sheet.getCell(306, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(306, 4)).value, true)
-          .addField("Damage", (sheet.getCell(306, 5)).value, true)
-          .addField("Stun", (sheet.getCell(306, 6)).value, true);
+        noEmoEmbed = moveEmbed({
+          row: 303,
+        }, character, colour, sheet);
+        angerEmbed = moveEmbed({
+          row: 304,
+        }, character, colour, sheet);
+        joyEmbed = moveEmbed({
+          row: 305,
+        }, character, colour, sheet);
+        melEmbed = moveEmbed({
+          row: 306,
+        }, character, colour, sheet);
 
-        messageEmbed = await msg.channel.send(noEmoEmbed)
+        Embed = await msg.channel.send(noEmoEmbed)
         var page = "noEmo"
-        messageEmbed.react("⚪");
-        messageEmbed.react("🔴");
-        messageEmbed.react("🟢");
-        messageEmbed.react("🔵");
+        Embed.react("⚪");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
 
-        var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector(filter, { time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch(reaction.emoji.name) {
             case "🔴":
               if(page === "anger") return;
-              await messageEmbed.edit(angerEmbed);
+              await Embed.edit(angerEmbed);
               page = "anger";
               break;
             case "⚪":
               if(page === "noEmo") return;
-              await messageEmbed.edit(noEmoEmbed);
+              await Embed.edit(noEmoEmbed);
               page = "noEmo";
               break;
             case "🟢":
               if(page === "joy") return;
-              await messageEmbed.edit(joyEmbed);
+              await Embed.edit(joyEmbed);
               page = "joy";
               break;
             case "🔵":
               if(page === "mel") return;
-              await messageEmbed.edit(melEmbed);
+              await Embed.edit(melEmbed);
               page = "mel";
               break;
           }
         })
         break;
       case "cb": case "chargeb": case "[b]":
-        row = 307;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 307,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "bbb": case "tenkai":
-        noEmoEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("Tenkai No Emotion")
-          .addField("Startup", (sheet.getCell(308, 2)).value, true)
-          .addField("Active", (sheet.getCell(308, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(308, 4)).value, true)
-          .addField("Damage", (sheet.getCell(308, 5)).value, true)
-          .addField("Stun", (sheet.getCell(308, 6)).value, true);
-        angerEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("Tenkai Anger")
-          .addField("Startup", (sheet.getCell(309, 2)).value, true)
-          .addField("Active", (sheet.getCell(309, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(309, 4)).value, true)
-          .addField("Damage", (sheet.getCell(309, 5)).value, true)
-          .addField("Stun", (sheet.getCell(309, 6)).value, true);
-        joyEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("Tenkai Joy")
-          .addField("Startup", (sheet.getCell(310, 2)).value, true)
-          .addField("Active", (sheet.getCell(310, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(310, 4)).value, true)
-          .addField("Damage", (sheet.getCell(310, 5)).value, true)
-          .addField("Stun", (sheet.getCell(310, 6)).value, true);
-        melEmbed = new MessageEmbed()
-          .setColor(colour)
-          .setTitle("Tenkai Melancholy")
-          .addField("Startup", (sheet.getCell(311, 2)).value, true)
-          .addField("Active", (sheet.getCell(311, 3)).value, true)
-          .addField("Recovery", (sheet.getCell(311, 4)).value, true)
-          .addField("Damage", (sheet.getCell(311, 5)).value, true)
-          .addField("Stun", (sheet.getCell(311, 6)).value, true);
+        noEmoEmbed = moveEmbed({
+          row: 308,
+        }, character, colour, sheet);
+        angerEmbed = moveEmbed({
+          row: 309,
+        }, character, colour, sheet);
+        joyEmbed = moveEmbed({
+          row: 310,
+        }, character, colour, sheet);
+        melEmbed = moveEmbed({
+          row: 311,
+        }, character, colour, sheet);
 
-        messageEmbed = await msg.channel.send(noEmoEmbed)
+        Embed = await msg.channel.send(noEmoEmbed)
         var page = "noEmo"
-        messageEmbed.react("⚪");
-        messageEmbed.react("🔴");
-        messageEmbed.react("🟢");
-        messageEmbed.react("🔵");
+        Embed.react("⚪");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
 
-        var collector = messageEmbed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector(filter, { time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch(reaction.emoji.name) {
             case "🔴":
               if(page === "anger") return;
-              await messageEmbed.edit(angerEmbed);
+              await Embed.edit(angerEmbed);
               page = "anger";
               break;
             case "⚪":
               if(page === "noEmo") return;
-              await messageEmbed.edit(noEmoEmbed);
+              await Embed.edit(noEmoEmbed);
               page = "noEmo";
               break;
             case "🟢":
               if(page === "joy") return;
-              await messageEmbed.edit(joyEmbed);
+              await Embed.edit(joyEmbed);
               page = "joy";
               break;
             case "🔵":
               if(page === "mel") return;
-              await messageEmbed.edit(melEmbed);
+              await Embed.edit(melEmbed);
               page = "mel";
               break;
           }
         })
         break;
       case "5c": case "c":
-        row = 312;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 312,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "6c":
-        row = 313;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 313,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "4c":
-        row = 314;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 314,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "2c":
-        row = 315;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 315,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "8c":
-        row = 316;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 316,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "da": case "66a": case "dasha":
-        row = 317;
-        image = "Kokoro8a.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 317,
+          image: "kokoro8a.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "db": case "66b": case "dashb":
-        row = 318;
-        image = "Kokoro66b.png"
-        attachment = new MessageAttachment(`./characters/kokoroAttachments/${image}`, image);
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 318,
+          image: "Kokoro66b.png",
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "ab": case "occult":
-        row = 319;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 319,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "ta": case "taga":
-        row = 320;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 320,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "tja": case "tagja":
-        row = 321;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 321,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "tb": case "tagb":
-        row = 322;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 322,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "sc1": case "sc": case "spellcard": case "spellcard1":
-        row = 323;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        cost = (sheet.getCell(row, 7)).value;
-        sc(colour, startup, active, recovery, damage, stun, cost)
+        var embed = moveEmbed({
+          row: 323,
+          isSC: true,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "sc2": case "spellcard2":
-        row = 324;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        cost = (sheet.getCell(row, 7)).value;
-        sc(colour, startup, active, recovery, damage, stun, cost)
+        var embed = moveEmbed({
+          row: 324,
+          isSC: true,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "sc3": case "spellcard3":
-        row = 325;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        cost = (sheet.getCell(row, 7)).value;
-        sc(colour, startup, active, recovery, damage, stun, cost)
+        var embed = moveEmbed({
+          row: 325,
+          isSC: true,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
       case "lw": case "lastword":
-        row = 326;
-        startup = (sheet.getCell(row, 2)).value;
-        active = (sheet.getCell(row, 3)).value;
-        recovery = (sheet.getCell(row, 4)).value;
-        damage =  (sheet.getCell(row, 5)).value;
-        stun = (sheet.getCell(row, 6)).value;
-        std(colour, startup, active, recovery, damage, stun)
+        var embed = moveEmbed({
+          row: 326,
+        }, character, colour, sheet);
+        msg.channel.send(embed);
         break;
-    }
-
-// MESSAGE EMBED
-
-    function std(colour, startup, active, recovery, damage, stun) {
-      const Embed = new MessageEmbed()
-        .setColor(colour)
-        .addField(
-          "Startup",
-          startup,
-          true
-        )
-        .addField(
-          "Active",
-          active,
-          true
-        )
-        .addField(
-          "Recovery",
-          recovery,
-          true
-        )
-        .addField(
-          "Damage",
-          damage,
-          true
-        )
-        .addField(
-          "Stun",
-          stun,
-          true
-        );
-        msg.channel.send(Embed);
-    }
-
-    function stdimg(colour, startup, active, recovery, damage, stun, image, attachment) {
-      const Embed = new MessageEmbed()
-        .setColor(colour)
-        .attachFiles(attachment)
-        .setThumbnail (`attachment://${image}`)
-        .addField(
-          "Startup",
-          startup,
-          true
-        )
-        .addField(
-          "Active",
-          active,
-          true
-        )
-        .addField(
-          "Recovery",
-          recovery,
-          true
-        )
-        .addField(
-          "Damage",
-          damage,
-          true
-        )
-        .addField(
-          "Stun",
-          stun,
-          true
-        );
-        msg.channel.send(Embed);
-    }
-
-    function sc(colour, startup, active, recovery, damage, stun, cost) {
-      const Embed = new MessageEmbed()
-        .setColor(colour)
-        .addField(
-          "Startup",
-          startup,
-          true
-        )
-        .addField(
-          "Active",
-          active,
-          true
-        )
-        .addField(
-          "Recovery",
-          recovery,
-          true
-        )
-        .addField(
-          "Damage",
-          damage,
-          true
-        )
-        .addField(
-          "Stun",
-          stun,
-          true
-        )
-        .addField(
-          "Cost",
-          cost,
-          true
-        );
-        msg.channel.send(Embed);
     }
   }
 }

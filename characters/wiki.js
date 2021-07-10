@@ -60,6 +60,12 @@ module.exports = {
       case "joon": case "jo'on":
         msg.reply("<https://aocf.koumakan.jp/Joon_Yorigami>");
         break;
+      case "controls": case "control":
+        msg.reply("<https://aocf.koumakan.jp/Controls>")
+        break;
+      case "mechanics":
+        msg.reply("<https://aocf.koumakan.jp/Game_mechanics>")
+        break;
       default:
         msg.reply("<https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>");
         break;

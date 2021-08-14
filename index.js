@@ -71,19 +71,23 @@ bot.on('message', (msg) =>{
           msg.channel.send(`the current version of the bot is ${versionNum}`);
           break;
         case "sync":
-          loadSheet().then(msg.channel.send("**data now synced!**"))
+          loadSheet().then(msg.channel.send("**data now synced!**"));
           break;
         case "links": case "link":
-          msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>\n**Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\n**AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>\n**AOCF starter pack** <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>")
+          msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>\n**Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>\n**AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>\n**AOCF starter pack** <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>");
           break;
-        case "help":
-          msg.channel.send("Use **![character] [move]** to get the frame data. An example would be !reimu j5a\nYou can also use **!links** and **!starterpack** to get the links the the important stuff and SoG's starterpack respectivly.")
+        case "repo": case "git": case "github":
+          msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>");
+          break;
+        case "help": case "commands":
+          /* i need to pretty this up i know -p */
+          msg.channel.send("Use **![character] [move]** to get the frame data. An example would be !reimu j5a\nYou can also use **!links** and **!starterpack** to get the links the the important stuff and SoG's starterpack respectivly.");
           break;
         case "wiki":
           bot.characters.get("wiki").run(msg, args);
           break;
         case "starthere": case "starterpack": case "start":
-          msg.channel.send("Here is the link to SoG's starter pack: <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>\nHere is the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>")
+          msg.channel.send("Here is the link to SoG's starter pack: <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>\nHere is the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>");
 
         case "reimu":
           bot.characters.get("reimu").run(msg, args, doc);

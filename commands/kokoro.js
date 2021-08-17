@@ -261,7 +261,7 @@ module.exports = {
       case "da": case "66a": case "dasha":
         var embed = moveEmbed({
           row: 317,
-          image: "kokoro8a.png",
+          image: "Kokoro8a.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

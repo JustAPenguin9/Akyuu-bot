@@ -4,7 +4,7 @@ module.exports = function(move, character, colour, sheet) {
 
   if (move.image) {
     Embed
-      .attachFiles(new MessageAttachment(`./characters/${character.toLowerCase()}Attachments/${move.image}`, move.image))
+      .attachFiles(new MessageAttachment(`./commands/${character.toLowerCase()}Attachments/${move.image}`, move.image))
       .setThumbnail(`attachment://${move.image}`);
   };
   if (move.row) {

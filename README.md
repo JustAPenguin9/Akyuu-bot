@@ -37,7 +37,7 @@ In the .env file include:
 TOKEN=[the token given to you through the discord developer portal]
 ```
 
-The key.json file should be the file given to you when you set up the google sheets api through the google developer portal (https://console.cloud.google.com/) but renamed to *key*. Should look something like:
+The key.json file should be the file given to you when you set up the google sheets api through the [google developer portal](https://console.cloud.google.com/) but renamed to *key*. Should look something like:
 ```json
 {
   "type": "service_account",

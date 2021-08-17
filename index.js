@@ -55,7 +55,7 @@ bot.on("ready", () => {
 });
 
 bot.on('message', (msg) =>{
-  if (bot.user.id !== msg.author.id) {
+  if (bot.user.id !== msg.author.id && !msg.author.bot) {
 
   //WITHOUT PREFIX
     if (msg.content === "o/") {
@@ -64,7 +64,7 @@ bot.on('message', (msg) =>{
 
   //WITH PREFIX
     if (msg.content.toLowerCase().startsWith(prefix)) {
-      let args = msg.content.toLowerCase().substring(prefix.length).split(" ");
+      let args = msg.content.toLowerCase().substring(prefix.length).split(/\s+/);
 
       switch (args[0]) {
         case "version":

@@ -12,7 +12,7 @@ module.exports = {
       case "ichirin":
         msg.reply("<https://aocf.koumakan.jp/Ichirin_Kumoi>");
         break;
-      case "byakuren":
+      case "byakuren": case "hijiri": case "byak":
         msg.reply("<https://aocf.koumakan.jp/Byakuren_Hijiri>");
         break;
       case "futo":
@@ -24,13 +24,13 @@ module.exports = {
       case "nitori":
         msg.reply("<https://aocf.koumakan.jp/Nitori_Kawashiro>");
         break;
-      case "koishi":
+      case "koishi": case "koi":
         msg.reply("<https://aocf.koumakan.jp/Koishi_Komeiji>");
         break;
       case "mamizou": case "mami":
         msg.reply("<https://aocf.koumakan.jp/Mamizou_Futatsuiwa>");
         break;
-      case "kokoro":
+      case "kokoro": case "koko":
         msg.reply("<https://aocf.koumakan.jp/Hata_no_Kokoro>");
         break;
       case "kasen":
@@ -39,25 +39,25 @@ module.exports = {
       case "mokou":
         msg.reply("<https://aocf.koumakan.jp/Fujiwara_no_Mokou>");
         break;
-      case "sukuna":
+      case "sukuna": case "sinmyoumaru":
         msg.reply("<https://aocf.koumakan.jp/Shinmyoumaru_Sukuna>");
         break;
-      case "sumireko": case "sumi":
+      case "sumireko": case "sumi": case "usami":
         msg.reply("<https://aocf.koumakan.jp/Sumireko_Usami>");
         break;
       case "reisen":
         msg.reply("<https://aocf.koumakan.jp/Reisen_Udongein_Inaba>");
         break;
-      case "doremy":
+      case "doremy": case "santa":
         msg.reply("<https://aocf.koumakan.jp/Doremy_Sweet>");
         break;
-      case "tenshi":
+      case "tenshi": case "tenko":
         msg.reply("<https://aocf.koumakan.jp/Tenshi_Hinanawi>");
         break;
-      case "yukari":
+      case "yukari": case "bestthcharacterdont@me":
         msg.reply("<https://aocf.koumakan.jp/Yukari_Yakumo>");
         break;
-      case "joon": case "jo'on":
+      case "joon": case "jo'on": case "jyoon": case "june": case "john":
         msg.reply("<https://aocf.koumakan.jp/Joon_Yorigami>");
         break;
       case "controls": case "control":

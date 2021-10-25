@@ -14,7 +14,7 @@ module.exports = {
       )
       .addField(
         "if you're new to AOCF, use **!starthere**",
-        "this will get you the links to SoG's starterpack complete with everything you need to play."
+        "this will get you the links to SogofGod1998 starterpack complete with everything you need to play."
       )
       .addField(
         "wiki",

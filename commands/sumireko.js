@@ -14,7 +14,7 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 421,
-          image: "Usami5a.gif",
+          image: "Usami-5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -49,7 +49,7 @@ module.exports = {
       case "ja": case "j5a":
         var embed = moveEmbed({
           row: 426,
-          image: "Usamif5a.png",
+          image: "Sumi-j5a-Degaliuss#4752.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -156,7 +156,7 @@ module.exports = {
       case "db": case "66b": case "dashb":
         var embed = moveEmbed({
           row: 443,
-          image: "Usami66b.png"
+          image: "Sumi-66b-Degaliuss#4752.gif"
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

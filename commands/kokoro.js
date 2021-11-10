@@ -21,63 +21,63 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 290,
-          image: "Kokoroc5a.gif",
+          image: "Kokoro-c5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "f5a":
         var embed = moveEmbed({
           row: 291,
-          image: "Kokorof5a.png",
+          image: "Kokoro-f5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "6a":
         var embed = moveEmbed({
           row: 292,
-          image: "Kokoro6a.gif",
+          image: "Kokoro-6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "8a":
         var embed = moveEmbed({
           row: 293,
-          image: "Kokoro8a.png",
+          image: "Kokoro-8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "2a":
         var embed = moveEmbed({
           row: 294,
-          image: "Kokoro2a.png",
+          image: "Kokoro-2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "ja": case "j5a":
         var embed = moveEmbed({
           row: 295,
-          image: "Kokorof5a.png",
+          image: "Kokoro-j5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j6a":
         var embed = moveEmbed({
           row: 296,
-          image: "Kokoroj6a.png",
+          image: "Kokoro-j6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j8a":
         var embed = moveEmbed({
           row: 297,
-          image: "Kokoro8a.png",
+          image: "Kokoro-8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j2a":
         var embed = moveEmbed({
           row: 298,
-          image: "Kokoro2a.png",
+          image: "Kokoro-j2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -261,14 +261,14 @@ module.exports = {
       case "da": case "66a": case "dasha":
         var embed = moveEmbed({
           row: 317,
-          image: "Kokoro8a.png",
+          image: "Kokoro-66a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "db": case "66b": case "dashb":
         var embed = moveEmbed({
           row: 318,
-          image: "Kokoro66b.png",
+          image: "Kokoro-66b.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

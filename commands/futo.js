@@ -14,28 +14,28 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 130,
-          image: "Futoc5a.gif",
+          image: "Futo-c5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "f5a":
         var embed = moveEmbed({
           row: 131,
-          image: "Futof5a.png",
+          image: "Futo-f5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "6a":
         var embed = moveEmbed({
           row: 132,
-          image: "Futo6a.png",
+          image: "Futo-6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "8a":
         var embed = moveEmbed({
           row: 133,
-          image: "Futo8a.png",
+          image: "Futo-8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

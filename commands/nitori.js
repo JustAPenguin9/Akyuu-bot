@@ -14,14 +14,14 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 193,
-          image: "Nitori5a.gif",
+          image: "Nitori-5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "f5a":
         var embed = moveEmbed({
           row: 194,
-          image: "Nitorif5a.png",
+          image: "Nitori-f5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -42,14 +42,14 @@ module.exports = {
       case "2a":
         var embed = moveEmbed({
           row: 197,
-          image: "Nitori2a.gif",
+          image: "Nitori-2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "ja": case "j5a":
         var embed = moveEmbed({
           row: 198,
-          image: "Nitoric5a.gif",
+          image: "Nitori-5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -70,7 +70,7 @@ module.exports = {
       case "lowj8a": case "lj8a": case "l.j8a":
         var embed = moveEmbed({
           row: 201,
-          image: "Nitorij8a.gif",
+          image: "Nitori-lj8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

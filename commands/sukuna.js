@@ -14,7 +14,7 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 390,
-          image: "Sukunac5a.gif",
+          image: "Sukuna-c5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -42,7 +42,7 @@ module.exports = {
       case "2a":
         var embed = moveEmbed({
           row: 394,
-          image: "Sukuna2a.gif",
+          image: "Sukunaj2a.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

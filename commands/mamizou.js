@@ -21,14 +21,14 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 256,
-          image: "Mamizouc5a.gif",
+          image: "Mamizou-c5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "f5a":
         var embed = moveEmbed({
           row: 257,
-          image: "Mamizouf5a.png",
+          image: "Mamizou-f5a.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -42,14 +42,14 @@ module.exports = {
       case "8a":
         var embed = moveEmbed({
           row: 259,
-          image: "Mamizou8a.png",
+          image: "Mamizou-8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "2a":
         var embed = moveEmbed({
           row: 260,
-          image: "Mamizou2a.gif",
+          image: "Mamizou-2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -71,13 +71,14 @@ module.exports = {
         var embed = moveEmbed({
           row: 263,
           image: "Mamizou8a.png",
+          //Apparently Mami has less startup on her 8a than j8a, so I can't reuse 8a's gif... I have to make a new gif... eventually -SoG1998
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j2a":
         var embed = moveEmbed({
           row: 264,
-          image: "Mamizou2a.gif",
+          image: "Mamizou-2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -120,36 +121,42 @@ module.exports = {
       case "5c": case "c":
         var embed = moveEmbed({
           row: 271,
+          image: "Mamizou5c.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "6c":
         var embed = moveEmbed({
           row: 272,
+          image: "Mamizou6c.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "4c":
         var embed = moveEmbed({
           row: 273,
+          image: "Mamizou4c.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j4c":
         var embed = moveEmbed({
           row: 274,
+          image: "Mamizouj4c.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "2c":
         var embed = moveEmbed({
           row: 275,
+          image: "Mamizou2c.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "8c":
         var embed = moveEmbed({
           row: 276,
+          image: "Mamizou8c.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -170,19 +177,19 @@ module.exports = {
       case "ab": case "occult": case "abball":
         ab = moveEmbed({
           row: 279,
-          image: "Mamizouab.gif",
+          image: "Mamizou-ab.gif",
         }, character, colour, sheet);
         abB = moveEmbed({
           row: 280,
-          image: "Mamizouab.gif",
+          image: "Mamizou-ab.gif",
         }, character, colour, sheet);
         abR = moveEmbed({
           row: 281,
-          image: "Mamizouab.gif",
+          image: "Mamizou-ab.gif",
         }, character, colour, sheet);
         abG = moveEmbed({
           row: 282,
-          image: "Mamizouab.gif",
+          image: "Mamizou-ab.gif",
         }, character, colour, sheet);
 
         Embed = await msg.channel.send(ab)
@@ -221,12 +228,14 @@ module.exports = {
       case "ta": case "taga":
         var embed = moveEmbed({
           row: 283,
+          image: "Mamizou66a.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "tja": case "tagja":
         var embed = moveEmbed({
           row: 284,
+          image: "Mamizouj5a.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -240,6 +249,7 @@ module.exports = {
         var embed = moveEmbed({
           row: 286,
           isSC: true,
+          image: "Mamizou_0.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -247,6 +257,7 @@ module.exports = {
         var embed = moveEmbed({
           row: 287,
           isSC: true,
+          image: "Mamizou_1.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -254,6 +265,7 @@ module.exports = {
         var embed = moveEmbed({
           row: 288,
           isSC: true,
+          image: "Mamizou_2.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

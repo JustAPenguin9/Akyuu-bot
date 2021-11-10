@@ -14,14 +14,14 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 1,
-          image: "Reimuc5a.gif",
+          image: "Reimu-c5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "f5a":
         var embed = moveEmbed({
           row: 2,
-          image: "Reimuf5a.gif",
+          image: "Reimu-f5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -70,7 +70,7 @@ module.exports = {
       case "j2a":
         var embed = moveEmbed({
           row: 9,
-          image: "Reimu2a.png",
+          image: "Reimu-j2a-made-from-iliekchez#8595.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

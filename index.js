@@ -130,7 +130,7 @@ bot.on('message', (msg) =>{
         case "sukuna": case "sinmyoumaru":
           bot.commands.get("sukuna").run(msg, args, doc);
           break;
-        case "sumireko": case "sumi": case "usami":
+        case "sumireko": case "sumi": case "usami": case "susami":
           bot.commands.get("sumireko").run(msg, args, doc);
           break;
         case "reisen": case "udonge":

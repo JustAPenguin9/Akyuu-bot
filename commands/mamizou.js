@@ -249,7 +249,7 @@ module.exports = {
         var embed = moveEmbed({
           row: 286,
           isSC: true,
-          image: "Mamizou_0.png",
+          image: "Mamizou-sc1.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -257,7 +257,7 @@ module.exports = {
         var embed = moveEmbed({
           row: 287,
           isSC: true,
-          image: "Mamizou_1.png",
+          image: "Mamizou-sc2.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -265,7 +265,7 @@ module.exports = {
         var embed = moveEmbed({
           row: 288,
           isSC: true,
-          image: "Mamizou_2.png",
+          image: "Mamizou-sc3.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

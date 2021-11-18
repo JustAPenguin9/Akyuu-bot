@@ -184,7 +184,7 @@ module.exports = {
       case "sc1": case "sc": case "spellcard": case "spellcard1":
         var embed = moveEmbed({
           row: 386,
-          image: "Mokousc1.png",
+          image: "Mokou-sc1.png",
           isSC: true,
         }, character, colour, sheet);
         msg.channel.send(embed);
@@ -192,7 +192,7 @@ module.exports = {
       case "sc2": case "spellcard2":
         var embed = moveEmbed({
           row: 387,
-          image: "Mokousc2.png",
+          image: "Mokou-sc2.png",
           isSC: true,
         }, character, colour, sheet);
         msg.channel.send(embed);
@@ -200,7 +200,7 @@ module.exports = {
       case "sc3": case "spellcard3":
         var embed = moveEmbed({
           row: 388,
-          image: "Mokousc3.png",
+          image: "Mokou-sc3.png",
           isSC: true,
         }, character, colour, sheet);
         msg.channel.send(embed);

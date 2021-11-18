@@ -237,6 +237,7 @@ module.exports = {
       case "6c":
         var embed = moveEmbed({
           row: 313,
+          image: "Kokoro-6c.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

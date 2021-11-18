@@ -14,63 +14,63 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 514,
-          image: "Tenshic5a.gif",
+          image: "Tenshi-c5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "f5a":
         var embed = moveEmbed({
           row: 515,
-          image: "Tenshif5a.png",
+          image: "Tenshi-f5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "6a":
         var embed = moveEmbed({
           row: 516,
-          image: "Tenshi6a.png",
+          image: "Tenshi-6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "8a":
         var embed = moveEmbed({
           row: 517,
-          image: "Tenshi8a.png",
+          image: "Tenshi-8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "2a":
         var embed = moveEmbed({
           row: 518,
-          image: "Tenshi2a.png",
+          image: "Tenshi-2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "ja": case "j5a":
         var embed = moveEmbed({
           row: 519,
-          image: "Tenshij5a.png",
+          image: "Tenshi-j5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j6a":
         var embed = moveEmbed({
           row: 520,
-          image: "Tenshi6a.png",
+          image: "Tenshi-j6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j8a":
         var embed = moveEmbed({
           row: 521,
-          image: "Tenshi8a.png",
+          image: "Tenshi-j8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j2a":
         var embed = moveEmbed({
           row: 522,
-          image: "Tenshi2a.png",
+          image: "Tenshi-j2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -143,14 +143,14 @@ module.exports = {
       case "da": case "66a": case "dasha":
         var embed = moveEmbed({
           row: 534,
-          image: "Tenshi66a.png",
+          image: "Tenshi-66a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "db": case "66b": case "dashb":
         var embed = moveEmbed({
           row: 535,
-          image: "Tenshi66b.png",
+          image: "Tenshi-66b-hurtbox&collision-only.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

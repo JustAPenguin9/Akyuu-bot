@@ -52,7 +52,7 @@ module.exports = {
       case "ja": case "j5a":
         var embed = moveEmbed({
           row: 549,
-          image: "Yukarij5a.png",
+          image: "Yukari-j5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -153,7 +153,7 @@ module.exports = {
       case "da": case "66a": case "dasha":
         var embed = moveEmbed({
           row: 565,
-          image: "Yukarij5a.png",
+          image: "Yukari66a.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

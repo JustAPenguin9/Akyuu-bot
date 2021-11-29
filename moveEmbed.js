@@ -4,8 +4,8 @@ module.exports = function(move, character, colour, sheet) {
 
   if (move.image) {
     Embed
-      .attachFiles(new MessageAttachment(`./commands/${character.toLowerCase()}Attachments/${move.image}`, move.image))
-      .setThumbnail(`attachment://${move.image}`);
+      .attachFiles(new MessageAttachment(`./attachments/${character.toLowerCase()}-attachments/${move.image}`, move.image))
+      .setImage(`attachment://${move.image}`);
   };
   if (move.row) {
     if (typeof move.row === "number") {

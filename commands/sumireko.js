@@ -49,7 +49,7 @@ module.exports = {
       case "ja": case "j5a":
         var embed = moveEmbed({
           row: 426,
-          image: "Sumi-j5a-Degaliuss#4752.gif",
+          image: "Sumi-j5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -156,7 +156,7 @@ module.exports = {
       case "db": case "66b": case "dashb":
         var embed = moveEmbed({
           row: 443,
-          image: "Sumi-66b-Degaliuss#4752.gif"
+          image: "Sumi-66b.gif"
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

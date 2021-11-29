@@ -70,7 +70,7 @@ module.exports = {
       case "j2a":
         var embed = moveEmbed({
           row: 9,
-          image: "Reimu-j2a-made-from-iliekchez#8595.gif",
+          image: "Reimu-j2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

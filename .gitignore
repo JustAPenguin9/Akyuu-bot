@@ -1,6 +1,9 @@
-#node dependencies 
+# node dependencies 
 node_modules/
 
-#files for logging into stuff
+# files for logging into stuff
 .env
 key.json
+
+# database
+db/

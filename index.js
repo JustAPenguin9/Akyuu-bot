@@ -25,6 +25,12 @@ async function accessSheet() {
 }
 accessSheet();
 
+// DATABASE
+const Datastore = require('@seald-io/nedb');
+const historyDb = new Datastore({filename: "db/history.db"});
+historyDb.loadDatabase();
+// const playersDb = new Datastore({filename: "./db/players.db"});
+
 // BOT SETUP
 const prefix = "!";
 var versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track)~~";
@@ -58,6 +64,7 @@ bot.on('message', (msg) =>{
   if (bot.user.id !== msg.author.id && !msg.author.bot) {
 
   //WITHOUT PREFIX
+  //FIXME:
     if (msg.content === "o/") {
       msg.channel.send("o/");
     }
@@ -67,12 +74,15 @@ bot.on('message', (msg) =>{
       let args = msg.content.toLowerCase().substring(prefix.length).split(/\s+/);
 
       switch (args[0]) {
+        // bot
         case "version":
           msg.channel.send(`the current version of the bot is ${versionNum}`);
           break;
         case "sync":
           loadSheet().then(msg.channel.send("**data now synced!**"));
           break;
+        
+        // links
         case "links": case "link":
           msg.channel.send(`**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>
 **Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>
@@ -82,14 +92,26 @@ bot.on('message', (msg) =>{
         case "repo": case "git": case "github":
           msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>");
           break;
+
+        // help
         case "help": case "commands":
           bot.commands.get("help").run(msg, args);
           break;
+        case "starthere": case "starterpack": case "start":
+          msg.channel.send("Here's the link to SoG's starter pack: <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>\nHere's the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>");
+        
+        // rankings
+        case "profile":
+          bot.commands.get("profile").run(msg, args, historyDb);
+          break;
+        case "win": case "loss":
+          bot.commands.get("result").run(msg, args, historyDb);
+          break;
+
+        // characters
         case "wiki":
           bot.commands.get("wiki").run(msg, args);
           break;
-        case "starthere": case "starterpack": case "start":
-          msg.channel.send("Here's the link to SoG's starter pack: <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>\nHere's the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>");
 
         case "reimu":
           bot.commands.get("reimu").run(msg, args, doc);

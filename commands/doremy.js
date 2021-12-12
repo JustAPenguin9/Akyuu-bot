@@ -28,7 +28,7 @@ module.exports = {
       case "6a":
         var embed = moveEmbed({
           row: 486,
-          image: "Doremy6a.png",
+          image: "Doremy-6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

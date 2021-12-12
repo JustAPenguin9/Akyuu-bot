@@ -269,7 +269,7 @@ module.exports = {
       case "db": case "66b": case "dashb":
         var embed = moveEmbed({
           row: 318,
-          image: "Kokoro-66b.png",
+          image: "Kokoro-66b.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

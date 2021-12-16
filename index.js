@@ -87,7 +87,7 @@ bot.on('message', (msg) =>{
           msg.channel.send(`**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>
 **Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>
 **AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>
-**AOCF starter pack** <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>`);
+**AOCF starter pack** <https://drive.google.com/drive/folders/1SzdFtiB1sdAtnYtmvrsF0IBi6lXHNLl1?usp=sharing>`);
           break;
         case "repo": case "git": case "github":
           msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>");
@@ -98,8 +98,10 @@ bot.on('message', (msg) =>{
           bot.commands.get("help").run(msg, args);
           break;
         case "starthere": case "starterpack": case "start":
-          msg.channel.send("Here's the link to SoG's starter pack: <https://drive.google.com/drive/folders/1WZ-Eavwfe110xem8r1ae5SqEx6Ey3fTu?usp=sharing>\nHere's the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>");
-        
+          msg.channel.send(`Here's the link to SoG's starter pack: <https://drive.google.com/drive/folders/1SzdFtiB1sdAtnYtmvrsF0IBi6lXHNLl1?usp=sharing>
+Here's the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>`);
+          break;
+          
         // rankings
         case "profile":
           bot.commands.get("profile").run(msg, args, historyDb);

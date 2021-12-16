@@ -50,6 +50,12 @@ The key.json file should be the file given to you when you set up the google she
 
 when running the bot make sure that you are using the current LTS version of nodejs, 14.15.4.
 
+## Thanks to
+SonofGod1998#4546<br>
+Degaliuss#4752<br>
+nimiala#8595<br>
+for contributing
+
 ## Links
 
 * [AOCF discord server](https://discord.com/invite/kfJTRBq) - the only place the official bot is being used

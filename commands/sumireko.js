@@ -14,35 +14,35 @@ module.exports = {
       case "5a": case "a": case "4a": case "c5a":
         var embed = moveEmbed({
           row: 421,
-          image: "Usami-5a.gif",
+          image: "Sumi-5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "f5a":
         var embed = moveEmbed({
           row: 422,
-          image: "Usamif5a.png",
+          image: "Sumi-f5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "6a":
         var embed = moveEmbed({
           row: 423,
-          image: "Usami6a.png",
+          image: "Sumi-6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "8a":
         var embed = moveEmbed({
           row: 424,
-          image: "Usami8a.png",
+          image: "Sumi-8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "2a":
         var embed = moveEmbed({
           row: 425,
-          image: "Usami2a.png",
+          image: "Sumi-2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -56,21 +56,21 @@ module.exports = {
       case "j6a":
         var embed = moveEmbed({
           row: 427,
-          image: "Usami6a.png",
+          image: "Sumi-j6a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j8a":
         var embed = moveEmbed({
           row: 428,
-          image: "Usami8a.png",
+          image: "Sumi-j8a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
       case "j2a":
         var embed = moveEmbed({
           row: 429,
-          image: "Usami2a.png",
+          image: "Sumi-j2a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;
@@ -149,7 +149,7 @@ module.exports = {
       case "da": case "66a": case "dasha":
         var embed = moveEmbed({
           row: 442,
-          image: "Usami66a.png"
+          image: "Sumi-66a.gif"
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

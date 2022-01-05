@@ -84,10 +84,12 @@ bot.on('message', (msg) =>{
         
         // links
         case "links": case "link":
-          msg.channel.send(`**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>
-**Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing>
-**AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>
-**AOCF starter pack** <https://drive.google.com/drive/folders/1SzdFtiB1sdAtnYtmvrsF0IBi6lXHNLl1?usp=sharing>`);
+          msg.channel.send(
+            `**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot> \
+            \n**Google sheet:** <https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing> \
+            \n**AOCF wiki:** <https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki> \
+            \n**AOCF starter pack** <https://drive.google.com/drive/folders/1SzdFtiB1sdAtnYtmvrsF0IBi6lXHNLl1?usp=sharing>`
+          );
           break;
         case "repo": case "git": case "github":
           msg.channel.send("**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>");

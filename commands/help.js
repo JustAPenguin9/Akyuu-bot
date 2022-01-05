@@ -9,8 +9,8 @@ module.exports = {
       .setTitle("Akyuu bot commands\nprefix: **!**")
       .addField(
         "to get the data for a move type **![character] [move]**",
-        `[move] is the move you want in numpad notation. you can use !wiki controls for more information on that.
-        ex: !reimu j5a`
+        `[move] is the move you want in numpad notation. you can use !wiki controls for more information on that. \
+        \nex: !reimu j5a`
       )
       .addField(
         "if you're new to AOCF, use **!starthere**",
@@ -18,17 +18,28 @@ module.exports = {
       )
       .addField(
         "wiki",
-        `you can also use !wiki [option] to get to a spacific wiki page or just !wiki by itselft to go to the homepage.
-        **wiki options:**
-        any of the characters
-        controls
-        mechanics`
+        `you can also use !wiki [option] to get to a spacific wiki page or just !wiki by itselft to go to the homepage. \
+        \nwiki options: any of the characters, controls, mechanics`,
+        true
+      )
+      .addField(
+        "wiki arguments",
+        `[character] \
+        \ncontrols \
+        \nmechanics`,
+        true
+      )
+      .addField(
+        "multiplayer",
+        `win --you won against the other player \
+        \nloss --you lost against the other player \
+        \nprofile --view your profile`,
       )
       .addField(
         "other commands",
-        `version  --names the version
-        links  --gives many useful links 
-        repo  --the github repository of Akyuu`
+        `version  --names the version \
+        \nlinks  --gives many useful links \
+        \nrepo  --the github repository of Akyuu`,
       )
 
     msg.reply(embed);

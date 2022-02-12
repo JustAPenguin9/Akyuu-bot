@@ -33,7 +33,7 @@ historyDb.loadDatabase();
 
 // BOT SETUP
 const prefix = "!";
-var versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track)~~";
+const versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track)~~";
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 
@@ -100,13 +100,18 @@ bot.on('message', (msg) =>{
           bot.commands.get("help").run(msg, args);
           break;
         case "starthere": case "starterpack": case "start":
-          msg.channel.send(`Here's the link to SoG's starter pack: <https://drive.google.com/drive/folders/1SzdFtiB1sdAtnYtmvrsF0IBi6lXHNLl1?usp=sharing>
-Here's the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>`);
+          msg.channel.send(`Here's the link to SoG's starter pack: <https://drive.google.com/drive/folders/1SzdFtiB1sdAtnYtmvrsF0IBi6lXHNLl1?usp=sharing> \
+            \nHere's the link to his post explaining it all: <https://discord.com/channels/273513597622157322/273733523829948416/850940292185456701>`);
+          break;
+
+        // moderator stuff
+        case "clear":
+          bot.commands.get("clear").run(msg, args);
           break;
           
         // rankings
         case "profile":
-          bot.commands.get("profile").run(msg, args, historyDb);
+          bot.commands.get("profile").run(msg, historyDb);
           break;
         case "win": case "loss":
           bot.commands.get("result").run(msg, args, historyDb);

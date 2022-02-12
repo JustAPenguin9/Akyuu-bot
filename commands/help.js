@@ -33,7 +33,7 @@ module.exports = {
         "multiplayer",
         `win --you won against the other player \
         \nloss --you lost against the other player \
-        \nprofile --view your profile`,
+        \nprofile [user] --view your, or someone else's, profile`,
       )
       .addField(
         "other commands",

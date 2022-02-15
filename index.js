@@ -27,7 +27,7 @@ accessSheet();
 
 // DATABASE
 const Datastore = require('@seald-io/nedb');
-const historyDb = new Datastore({filename: "db/history.db"});
+const historyDb = new Datastore({ filename: "db/history.db" });
 historyDb.loadDatabase();
 // const playersDb = new Datastore({filename: "./db/players.db"});
 
@@ -52,7 +52,7 @@ bot.on("ready", () => {
   bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
 
   function status() {
-    setInterval( () => {
+    setInterval(() => {
       bot.user.setActivity("Touhou 15.5", { type: "PLAYING" });
     }, 900000);
   }
@@ -60,16 +60,15 @@ bot.on("ready", () => {
   status();
 });
 
-bot.on('message', (msg) =>{
+bot.on('message', (msg) => {
   if (bot.user.id !== msg.author.id && !msg.author.bot) {
 
-  //WITHOUT PREFIX
-  //FIXME:
-    if (msg.content === "o/") {
+    //WITHOUT PREFIX
+    if (msg.content === "o/" && !msg.author.bot) {
       msg.channel.send("o/");
     }
 
-  //WITH PREFIX
+    //WITH PREFIX
     if (msg.content.toLowerCase().startsWith(prefix)) {
       let args = msg.content.toLowerCase().substring(prefix.length).split(/\s+/);
 
@@ -81,7 +80,7 @@ bot.on('message', (msg) =>{
         case "sync":
           loadSheet().then(msg.channel.send("**data now synced!**"));
           break;
-        
+
         // links
         case "links": case "link":
           msg.channel.send(
@@ -108,7 +107,7 @@ bot.on('message', (msg) =>{
         case "clear":
           bot.commands.get("clear").run(msg, args);
           break;
-          
+
         // rankings
         case "profile":
           bot.commands.get("profile").run(msg, historyDb);

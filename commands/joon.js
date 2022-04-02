@@ -70,7 +70,7 @@ module.exports = {
       case "j2a":
         var embed = moveEmbed({
           row: 587,
-          image: "Joonj2a.png",
+          image: "Joon2a.png",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

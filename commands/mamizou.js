@@ -28,7 +28,7 @@ module.exports = {
       case "f5a":
         var embed = moveEmbed({
           row: 257,
-          image: "Mamizou-f5a.png",
+          image: "Mamizou-f5a.gif",
         }, character, colour, sheet);
         msg.channel.send(embed);
         break;

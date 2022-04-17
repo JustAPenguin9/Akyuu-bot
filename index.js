@@ -29,13 +29,13 @@ accessSheet();
 const Datastore = require('@seald-io/nedb');
 const historyDb = new Datastore({ filename: "db/history.db" });
 historyDb.loadDatabase();
-// const playersDb = new Datastore({filename: "./db/players.db"});
 
 // BOT SETUP
 const prefix = "!";
 const versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track)~~";
 const fs = require("fs");
 bot.commands = new Discord.Collection();
+const cmdTimeout = new Set();
 
 const commandFiles = fs
   .readdirSync("./commands/")
@@ -113,7 +113,7 @@ bot.on('message', (msg) => {
           bot.commands.get("profile").run(msg, historyDb);
           break;
         case "win": case "loss":
-          bot.commands.get("result").run(msg, args, historyDb);
+          bot.commands.get("result").run(msg, args, historyDb, cmdTimeout);
           break;
 
         // characters

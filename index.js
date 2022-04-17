@@ -95,7 +95,7 @@ bot.on('message', (msg) => {
           break;
 
         // help
-        case "help": case "commands":
+        case "help": case "commands": case "h":
           bot.commands.get("help").run(msg, args);
           break;
         case "starthere": case "starterpack": case "start":

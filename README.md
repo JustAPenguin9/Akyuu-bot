@@ -46,11 +46,15 @@ The key.json file should be the file given to you when you set up the google she
 }
 ```
 
-## When running
+## Running the bot
 
-when running the bot make sure that you are using the current LTS version of nodejs, 14.15.4.
+In the project directory:
+```shell
+node .
+```
 
 ## Thanks to
+
 SonofGod1998#4546<br>
 Degaliuss#4752<br>
 nimiala#8595<br>

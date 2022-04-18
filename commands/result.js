@@ -2,13 +2,11 @@ module.exports = {
   name: "result",
   description: "command",
   async run(msg, args, historyDb, cmdTimeout) {
-    if (!args[1]) return; // return if no user was mentioned
-
     let message;
     let recorded = false;
 
     // check whether the user is winning against themselves or a bot
-    if (msg.mentions.users.first().id === msg.author.id || msg.mentions.users.first().bot) return
+    if (msg.mentions.users.first()?.id === msg.author.id || msg.mentions.users.first()?.bot) return
 
     try {
       message = await msg.channel.send(`<@${msg.mentions.users.first().id}> react with 🇾 if this is true`);

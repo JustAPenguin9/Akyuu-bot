@@ -1,8 +1,10 @@
-// DISCORD
-const Discord = require("discord.js");
-const bot = new Discord.Client();
+// ENVIRONMENT VARIABLES
+require("dotenv").config()
+const token = process.env.TOKEN;
 
-const { token } = require("./config.js");
+// DISCORD
+const { Client, Collection } = require("discord.js");
+const bot = new Client();
 
 // GOOGLE SHEETS
 const { GoogleSpreadsheet } = require('google-spreadsheet');
@@ -34,7 +36,7 @@ historyDb.loadDatabase();
 const prefix = "!";
 const versionNum = "1.20.33.2021.69.420-buildd34db33f-alpha-beta ~~(we lost track)~~";
 const fs = require("fs");
-bot.commands = new Discord.Collection();
+bot.commands = new Collection();
 const cmdTimeout = new Set();
 
 const commandFiles = fs
@@ -60,7 +62,7 @@ bot.on("ready", () => {
   status();
 });
 
-bot.on('message', (msg) => {
+bot.on("message", (msg) => {
   if (bot.user.id !== msg.author.id && !msg.author.bot) {
 
     //WITHOUT PREFIX

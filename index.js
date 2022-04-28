@@ -69,7 +69,7 @@ bot.on("ready", () => {
   status();
 });
 
-bot.on("message", (msg) => {
+bot.on("messageCreate", (msg) => {
   if (bot.user.id !== msg.author.id && !msg.author.bot) {
 
     //WITHOUT PREFIX

@@ -42,6 +42,6 @@ module.exports = {
         \nrepo  --the github repository of Akyuu`,
       )
 
-    msg.reply(embed);
+    msg.reply({ embeds: [embed] });
   }
 }

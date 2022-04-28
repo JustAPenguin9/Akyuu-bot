@@ -4,7 +4,6 @@ module.exports = function(move, character, colour, sheet) {
 
   if (move.image) {
     Embed
-      .attachFiles(new MessageAttachment(`./attachments/${character.toLowerCase()}-attachments/${move.image}`, move.image))
       .setImage(`attachment://${move.image}`);
   };
   if (move.row) {
@@ -17,8 +16,7 @@ module.exports = function(move, character, colour, sheet) {
       } else if (typeof move.desOnly === "boolean" && move.descOnly === true) {
         Embed.addField(
           "Description",
-          (sheet.getCell(move.row, 8)).value,
-          // true
+          (sheet.getCell(move.row, 8)).value.toString(),
         )
         return Embed
       }
@@ -26,27 +24,27 @@ module.exports = function(move, character, colour, sheet) {
       Embed
       .addField(
         "Startup",
-        (sheet.getCell(move.row, 2)).value,
+        (sheet.getCell(move.row, 2)).value.toString(),
         true
       )
       .addField(
         "Active",
-        (sheet.getCell(move.row, 3)).value,
+        (sheet.getCell(move.row, 3)).value.toString(),
         true
       )
       .addField(
         "Recovery",
-        (sheet.getCell(move.row, 4)).value,
+        (sheet.getCell(move.row, 4)).value.toString(),
         true
       )
       .addField(
         "Damage",
-        (sheet.getCell(move.row, 5)).value,
+        (sheet.getCell(move.row, 5)).value.toString(),
         true
       )
       .addField(
         "Stun",
-        (sheet.getCell(move.row, 6)).value,
+        (sheet.getCell(move.row, 6)).value.toString(),
         true
       )
     }
@@ -54,7 +52,7 @@ module.exports = function(move, character, colour, sheet) {
     if (move.isSC === true) {
       Embed.addField(
         "Cost",
-        (sheet.getCell(move.row, 7)).value,
+        (sheet.getCell(move.row, 7)).value.toString(),
         true
       )
     }
@@ -62,8 +60,7 @@ module.exports = function(move, character, colour, sheet) {
     if (move.desc === true) {
       Embed.addField(
         "Description",
-        (sheet.getCell(move.row, 8)).value,
-        // true
+        (sheet.getCell(move.row, 8)).value.toString(),
       )
     }
 

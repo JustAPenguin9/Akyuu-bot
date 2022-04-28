@@ -3,15 +3,8 @@ require("dotenv").config()
 const token = process.env.TOKEN;
 
 // DISCORD
-const { Client, Intents, Collection } = require("discord.js");
-const bot = new Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_MEMBERS
-  ]
-});
+const { Client, Collection } = require("discord.js");
+const bot = new Client();
 
 // GOOGLE SHEETS
 const { GoogleSpreadsheet } = require('google-spreadsheet');

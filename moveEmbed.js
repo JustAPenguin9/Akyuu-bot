@@ -2,7 +2,10 @@ module.exports = function(move, character, colour, sheet) {
   const { MessageEmbed, MessageAttachment } = require("discord.js")
   const Embed = new MessageEmbed().setColor(colour);
 
-  if (move.image) {
+  if (move.image && move.isSC) {
+    Embed
+      .setThumbnail(`attachment://${move.image}`);
+  } else if (move.image) {
     Embed
       .setImage(`attachment://${move.image}`);
   };

@@ -9,220 +9,268 @@ module.exports = {
     const colour = "#007aff";
     const character = "Nitori";
 
-// CHARACTER MOVE / SECOND ARGUMENT CHECKER
+    // CHARACTER MOVE / SECOND ARGUMENT CHECKER
     switch (args[1]) {
       case "5a": case "a": case "4a": case "c5a":
+        var image = "Nitori-5a.gif"
         var embed = moveEmbed({
           row: 193,
-          image: "Nitori-5a.gif",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "f5a":
+        var image = "Nitori-f5a.gif"
         var embed = moveEmbed({
           row: 194,
-          image: "Nitori-f5a.gif",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "6a":
+        var image = "Nitori6a.png"
         var embed = moveEmbed({
           row: 195,
-          image: "Nitori6a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "8a":
+        var image = "Nitori8a.png"
         var embed = moveEmbed({
           row: 196,
-          image: "Nitori8a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "2a":
+        var image = "Nitori-2a.gif"
         var embed = moveEmbed({
           row: 197,
-          image: "Nitori-2a.gif",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "ja": case "j5a":
+        var image = "Nitori-5a.gif"
         var embed = moveEmbed({
           row: 198,
-          image: "Nitori-5a.gif",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "j6a":
+        var image = "Nitori6a.png"
         var embed = moveEmbed({
           row: 199,
-          image: "Nitori6a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "j8a": case "highj8a": case "hj8a": case "h.j8a":
+        var image = "Nitori66a.png"
         var embed = moveEmbed({
           row: 200,
-          image: "Nitori66a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "lowj8a": case "lj8a": case "l.j8a":
+        var image = "Nitori-lj8a.gif"
         var embed = moveEmbed({
           row: 201,
-          image: "Nitori-lj8a.gif",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "j2a":
+        var image = "Nitorij2a.png"
         var embed = moveEmbed({
           row: 202,
-          image: "Nitorij2a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "5b": case "b":
         var embed = moveEmbed({
           row: 203,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "2b":
         var embed = moveEmbed({
           row: 204,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "8b":
         var embed = moveEmbed({
           row: 205,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "6b":
         var embed = moveEmbed({
           row: 206,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "cb": case "chargeb": case "[b]":
         var embed = moveEmbed({
           row: 207,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "bbb": case "tenkai":
         var embed = moveEmbed({
           row: 208,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "5c": case "c":
         var embed = moveEmbed({
           row: 209,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "6c":
         var embed = moveEmbed({
           row: 210,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "lowj6c": case "lj6c": case "l.j6c":
         var embed = moveEmbed({
           row: 211,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "highj6c": case "hj6c": case "h.j6c":
         var embed = moveEmbed({
           row: 212,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "4c":
         var embed = moveEmbed({
           row: 213,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "2c":
         var embed = moveEmbed({
           row: 214,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "8c":
         var embed = moveEmbed({
           row: 215,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "da": case "66a": case "dasha":
+        var image = "Nitori66a.png"
         var embed = moveEmbed({
           row: 216,
-          image: "Nitori66a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);;
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });;
         break;
       case "db": case "66b": case "dashb":
+        var image = "Nitori66b.png"
         var embed = moveEmbed({
           row: 217,
-          image: "Nitori66b.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "ab": case "occult":
         var embed = moveEmbed({
           row: 218,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "ta": case "taga":
         var embed = moveEmbed({
           row: 219,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "tja": case "tagja":
         var embed = moveEmbed({
           row: 220,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "tb": case "tagb":
         var embed = moveEmbed({
           row: 221,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "sc1": case "sc": case "spellcard": case "spellcard1":
         var embed = moveEmbed({
           row: 222,
           isSC: true,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "sc2": case "spellcard2":
         var embed = moveEmbed({
           row: 223,
           isSC: true,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "sc3": case "spellcard3":
         var embed = moveEmbed({
           row: 224,
           isSC: true,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
       case "lw": case "lastword":
         var embed = moveEmbed({
           row: 225,
         }, character, colour, sheet);
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
         break;
     }
   }

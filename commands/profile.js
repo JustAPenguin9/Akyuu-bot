@@ -37,26 +37,26 @@ module.exports = {
         )
         .addField(
           "Wins",
-          wins,
+          wins.toString(),
           true
         )
         .addField(
           "Losses",
-          losses,
+          losses.toString(),
           true
         )
         .addField(
           "W/L Ratio",
-          ratio,
+          ratio.toString(),
           true
         )
         .addField(
           "Total games played",
-          wins + losses,
+          (wins + losses).toString(),
           true
         )
 
-        msg.reply(embed)
+        msg.reply({ embeds: [embed] })
       })
     })
   }

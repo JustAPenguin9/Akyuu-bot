@@ -4,7 +4,7 @@ module.exports = {
   run(msg, args) {
     if (!args[1]) return;
     if (msg.channel.type == "dm") return;
-    if (!msg.member.hasPermission("MANAGE_MESSAGES") || !msg.member.hasPermission("ADMINISTRATOR")) return;
+    if (!msg.member.permissions.has("MANAGE_MESSAGES") || !msg.member.permissions.has("ADMINISTRATOR")) return;
 
     let numToDelete = parseInt(args[1]);
     if (isNaN(numToDelete)) return;

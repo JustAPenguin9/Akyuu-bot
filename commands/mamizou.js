@@ -270,12 +270,12 @@ module.exports = {
           files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
         })
         var page = "ab"
-        await Embed.react("💠");
-        await Embed.react("🔴");
-        await Embed.react("🟢");
-        await Embed.react("🔵");
+        Embed.react("💠");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
 
-        var collector = Embed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector({ filter, time: collectorTime });
         await collector.on("collect", async (reaction) => {
           switch (reaction.emoji.name) {
             case "💠":

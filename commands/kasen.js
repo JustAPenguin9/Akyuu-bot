@@ -196,12 +196,12 @@ module.exports = {
         var page = 0;
 
         Embed = await msg.channel.send({ embeds: [pages[page]] })
-        await Embed.react("💠");
-        await Embed.react("🇦");
-        await Embed.react("🇧");
-        await Embed.react("🅱️");
+        Embed.react("💠");
+        Embed.react("🇦");
+        Embed.react("🇧");
+        Embed.react("🅱️");
 
-        var collector = await Embed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector({ filter, time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch (reaction.emoji.name) {
             case "💠":

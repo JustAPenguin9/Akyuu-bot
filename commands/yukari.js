@@ -242,10 +242,10 @@ module.exports = {
         var page = 0;
 
         messageEmbed = await msg.channel.send({ embeds: [pages[page]] })
-        await messageEmbed.react("⬅️");
-        await messageEmbed.react("➡️");
+        messageEmbed.react("⬅️");
+        messageEmbed.react("➡️");
 
-        var collector = await messageEmbed.createReactionCollector(filter, { time: collectorTime });
+        var collector = messageEmbed.createReactionCollector({ filter, time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch (reaction.emoji.name) {
             case "⬅️":

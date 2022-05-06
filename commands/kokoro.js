@@ -137,12 +137,12 @@ module.exports = {
 
         var Embed = await msg.channel.send({ embeds: [noEmoEmbed] })
         var page = "noEmo"
-        await Embed.react("⚪");
-        await Embed.react("🔴");
-        await Embed.react("🟢");
-        await Embed.react("🔵");
+        Embed.react("⚪");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
 
-        var collector = await Embed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector({ filter, time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch (reaction.emoji.name) {
             case "🔴":
@@ -184,12 +184,12 @@ module.exports = {
 
         Embed = await msg.channel.send({ embeds: [noEmoEmbed] })
         var page = "noEmo"
-        await Embed.react("⚪");
-        await Embed.react("🔴");
-        await Embed.react("🟢");
-        await Embed.react("🔵");
+        Embed.react("⚪");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
 
-        var collector = await Embed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector({ filter, time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch (reaction.emoji.name) {
             case "🔴":
@@ -237,12 +237,12 @@ module.exports = {
 
         Embed = await msg.channel.send({ embeds: [noEmoEmbed] })
         var page = "noEmo"
-        await Embed.react("⚪");
-        await Embed.react("🔴");
-        await Embed.react("🟢");
-        await Embed.react("🔵");
+        Embed.react("⚪");
+        Embed.react("🔴");
+        Embed.react("🟢");
+        Embed.react("🔵");
 
-        var collector = await Embed.createReactionCollector(filter, { time: collectorTime });
+        var collector = Embed.createReactionCollector({ filter, time: collectorTime });
         collector.on("collect", async (reaction) => {
           switch (reaction.emoji.name) {
             case "🔴":

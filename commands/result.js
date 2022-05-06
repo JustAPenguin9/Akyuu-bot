@@ -10,7 +10,7 @@ module.exports = {
 
     try {
       message = await msg.channel.send(`<@${msg.mentions.users.first().id}> react with 🇾 if this is true`);
-      message.react("🇾");
+      await message.react("🇾");
     } catch (error) { return } // if the second argument is not a mention return
 
     const filter = (reaction, user) => {
@@ -21,7 +21,7 @@ module.exports = {
         && !recorded                  // result has already been recorded
     };
 
-    let collector = message.createReactionCollector(filter, { time: 10000 });
+    let collector = message.createReactionCollector({ filter, time: 10000 });
     collector.on("collect", async (reaction) => {
       if (reaction.emoji.name === "🇾") {
         recorded = true;

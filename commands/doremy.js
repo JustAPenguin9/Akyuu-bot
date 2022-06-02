@@ -174,18 +174,26 @@ module.exports = {
         msg.channel.send({ embeds: [embed] });
         break;
       case "da": case "66a": case "dasha":
+        var image = "Doremy66a.png"
         var embed = moveEmbed({
           row: 504,
-          image: "Doremy66a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send({ embeds: [embed] });
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "db": case "66b": case "dashb":
+        var image = "Doremy2a.png"
         var embed = moveEmbed({
           row: 505,
-          image: "Doremy2a.png",
+          image,
         }, character, colour, sheet);
-        msg.channel.send({ embeds: [embed] });
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "ab": case "occult":
         var embed = moveEmbed({

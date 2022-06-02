@@ -183,11 +183,15 @@ module.exports = {
         msg.channel.send({ embeds: [embed] });
         break;
       case "da": case "66a": case "dasha":
+        var image = "Miko66a.gif"
         var embed = moveEmbed({
           row: 183,
-          image: "Miko66a.gif",
+          image,
         }, character, colour, sheet);
-        msg.channel.send({ embeds: [embed] });
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "db": case "66b": case "dashb":
         var image = "Miko66b.png"

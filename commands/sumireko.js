@@ -183,18 +183,26 @@ module.exports = {
         msg.channel.send({ embeds: [embed] });
         break;
       case "da": case "66a": case "dasha":
+        var image = "Sumi-66a.gif"
         var embed = moveEmbed({
           row: 442,
-          image: "Sumi-66a.gif"
+          image,
         }, character, colour, sheet);
-        msg.channel.send({ embeds: [embed] });
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "db": case "66b": case "dashb":
+        var image = "Sumi-66b.gif"
         var embed = moveEmbed({
           row: 443,
-          image: "Sumi-66b.gif"
+          image,
         }, character, colour, sheet);
-        msg.channel.send({ embeds: [embed] });
+        msg.channel.send({
+          embeds: [embed],
+          files: [`./attachments/${character.toLowerCase()}-attachments/${image}`]
+        });
         break;
       case "abhigh": case "occulthigh": case "abh":
         var embed = moveEmbed({

@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@seald-io/nedb": "^3.0.0",
-    "discord.js": "^13.8.0",
+    "discord.js": "^14.0.1",
     "dotenv": "^16.0.1",
     "google-spreadsheet": "^3.3.0"
   }

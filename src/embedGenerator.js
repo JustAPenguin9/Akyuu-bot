@@ -1,4 +1,5 @@
 // FIXME: rename this to something better
+// TODO: make every move have a title and remove the check from setTitle() in embedGenerator
 
 const { MessageEmbed } = require('discord.js')
 
@@ -12,7 +13,7 @@ module.exports = (sheet, json, move) => {
   console.log('start ' + json.startingRow, 'offset ' + move.rowOffset, 'total row ' + (json.startingRow + move.rowOffset))
   const row = json.startingRow + move.rowOffset - 1
 
-  if (move.image && move.isSC) {
+  if (move.image && (move.isSpellCard || move.thumbnail)) {
     embed.setThumbnail(`attachment://${move.image}`)
   } else if (move.image) {
     embed.setImage(`attachment://${move.image}`)
@@ -53,10 +54,10 @@ module.exports = (sheet, json, move) => {
       true
     )
 
-  if (move.isSC) {
+  if (move.isSpellCard) {
     embed.addField(
       'cost',
-      (sheet.getCell(row, 4)).value.toString(),
+      (sheet.getCell(row, 7)).value.toString(),
       true
     )
   }

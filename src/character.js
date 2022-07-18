@@ -21,7 +21,6 @@ module.exports = async (bot, sheet, message, args) => {
   console.log('pre page check move ' + JSON.stringify(move))
   console.log(typeof move.pages === 'object')
 
-  // TODO: make every move have a title and remove the check from setTitle() in embedGenerator
   move.arg = args[1]
 
   if (typeof move.pages === 'object') {
@@ -31,8 +30,8 @@ module.exports = async (bot, sheet, message, args) => {
       embeds.push(embedGenerator(sheet, json, move))
     })
 
-    // FIXME: i think this will crash when an embed has an image
-    messageEmbed = await message.channel.send({ embeds: [embeds[page]] })
+    if (move.pages[page].image) messageEmbed = await message.channel.send({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
+    else messageEmbed = await message.channel.send({ embeds: [embeds[page]] })
     messageEmbed.react('⬅️')
     messageEmbed.react('➡️')
 
@@ -42,12 +41,14 @@ module.exports = async (bot, sheet, message, args) => {
         case '⬅️':
           if (page === 0) page = 3
           else page--
-          await messageEmbed.edit({ embeds: [embeds[page]] })
+          if (move.pages[page].image) messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
+          else messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]] })
           break
         case '➡️':
           if (page === embeds.length - 1) page = 0
           else page++
-          await messageEmbed.edit({ embeds: [embeds[page]] })
+          if (move.pages[page].image) messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
+          else messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]] })
           break
       }
     })

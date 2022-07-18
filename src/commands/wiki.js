@@ -67,9 +67,6 @@ module.exports = {
       case 'mechanics':
         message.reply('<https://aocf.koumakan.jp/Game_mechanics>')
         break
-      case 'glossary':
-        message.reply('<https://aocf.koumakan.jp/Glossary>')
-        break
       default:
         message.reply('<https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>')
         break

@@ -1,51 +1,51 @@
 {
-  "name": "marisa",
-  "aliases": [],
-  "startingRow": 33,
-  "colour": "#ffff00",
+  "name": "kasen",
+  "startingRow": 328,
+  "colour": "#00FF00",
   "moves": [
     {
       "names": ["5a", "a", "4a", "c5a"],
-      "image": "Marisac5a.gif",
+      "image": "Kasenc5a.gif",
       "rowOffset": 0
     },
     {
       "names": ["f5a"],
-      "image": "Marisaf5a.png",
+      "image": "Kasenf5a.gif",
       "rowOffset": 1
     },
     {
       "names": ["6a"],
-      "image": "Marisa6a.png",
+      "image": "Kasen6a.png",
       "rowOffset": 2
     },
     {
       "names": ["8a"],
-      "image": "Marisa8a.png",
+      "image": "Kasen8a.png",
       "rowOffset": 3
     },
     {
       "names": ["2a"],
-      "image": "Marisa2a.png",
+      "image": "Kasen2a.png",
       "rowOffset": 4
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Marisaj5a.png",
+      "image": "Kasenj5a.gif",
       "rowOffset": 5
     },
     {
       "names": ["j6a"],
-      "image": "Marisa6a.png",
+      "image": "Kasenj6a.png",
       "rowOffset": 6
     },
     {
       "names": ["j8a"],
-      "image": "Marisa8a.png",
+      "image": "Kasen8a.png",
       "rowOffset": 7
     },
     {
       "names": ["j2a"],
+      "image": "Kasen2a.png",
       "rowOffset": 8
     },
     {
@@ -90,38 +90,38 @@
     },
     {
       "names": ["8c"],
-      "rowOffset": 19
+      "pages": [
+        {
+          "title": "8c",
+          "description": "Kasen grabs onto her eagle, which then floats slightly upwards and back. She can drop off it by pressing 2. Interacts with [b] and Hawk Beacon. Has three follow-up moves that can be performed."
+        },
+        {
+          "title": "8c a",
+          "rowOffset": 20
+        },
+        {
+          "title": "8c b",
+          "rowOffset": 21
+        },
+        {
+          "title": "8c b (with becon set)",
+          "rowOffset": 22
+        }
+      ]
     },
     {
       "names": ["da", "66a", "dasha"],
-      "image": "Marisaf5a.png",
-      "rowOffset": 20
+      "image": "Kasen66a.png",
+      "rowOffset": 23
     },
     {
       "names": ["db", "66b", "dashb"],
-      "image": "Marisa66b.png",
-      "rowOffset": 21
+      "image": "Kasen2a.png",
+      "rowOffset": 24
     },
     {
       "names": ["ab", "occult"],
-      "pages": [
-        {
-          "title": "Occult Piano",
-          "rowOffset": 22
-        },
-        {
-          "title": "Occult Painting",
-          "rowOffset": 23
-        },
-        {
-          "title": "Occult Soldier/Statue",
-          "rowOffset": 24
-        },
-        {
-          "title": "Occult Basketball",
-          "rowOffset": 25
-        }
-      ]
+      "rowOffset": 25
     },
     {
       "names": ["ta", "taga"],

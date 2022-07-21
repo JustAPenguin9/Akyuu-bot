@@ -1,51 +1,51 @@
 {
-  "name": "marisa",
-  "aliases": [],
-  "startingRow": 33,
-  "colour": "#ffff00",
+  "name": "mokou",
+  "startingRow": 361,
+  "colour": "#FF0000",
   "moves": [
     {
       "names": ["5a", "a", "4a", "c5a"],
-      "image": "Marisac5a.gif",
+      "image": "Mokouc5a.gif",
       "rowOffset": 0
     },
     {
       "names": ["f5a"],
-      "image": "Marisaf5a.png",
+      "image": "Mokouf5a.gif",
       "rowOffset": 1
     },
     {
       "names": ["6a"],
-      "image": "Marisa6a.png",
+      "image": "Mokou6a.png",
       "rowOffset": 2
     },
     {
       "names": ["8a"],
-      "image": "Marisa8a.png",
+      "image": "Mokou8a.gif",
       "rowOffset": 3
     },
     {
       "names": ["2a"],
-      "image": "Marisa2a.png",
+      "image": "Mokou2a.png",
       "rowOffset": 4
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Marisaj5a.png",
+      "image": "Mokouj5a.gif",
       "rowOffset": 5
     },
     {
       "names": ["j6a"],
-      "image": "Marisa6a.png",
+      "image": "Mokouj6a.png",
       "rowOffset": 6
     },
     {
       "names": ["j8a"],
-      "image": "Marisa8a.png",
+      "image": "Mokouj8a.png",
       "rowOffset": 7
     },
     {
       "names": ["j2a"],
+      "image": "Mokouj2a.gif",
       "rowOffset": 8
     },
     {
@@ -94,70 +94,58 @@
     },
     {
       "names": ["da", "66a", "dasha"],
-      "image": "Marisaf5a.png",
+      "image": "Mokou66a.gif",
       "rowOffset": 20
     },
     {
       "names": ["db", "66b", "dashb"],
-      "image": "Marisa66b.png",
+      "image": "Mokouj6a.png",
       "rowOffset": 21
     },
     {
       "names": ["ab", "occult"],
-      "pages": [
-        {
-          "title": "Occult Piano",
-          "rowOffset": 22
-        },
-        {
-          "title": "Occult Painting",
-          "rowOffset": 23
-        },
-        {
-          "title": "Occult Soldier/Statue",
-          "rowOffset": 24
-        },
-        {
-          "title": "Occult Basketball",
-          "rowOffset": 25
-        }
-      ]
+      "rowOffset": 22
     },
     {
       "names": ["ta", "taga"],
-      "rowOffset": 26
+      "image": "Mokou66a.gif",
+      "rowOffset": 23
     },
     {
       "names": ["tja", "tagja"],
-      "rowOffset": 27
+      "image": "Mokouj5a.gif",
+      "rowOffset": 24
     },
     {
       "names": ["tb", "tagb"],
-      "rowOffset": 28
+      "rowOffset": 25
     },
     {
       "names": ["sc", "spellcard"],
       "pages": [
         {
           "title": "Spellcard 1",
-          "rowOffset": 29,
+          "image": "Mokou-sc1.png",
+          "rowOffset": 26,
           "isSpellcard": true
         },
         {
           "title": "Spellcard 2",
-          "rowOffset": 30,
+          "image": "Mokou-sc2.png",
+          "rowOffset": 27,
           "isSpellcard": true
         },
         {
           "title": "Spellcard 3",
-          "rowOffset": 31,
+          "image": "Mokou-sc3.png",
+          "rowOffset": 28,
           "isSpellcard": true
         }
       ]
     },
     {
       "names": ["lw", "lastword"],
-      "rowOffset": 32
+      "rowOffset": 29
     }
   ]
 }

@@ -1,51 +1,52 @@
 {
-  "name": "marisa",
-  "aliases": [],
-  "startingRow": 33,
-  "colour": "#ffff00",
+  "name": "mamizou",
+  "aliases": ["mami"],
+  "startingRow": 257,
+  "colour": "#00ff00",
   "moves": [
     {
       "names": ["5a", "a", "4a", "c5a"],
-      "image": "Marisac5a.gif",
+      "image": "Mamizou-c5a.gif",
       "rowOffset": 0
     },
     {
       "names": ["f5a"],
-      "image": "Marisaf5a.png",
+      "image": "Mamizou-f5a.gif",
       "rowOffset": 1
     },
     {
       "names": ["6a"],
-      "image": "Marisa6a.png",
+      "image": "Mamizou6a.png",
       "rowOffset": 2
     },
     {
       "names": ["8a"],
-      "image": "Marisa8a.png",
+      "image": "Mamizou-8a.gif",
       "rowOffset": 3
     },
     {
       "names": ["2a"],
-      "image": "Marisa2a.png",
+      "image": "Mamizou-2a.gif",
       "rowOffset": 4
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Marisaj5a.png",
+      "image": "Mamizouj5a.png",
       "rowOffset": 5
     },
     {
       "names": ["j6a"],
-      "image": "Marisa6a.png",
+      "image": "Mamizou6a.png",
       "rowOffset": 6
     },
     {
       "names": ["j8a"],
-      "image": "Marisa8a.png",
+      "image": "Mamizou8a.png",
       "rowOffset": 7
     },
     {
       "names": ["j2a"],
+      "image": "Mamizou-2a.gif",
       "rowOffset": 8
     },
     {
@@ -74,90 +75,113 @@
     },
     {
       "names": ["5c", "c"],
+      "image": "Mamizou5c.png",
       "rowOffset": 15
     },
     {
       "names": ["6c"],
+      "image": "Mamizou6c.png",
       "rowOffset": 16
     },
     {
       "names": ["4c"],
+      "image": "Mamizou4c.png",
       "rowOffset": 17
     },
     {
-      "names": ["2c"],
+      "names": ["j4c"],
+      "image": "Mamizouj4c.png",
       "rowOffset": 18
     },
     {
-      "names": ["8c"],
+      "names": ["2c"],
+      "image": "Mamizou2c.png",
       "rowOffset": 19
     },
     {
-      "names": ["da", "66a", "dasha"],
-      "image": "Marisaf5a.png",
+      "names": ["8c"],
+      "image": "Mamizou8c.png",
       "rowOffset": 20
     },
     {
-      "names": ["db", "66b", "dashb"],
-      "image": "Marisa66b.png",
+      "names": ["da", "66a", "dasha"],
+      "image": "Mamizou66a.png",
       "rowOffset": 21
+    },
+    {
+      "names": ["db", "66b", "dashb"],
+      "image": "Mamizou66b.png",
+      "rowOffset": 22
     },
     {
       "names": ["ab", "occult"],
       "pages": [
         {
-          "title": "Occult Piano",
-          "rowOffset": 22
-        },
-        {
-          "title": "Occult Painting",
+          "title": "Occult Ball Itself",
+          "image": "Mamizou-ab.gif",
+          "thumbnail": true,
           "rowOffset": 23
         },
         {
-          "title": "Occult Soldier/Statue",
+          "title": "Occult Blue Ball",
+          "image": "Mamizou66b.png",
+          "thumbnail": true,
           "rowOffset": 24
         },
         {
-          "title": "Occult Basketball",
+          "title": "Occult Red Ball",
+          "image": "Mamizou-ab.gif",
+          "thumbnail": true,
           "rowOffset": 25
+        },
+        {
+          "title": "Occult Green Ball",
+          "image": "Mamizou-ab.gif",
+          "thumbnail": true,
+          "rowOffset": 26
         }
       ]
     },
     {
       "names": ["ta", "taga"],
-      "rowOffset": 26
-    },
-    {
-      "names": ["tja", "tagja"],
+      "image": "Mamizou66a.png",
       "rowOffset": 27
     },
     {
-      "names": ["tb", "tagb"],
+      "names": ["tja", "tagja"],
+      "image": "Mamizouj5a.png",
       "rowOffset": 28
+    },
+    {
+      "names": ["tb", "tagb"],
+      "rowOffset": 29
     },
     {
       "names": ["sc", "spellcard"],
       "pages": [
         {
           "title": "Spellcard 1",
-          "rowOffset": 29,
-          "isSpellcard": true
-        },
-        {
-          "title": "Spellcard 2",
+          "image": "Mamizou-sc1.png",
           "rowOffset": 30,
           "isSpellcard": true
         },
         {
-          "title": "Spellcard 3",
+          "title": "Spellcard 2",
+          "image": "Mamizou-sc2.png",
           "rowOffset": 31,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 3",
+          "image": "Mamizou-sc3.png",
+          "rowOffset": 32,
           "isSpellcard": true
         }
       ]
     },
     {
       "names": ["lw", "lastword"],
-      "rowOffset": 32
+      "rowOffset": 33
     }
   ]
 }

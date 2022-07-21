@@ -1,163 +1,164 @@
 {
-  "name": "marisa",
-  "aliases": [],
-  "startingRow": 33,
-  "colour": "#ffff00",
+  "name": "byakuren",
+  "aliases": ["hijiri", "byak"],
+  "startingRow": 97,
+  "colour": "#160857",
   "moves": [
     {
       "names": ["5a", "a", "4a", "c5a"],
-      "image": "Marisac5a.gif",
+      "image": "Hijiric5a.gif",
       "rowOffset": 0
     },
     {
       "names": ["f5a"],
-      "image": "Marisaf5a.png",
+      "image": "Hijirif5a.png",
       "rowOffset": 1
     },
     {
       "names": ["6a"],
-      "image": "Marisa6a.png",
+      "image": "Hijiri6a.png",
       "rowOffset": 2
     },
     {
       "names": ["8a"],
-      "image": "Marisa8a.png",
+      "image": "Hijiri8a.png",
       "rowOffset": 3
     },
     {
       "names": ["2a"],
-      "image": "Marisa2a.png",
+      "image": "Hijiri2a.png",
       "rowOffset": 4
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Marisaj5a.png",
+      "image": "Hijirij5a.png",
       "rowOffset": 5
     },
     {
       "names": ["j6a"],
-      "image": "Marisa6a.png",
+      "image": "Hijirij6a.png",
       "rowOffset": 6
     },
     {
       "names": ["j8a"],
-      "image": "Marisa8a.png",
+      "image": "Hijiri8a.png",
       "rowOffset": 7
     },
     {
-      "names": ["j2a"],
+      "names": ["j2a", "highj2a", "hj2a", "h.j2a"],
+      "image": "Hijirij2a.png",
       "rowOffset": 8
     },
     {
-      "names": ["5b", "b"],
+      "names": ["lowj2a", "lj2a", "l.j2a"],
+      "image": "Hijiri2a.png",
       "rowOffset": 9
     },
     {
-      "names": ["2b"],
+      "names": ["5b", "b"],
       "rowOffset": 10
     },
     {
-      "names": ["8b"],
+      "names": ["2b"],
       "rowOffset": 11
     },
     {
-      "names": ["6b"],
+      "names": ["8b"],
       "rowOffset": 12
     },
     {
-      "names": ["cb", "chargeb", "[b]"],
+      "names": ["6b"],
       "rowOffset": 13
     },
     {
-      "names": ["bbb", "tenkai"],
+      "names": ["cb", "chargeb", "[b]"],
       "rowOffset": 14
     },
     {
-      "names": ["5c", "c"],
+      "names": ["bbb", "tenkai"],
       "rowOffset": 15
     },
     {
-      "names": ["6c"],
-      "rowOffset": 16
+      "names": ["chant"],
+      "description": "Byakuren stores up chants for her special moves. Who would've thought? If done in the air, she stops moving for a moment, then slowly drifts towards middle lane."
     },
     {
-      "names": ["4c"],
+      "names": ["5c", "c"],
       "rowOffset": 17
     },
     {
-      "names": ["2c"],
+      "names": ["j5c"],
       "rowOffset": 18
     },
     {
-      "names": ["8c"],
+      "names": ["6c"],
       "rowOffset": 19
     },
     {
-      "names": ["da", "66a", "dasha"],
-      "image": "Marisaf5a.png",
+      "names": ["4c"],
       "rowOffset": 20
     },
     {
-      "names": ["db", "66b", "dashb"],
-      "image": "Marisa66b.png",
+      "names": ["j4c"],
       "rowOffset": 21
     },
     {
-      "names": ["ab", "occult"],
-      "pages": [
-        {
-          "title": "Occult Piano",
-          "rowOffset": 22
-        },
-        {
-          "title": "Occult Painting",
-          "rowOffset": 23
-        },
-        {
-          "title": "Occult Soldier/Statue",
-          "rowOffset": 24
-        },
-        {
-          "title": "Occult Basketball",
-          "rowOffset": 25
-        }
-      ]
+      "names": ["2c"],
+      "rowOffset": 22
     },
     {
-      "names": ["ta", "taga"],
+      "names": ["8c"],
+      "rowOffset": 23
+    },
+    {
+      "names": ["da", "66a", "dasha"],
+      "image": "Hijiri66a.png",
+      "rowOffset": 24
+    },
+    {
+      "names": ["db", "66b", "dashb"],
+      "image": "Hijiri6b.png",
+      "rowOffset": 25
+    },
+    {
+      "names": ["ab", "occult"],
       "rowOffset": 26
     },
     {
-      "names": ["tja", "tagja"],
+      "names": ["ta", "taga"],
       "rowOffset": 27
     },
     {
-      "names": ["tb", "tagb"],
+      "names": ["tja", "tagja"],
       "rowOffset": 28
+    },
+    {
+      "names": ["tb", "tagb"],
+      "rowOffset": 29
     },
     {
       "names": ["sc", "spellcard"],
       "pages": [
         {
           "title": "Spellcard 1",
-          "rowOffset": 29,
-          "isSpellcard": true
-        },
-        {
-          "title": "Spellcard 2",
           "rowOffset": 30,
           "isSpellcard": true
         },
         {
-          "title": "Spellcard 3",
+          "title": "Spellcard 2",
           "rowOffset": 31,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 3",
+          "rowOffset": 32,
           "isSpellcard": true
         }
       ]
     },
     {
       "names": ["lw", "lastword"],
-      "rowOffset": 32
+      "rowOffset": 33
     }
   ]
 }

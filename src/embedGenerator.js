@@ -13,7 +13,7 @@ module.exports = (sheet, json, move) => {
   console.log('start ' + json.startingRow, 'offset ' + move.rowOffset, 'total row ' + (json.startingRow + move.rowOffset))
   const row = json.startingRow + move.rowOffset - 1
 
-  if (move.image && (move.isSpellCard || move.thumbnail)) {
+  if (move.image && (move.isSpellcard || move.thumbnail)) {
     embed.setThumbnail(`attachment://${move.image}`)
   } else if (move.image) {
     embed.setImage(`attachment://${move.image}`)
@@ -54,7 +54,7 @@ module.exports = (sheet, json, move) => {
       true
     )
 
-  if (move.isSpellCard) {
+  if (move.isSpellcard) {
     embed.addField(
       'cost',
       (sheet.getCell(row, 7)).value.toString(),

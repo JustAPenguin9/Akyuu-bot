@@ -1,127 +1,124 @@
 {
-  "name": "marisa",
-  "aliases": [],
-  "startingRow": 33,
-  "colour": "#ffff00",
+  "name": "nitori",
+  "aliases": ["alias"],
+  "startingRow": 194,
+  "colour": "#007aff",
   "moves": [
     {
       "names": ["5a", "a", "4a", "c5a"],
-      "image": "Marisac5a.gif",
+      "image": "Nitori-5a.gif",
       "rowOffset": 0
     },
     {
       "names": ["f5a"],
-      "image": "Marisaf5a.png",
+      "image": "Nitori-f5a.gif",
       "rowOffset": 1
     },
     {
       "names": ["6a"],
-      "image": "Marisa6a.png",
+      "image": "Nitori6a.png",
       "rowOffset": 2
     },
     {
       "names": ["8a"],
-      "image": "Marisa8a.png",
+      "image": "Nitori8a.png",
       "rowOffset": 3
     },
     {
       "names": ["2a"],
-      "image": "Marisa2a.png",
+      "image": "Nitori-2a.gif",
       "rowOffset": 4
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Marisaj5a.png",
+      "image": "Nitori-5a.gif",
       "rowOffset": 5
     },
     {
       "names": ["j6a"],
-      "image": "Marisa6a.png",
+      "image": "Nitori6a.png",
       "rowOffset": 6
     },
     {
-      "names": ["j8a"],
-      "image": "Marisa8a.png",
+      "names": ["j8a", "highj8a", "hj8a", "h.j8a"],
+      "image": "Nitori66a.png",
       "rowOffset": 7
     },
     {
-      "names": ["j2a"],
+      "names": ["lowj8a", "lj8a", "l.j8a"],
+      "image": "Nitori-lj8a.gif",
       "rowOffset": 8
     },
     {
-      "names": ["5b", "b"],
+      "names": ["j2a"],
+      "image": "Nitorij2a.png",
       "rowOffset": 9
     },
     {
-      "names": ["2b"],
+      "names": ["5b", "b"],
       "rowOffset": 10
     },
     {
-      "names": ["8b"],
+      "names": ["2b"],
       "rowOffset": 11
     },
     {
-      "names": ["6b"],
+      "names": ["8b"],
       "rowOffset": 12
     },
     {
-      "names": ["cb", "chargeb", "[b]"],
+      "names": ["6b"],
       "rowOffset": 13
     },
     {
-      "names": ["bbb", "tenkai"],
+      "names": ["cb", "chargeb", "[b]"],
       "rowOffset": 14
     },
     {
-      "names": ["5c", "c"],
+      "names": ["bbb", "tenkai"],
       "rowOffset": 15
     },
     {
-      "names": ["6c"],
+      "names": ["5c", "c"],
       "rowOffset": 16
     },
     {
-      "names": ["4c"],
+      "names": ["6c"],
       "rowOffset": 17
     },
     {
-      "names": ["2c"],
+      "names": ["lowj6c", "lj6c", "l.j6c"],
       "rowOffset": 18
     },
     {
-      "names": ["8c"],
+      "names": ["highj6c", "hj6c", "h.j6c"],
       "rowOffset": 19
     },
     {
-      "names": ["da", "66a", "dasha"],
-      "image": "Marisaf5a.png",
+      "names": ["4c"],
       "rowOffset": 20
     },
     {
-      "names": ["db", "66b", "dashb"],
-      "image": "Marisa66b.png",
+      "names": ["2c"],
       "rowOffset": 21
     },
     {
+      "names": ["8c"],
+      "rowOffset": 22
+    },
+    {
+      "names": ["da", "66a", "dasha"],
+      "image": "Nitori66a.png",
+      "rowOffset": 23
+    },
+    {
+      "names": ["db", "66b", "dashb"],
+      "image": "Nitorig66b.png",
+      "rowOffset": 24
+    },
+    {
       "names": ["ab", "occult"],
-      "pages": [
-        {
-          "title": "Occult Piano",
-          "rowOffset": 22
-        },
-        {
-          "title": "Occult Painting",
-          "rowOffset": 23
-        },
-        {
-          "title": "Occult Soldier/Statue",
-          "rowOffset": 24
-        },
-        {
-          "title": "Occult Basketball",
-          "rowOffset": 25
-        }
-      ]
+      "rowOffset": 25
     },
     {
       "names": ["ta", "taga"],

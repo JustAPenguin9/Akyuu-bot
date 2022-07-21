@@ -126,16 +126,19 @@
       "names": ["sc", "spellcard"],
       "pages": [
         {
-          "title": "Spell Card 1",
-          "rowOffset": 27
+          "title": "Spellcard 1",
+          "rowOffset": 27,
+          "isSpellcard": true
         },
         {
-          "title": "Spell card 2",
-          "rowOffset": 28
+          "title": "Spellcard 2",
+          "rowOffset": 28,
+          "isSpellcard": true
         },
         {
-          "title": "Spell card 3",
-          "rowOffset": 29
+          "title": "Spellcard 3",
+          "rowOffset": 29,
+          "isSpellcard": true
         }
       ]
     },

@@ -1,51 +1,52 @@
 {
-  "name": "marisa",
-  "aliases": [],
-  "startingRow": 33,
-  "colour": "#ffff00",
+  "name": "characterName",
+  "aliases": ["alias"],
+  "startingRow": 2,
+  "colour": "#",
   "moves": [
     {
       "names": ["5a", "a", "4a", "c5a"],
-      "image": "Marisac5a.gif",
+      "image": "Replace-c5a.gif",
       "rowOffset": 0
     },
     {
       "names": ["f5a"],
-      "image": "Marisaf5a.png",
+      "image": "Replace-f5a.gif",
       "rowOffset": 1
     },
     {
       "names": ["6a"],
-      "image": "Marisa6a.png",
+      "image": "Replace6a.png",
       "rowOffset": 2
     },
     {
       "names": ["8a"],
-      "image": "Marisa8a.png",
+      "image": "Replace8a.png",
       "rowOffset": 3
     },
     {
       "names": ["2a"],
-      "image": "Marisa2a.png",
+      "image": "Replace2a.png",
       "rowOffset": 4
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Marisaj5a.png",
+      "image": "Replaceja.png",
       "rowOffset": 5
     },
     {
       "names": ["j6a"],
-      "image": "Marisa6a.png",
+      "image": "Replacej6a.png",
       "rowOffset": 6
     },
     {
       "names": ["j8a"],
-      "image": "Marisa8a.png",
+      "image": "Replace8a.png",
       "rowOffset": 7
     },
     {
       "names": ["j2a"],
+      "image": "Replace-j2a.gif",
       "rowOffset": 8
     },
     {
@@ -94,70 +95,53 @@
     },
     {
       "names": ["da", "66a", "dasha"],
-      "image": "Marisaf5a.png",
+      "image": "Replace66a.png",
       "rowOffset": 20
     },
     {
       "names": ["db", "66b", "dashb"],
-      "image": "Marisa66b.png",
+      "image": "Replace66b.png",
       "rowOffset": 21
     },
     {
       "names": ["ab", "occult"],
-      "pages": [
-        {
-          "title": "Occult Piano",
-          "rowOffset": 22
-        },
-        {
-          "title": "Occult Painting",
-          "rowOffset": 23
-        },
-        {
-          "title": "Occult Soldier/Statue",
-          "rowOffset": 24
-        },
-        {
-          "title": "Occult Basketball",
-          "rowOffset": 25
-        }
-      ]
+      "rowOffset": 22
     },
     {
       "names": ["ta", "taga"],
-      "rowOffset": 26
+      "rowOffset": 23
     },
     {
       "names": ["tja", "tagja"],
-      "rowOffset": 27
+      "rowOffset": 24
     },
     {
       "names": ["tb", "tagb"],
-      "rowOffset": 28
+      "rowOffset": 25
     },
     {
       "names": ["sc", "spellcard"],
       "pages": [
         {
           "title": "Spellcard 1",
-          "rowOffset": 29,
+          "rowOffset": 26,
           "isSpellcard": true
         },
         {
           "title": "Spellcard 2",
-          "rowOffset": 30,
+          "rowOffset": 27,
           "isSpellcard": true
         },
         {
           "title": "Spellcard 3",
-          "rowOffset": 31,
+          "rowOffset": 28,
           "isSpellcard": true
         }
       ]
     },
     {
       "names": ["lw", "lastword"],
-      "rowOffset": 32
+      "rowOffset": 29
     }
   ]
 }

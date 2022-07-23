@@ -3,7 +3,7 @@
 
 (async () => {
   require('dotenv').config()
-  const { Client, Intents, Collection } = require('discord.js')
+  const { Client, GatewayIntentBits, Collection, Partials } = require('discord.js')
   const path = require('path')
   const { readdirSync } = require('fs')
 
@@ -12,15 +12,18 @@
   const doc = await accessSheet()
 
   // create discord.js client
-  const intents = {
+  const bot = new Client({
     intents: [
-      Intents.FLAGS.GUILDS,
-      Intents.FLAGS.GUILD_MESSAGES,
-      Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-      Intents.FLAGS.GUILD_MEMBERS
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildMessageReactions,
+    ],
+    partials: [
+      Partials.Channel,
+      Partials.Message
     ]
-  }
-  const bot = new Client(intents)
+  })
   bot.commands = new Collection()
   bot.events = new Collection()
   bot.characters = new Collection()

@@ -18,14 +18,9 @@ module.exports = async (bot, sheet, message, args) => {
   // if a match is not found return
   if (!move) return
 
-  console.log('pre page check move ' + JSON.stringify(move))
-  console.log(typeof move.pages === 'object')
-
   move.arg = args[1]
 
   if (typeof move.pages === 'object') {
-    console.log('post page check move ' + JSON.stringify(move))
-
     move.pages?.forEach(move => {
       embeds.push(embedGenerator(sheet, json, move))
     })
@@ -58,6 +53,4 @@ module.exports = async (bot, sheet, message, args) => {
     if (move.image) message.channel.send({ embeds, files: [`./attachments/${json.name}/${move.image}`] })
     else message.channel.send({ embeds })
   }
-
-  console.log(embeds.length)
 }

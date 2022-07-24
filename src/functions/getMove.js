@@ -1,4 +1,3 @@
-// TODO: change to export default
 module.exports = (json, arg) => {
   let moveIndex
   json.moves

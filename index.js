@@ -1,4 +1,4 @@
-// TODO: revert results command
+// TODO: command to take back already submitted results
 // TODO: command to change the timeout for results
 
 (async () => {
@@ -8,7 +8,7 @@
   const { readdirSync } = require('fs')
 
   // google sheet
-  const { accessSheet } = require('./src/sheets')
+  const { accessSheet } = require('./src/functions/sheets')
   const doc = await accessSheet()
 
   // create discord.js client
@@ -17,7 +17,7 @@
       GatewayIntentBits.MessageContent,
       GatewayIntentBits.Guilds,
       GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.GuildMessageReactions,
+      GatewayIntentBits.GuildMessageReactions
     ],
     partials: [
       Partials.Channel,
@@ -54,7 +54,6 @@
 
   const characterPath = path.join(__dirname, 'src/characters')
   readdirSync(characterPath).forEach(file => {
-  // FIXME: the json is cloned for each name and alias i think?
     const characterJSON = require(`${characterPath}/${file}`)
 
     bot.characters.set(characterJSON.name, characterJSON)
@@ -64,6 +63,5 @@
     })
   })
 
-  // TODO: update README with the new env format
   bot.login(process.env.TOKEN)
 })()

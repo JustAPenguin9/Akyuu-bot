@@ -1,5 +1,3 @@
-// TODO: move this to the character json files
-
 module.exports = {
   name: 'wiki',
   run: (bot, message, args) => {
@@ -66,6 +64,9 @@ module.exports = {
         break
       case 'mechanics':
         message.reply('<https://aocf.koumakan.jp/Game_mechanics>')
+        break
+      case 'glossary':
+        message.reply('<https://aocf.koumakan.jp/Glossary>')
         break
       default:
         message.reply('<https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki>')

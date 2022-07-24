@@ -21,7 +21,7 @@ module.exports = {
         !recorded // result has already been recorded
     }
 
-    const collector = msg.createReactionCollector({ filter, time: 30000 })
+    const collector = msg.createReactionCollector({ filter, time: 60000 })
     collector.on('collect', async (reaction) => {
       if (reaction.emoji.name === '🇾') {
         recorded = true

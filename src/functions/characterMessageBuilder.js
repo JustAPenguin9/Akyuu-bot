@@ -1,6 +1,6 @@
 // FIXME: rename this to something better
 
-const embedGenerator = require('./embedGenerator')
+const embedGenerator = require('./moveEmbedBuilder')
 const getMove = require('./getMove')
 
 module.exports = async (bot, sheet, message, args) => {

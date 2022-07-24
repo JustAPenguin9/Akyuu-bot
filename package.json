@@ -4,7 +4,9 @@
   "description": "Discord bot for touhou AOCF",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "lint": "standard './**/*.js'",
+    "lintfix": "standard './**/*.js' --fix"
   },
   "author": "JustAPenguin",
   "license": "MIT",
@@ -13,5 +15,8 @@
     "discord.js": "^14.0.3",
     "dotenv": "^16.0.1",
     "google-spreadsheet": "^3.3.0"
+  },
+  "devDependencies": {
+    "standard": "^17.0.0"
   }
 }

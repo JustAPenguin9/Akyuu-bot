@@ -1,7 +1,5 @@
-// TODO: change this all
-
 const { GoogleSpreadsheet } = require('google-spreadsheet')
-const creds = require('../key.json')
+const creds = require('../../key.json')
 const doc = new GoogleSpreadsheet(process.env.SPREADSHEETID)
 
 const loadSheet = async (doc) => {

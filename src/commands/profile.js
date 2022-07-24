@@ -4,7 +4,7 @@ module.exports = {
   name: 'profile',
   run: (bot, message, args) => {
     // FIXME: historyDb as a parameter
-    // TODO: proper error handling 
+    // TODO: proper error handling
 
     const user = message.mentions.users.first() ?? message.author
     let wins
@@ -38,10 +38,10 @@ module.exports = {
               : user.displayAvatarURL({ dynamic: true })
           )
           .addFields(
-            {name: 'Wins', value: wins.toString(), inline: true},
-            {name: 'Losses', value: losses.toString(), inline: true},
-            {name: 'W/L Ratio' , value: ratio.toString() , inline: true},
-            {name: 'Total games played' , value: (wins + losses).toString() , inline: true}
+            { name: 'Wins', value: wins.toString(), inline: true },
+            { name: 'Losses', value: losses.toString(), inline: true },
+            { name: 'W/L Ratio', value: ratio.toString(), inline: true },
+            { name: 'Total games played', value: (wins + losses).toString(), inline: true }
           )
 
         message.reply({ embeds: [embed] })

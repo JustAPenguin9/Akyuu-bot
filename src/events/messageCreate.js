@@ -1,4 +1,4 @@
-const character = require('../character')
+const character = require('../functions/characterMessageBuilder')
 
 module.exports = {
   name: 'messageCreate',

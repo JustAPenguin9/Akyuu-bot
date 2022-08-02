@@ -1,0 +1,176 @@
+{
+  "name": "sumireko",
+  "aliases": ["sumi", "usami", "susami"],
+  "startingRow": 422,
+  "colour": "#FF0000",
+  "moves": [
+    {
+      "names": ["5a", "a", "4a", "c5a"],
+      "image": "Sumi-5a.gif",
+      "rowOffset": 0
+    },
+    {
+      "names": ["f5a"],
+      "image": "Sumi-f5a.gif",
+      "rowOffset": 1
+    },
+    {
+      "names": ["6a"],
+      "image": "Sumi-6a.gif",
+      "rowOffset": 2
+    },
+    {
+      "names": ["8a"],
+      "image": "Sumi-8a.gif",
+      "rowOffset": 3
+    },
+    {
+      "names": ["2a"],
+      "image": "Sumi-2a.gif",
+      "rowOffset": 4
+    },
+    {
+      "names": ["ja", "j5a"],
+      "image": "Sumi-j5a.gif",
+      "rowOffset": 5
+    },
+    {
+      "names": ["j6a"],
+      "image": "Sumi-j6a.gif",
+      "rowOffset": 6
+    },
+    {
+      "names": ["j8a"],
+      "image": "Sumi-j8a.gif",
+      "rowOffset": 7
+    },
+    {
+      "names": ["j2a"],
+      "image": "Sumi-j2a.gif",
+      "rowOffset": 8
+    },
+    {
+      "names": ["5b", "b"],
+      "rowOffset": 9
+    },
+    {
+      "names": ["2b"],
+      "rowOffset": 10
+    },
+    {
+      "names": ["8b"],
+      "rowOffset": 11
+    },
+    {
+      "names": ["6b"],
+      "rowOffset": 12
+    },
+    {
+      "names": ["cb", "chargeb", "[b]"],
+      "rowOffset": 13
+    },
+    {
+      "names": ["bbb", "tenkai"],
+      "rowOffset": 14
+    },
+    {
+      "names": ["5c", "c"],
+      "rowOffset": 15
+    },
+    {
+      "names": ["6c"],
+      "rowOffset": 16
+    },
+    {
+      "names": ["4c"],
+      "rowOffset": 17
+    },
+    {
+      "names": ["low2c", "l2c", "l.2c"],
+      "rowOffset": 18
+    },
+    {
+      "names": ["2c", "high2c", "h2c", "h.2c"],
+      "rowOffset": 19
+    },
+    {
+      "names": ["8c"],
+      "rowOffset": 20
+    },
+    {
+      "names": ["da", "66a", "dasha"],
+      "image": "Sumi-66a.gif",
+      "rowOffset": 21
+    },
+    {
+      "names": ["db", "66b", "dashb"],
+      "image": "Sumi-66b.gif",
+      "rowOffset": 22
+    },
+    {
+      "names": [
+        "ab",
+        "occult",
+        "abmid",
+        "occultmid",
+        "abm",
+        "abhigh",
+        "occulthigh",
+        "abh",
+        "ablow",
+        "occultlow",
+        "abl"
+      ],
+      "pages": [
+        {
+          "title": "Occult (middle lane)",
+          "rowOffset": 24
+        },
+        {
+          "title": "Occult (top lane)",
+          "rowOffset": 23
+        },
+        {
+          "title": "Occult (bottom lane)",
+          "rowOffset": 25
+        }
+      ]
+    },
+    {
+      "names": ["ta", "taga"],
+      "rowOffset": 26
+    },
+    {
+      "names": ["tja", "tagja"],
+      "rowOffset": 27
+    },
+    {
+      "names": ["tb", "tagb"],
+      "rowOffset": 28
+    },
+    {
+      "names": ["sc", "spellcard"],
+      "pages": [
+        {
+          "title": "Spellcard 1",
+          "rowOffset": 29,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 2",
+          "rowOffset": 30,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 3",
+          "rowOffset": 31,
+          "isSpellcard": true
+        }
+      ]
+    },
+    {
+      "names": ["lw", "lastword"],
+      "rowOffset": 32
+    }
+  ]
+}

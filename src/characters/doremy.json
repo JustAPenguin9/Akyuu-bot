@@ -1,0 +1,147 @@
+{
+  "name": "doremy",
+  "aliases": ["santa"],
+  "startingRow": 485,
+  "colour": "#FF6CD9",
+  "moves": [
+    {
+      "names": ["5a", "a", "4a", "c5a"],
+      "image": "Doremyc5a.gif",
+      "rowOffset": 0
+    },
+    {
+      "names": ["f5a"],
+      "image": "Doremyf5a.png",
+      "rowOffset": 1
+    },
+    {
+      "names": ["6a"],
+      "image": "Doremy-6a.gif",
+      "rowOffset": 2
+    },
+    {
+      "names": ["8a"],
+      "image": "Doremy8a.png",
+      "rowOffset": 3
+    },
+    {
+      "names": ["2a"],
+      "image": "Doremy2a.png",
+      "rowOffset": 4
+    },
+    {
+      "names": ["ja", "j5a"],
+      "image": "Doremyj5a.gif",
+      "rowOffset": 5
+    },
+    {
+      "names": ["j6a"],
+      "image": "Doremyj6a.png",
+      "rowOffset": 6
+    },
+    {
+      "names": ["j8a"],
+      "image": "Doremy8a.png",
+      "rowOffset": 7
+    },
+    {
+      "names": ["j2a"],
+      "image": "Doremyj2a.png",
+      "rowOffset": 8
+    },
+    {
+      "names": ["5b", "b"],
+      "rowOffset": 9
+    },
+    {
+      "names": ["2b"],
+      "rowOffset": 10
+    },
+    {
+      "names": ["8b"],
+      "rowOffset": 11
+    },
+    {
+      "names": ["6b"],
+      "rowOffset": 12
+    },
+    {
+      "names": ["cb", "chargeb", "[b]"],
+      "rowOffset": 13
+    },
+    {
+      "names": ["bbb", "tenkai"],
+      "rowOffset": 14
+    },
+    {
+      "names": ["5c", "c"],
+      "description": "Doremy turns on her vacuum, pulling the opponent towards her and sucking up any dream souls present in the stage. The vacuum itself has no hitbox, but the dream souls do as they quickly make their way towards the vacuum, potentially dealing huge damage on hit or chip damage on block. An important move to master, as it greatly improves on her blockstrings, okizemi and even combos."
+    },
+    {
+      "names": ["6c"],
+      "rowOffset": 16
+    },
+    {
+      "names": ["4c"],
+      "rowOffset": 17
+    },
+    {
+      "names": ["2c"],
+      "rowOffset": 18
+    },
+    {
+      "names": ["8c"],
+      "rowOffset": 19
+    },
+    {
+      "names": ["da", "66a", "dasha"],
+      "image": "Doremy66a.png",
+      "rowOffset": 20
+    },
+    {
+      "names": ["db", "66b", "dashb"],
+      "image": "Doremy2a.png",
+      "rowOffset": 21
+    },
+    {
+      "names": ["ab", "occult"],
+      "rowOffset": 22
+    },
+    {
+      "names": ["ta", "taga"],
+      "rowOffset": 23
+    },
+    {
+      "names": ["tja", "tagja"],
+      "rowOffset": 24
+    },
+    {
+      "names": ["tb", "tagb"],
+      "rowOffset": 25
+    },
+    {
+      "names": ["sc", "spellcard"],
+      "pages": [
+        {
+          "title": "Spellcard 1",
+          "rowOffset": 26,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 2",
+          "rowOffset": 27,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 3",
+          "rowOffset": 28,
+          "isSpellcard": true
+        }
+      ]
+    },
+    {
+      "names": ["lw", "lastword"],
+      "rowOffset": 29
+    }
+  ]
+}

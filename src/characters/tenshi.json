@@ -1,0 +1,148 @@
+{
+  "name": "tenshi",
+  "aliases": ["tenko"],
+  "startingRow": 515,
+  "colour": "#0000FF",
+  "moves": [
+    {
+      "names": ["5a", "a", "4a", "c5a"],
+      "image": "Tenshi-c5a.gif",
+      "rowOffset": 0
+    },
+    {
+      "names": ["f5a"],
+      "image": "Tenshi-f5a.gif",
+      "rowOffset": 1
+    },
+    {
+      "names": ["6a"],
+      "image": "Tenshi-6a.gif",
+      "rowOffset": 2
+    },
+    {
+      "names": ["8a"],
+      "image": "Tenshi-8a.gif",
+      "rowOffset": 3
+    },
+    {
+      "names": ["2a"],
+      "image": "Tenshi-2a.gif",
+      "rowOffset": 4
+    },
+    {
+      "names": ["ja", "j5a"],
+      "image": "Tenshi-j5a.gif",
+      "rowOffset": 5
+    },
+    {
+      "names": ["j6a"],
+      "image": "Tenshi-j6a.gif",
+      "rowOffset": 6
+    },
+    {
+      "names": ["j8a"],
+      "image": "Tenshi-j8a.gif",
+      "rowOffset": 7
+    },
+    {
+      "names": ["j2a"],
+      "image": "Tenshi-j2a.gif",
+      "rowOffset": 8
+    },
+    {
+      "names": ["5b", "b"],
+      "rowOffset": 9
+    },
+    {
+      "names": ["2b"],
+      "rowOffset": 10
+    },
+    {
+      "names": ["8b"],
+      "rowOffset": 11
+    },
+    {
+      "names": ["6b"],
+      "rowOffset": 12
+    },
+    {
+      "names": ["cb", "chargeb", "[b]"],
+      "rowOffset": 13
+    },
+    {
+      "names": ["bbb", "tenkai"],
+      "rowOffset": 14
+    },
+    {
+      "names": ["5c", "c"],
+      "rowOffset": 15
+    },
+    {
+      "names": ["6c"],
+      "rowOffset": 16
+    },
+    {
+      "names": ["4c"],
+      "rowOffset": 17
+    },
+    {
+      "names": ["2c"],
+      "rowOffset": 18
+    },
+    {
+      "names": ["8c"],
+      "rowOffset": 19
+    },
+    {
+      "names": ["da", "66a", "dasha"],
+      "image": "Tenshi-66a.gif",
+      "rowOffset": 20
+    },
+    {
+      "FIXME:": "sending image as a seperate message",
+      "names": ["db", "66b", "dashb"],
+      "image": "Tenshi-66b-hurtbox&collision-only.gif",
+      "rowOffset": 21
+    },
+    {
+      "names": ["ab", "occult"],
+      "rowOffset": 22
+    },
+    {
+      "names": ["ta", "taga"],
+      "rowOffset": 23
+    },
+    {
+      "names": ["tja", "tagja"],
+      "rowOffset": 24
+    },
+    {
+      "names": ["tb", "tagb"],
+      "rowOffset": 25
+    },
+    {
+      "names": ["sc", "spellcard"],
+      "pages": [
+        {
+          "title": "Spellcard 1",
+          "rowOffset": 26,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 2",
+          "rowOffset": 27,
+          "isSpellcard": true
+        },
+        {
+          "title": "Spellcard 3",
+          "rowOffset": 28,
+          "isSpellcard": true
+        }
+      ]
+    },
+    {
+      "names": ["lw", "lastword"],
+      "rowOffset": 29
+    }
+  ]
+}

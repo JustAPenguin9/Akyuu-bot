@@ -28,6 +28,8 @@ To help further develop the bot or use the code for your own purposes add a .env
 In the .env file include:
 ```
 TOKEN=[the token given to you through the discord developer portal]
+PREFIX=[the prefix to all commands, commonly "!"]
+SPREADSHEETID=1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0
 ```
 
 The key.json file should be the file given to you when you set up the google sheets api through the [google developer portal](https://console.cloud.google.com/) but renamed to *key*. Should look something like:

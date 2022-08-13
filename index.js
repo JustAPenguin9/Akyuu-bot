@@ -17,7 +17,9 @@
       GatewayIntentBits.MessageContent,
       GatewayIntentBits.Guilds,
       GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.GuildMessageReactions
+      GatewayIntentBits.GuildMessageReactions,
+      GatewayIntentBits.DirectMessages,
+      GatewayIntentBits.DirectMessageReactions
     ],
     partials: [
       Partials.Channel,

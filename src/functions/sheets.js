@@ -9,14 +9,14 @@ const loadSheet = async (doc) => {
 }
 
 const accessSheet = async () => {
-  console.log('start of access sheet')
+  console.log('starting to access the google sheet...')
   await doc.useServiceAccountAuth({
     client_email: creds.client_email,
     private_key: creds.private_key
   })
   await loadSheet(doc)
 
-  console.log('end of access sheet')
+  console.log('accessed the google sheet')
   return doc
 }
 

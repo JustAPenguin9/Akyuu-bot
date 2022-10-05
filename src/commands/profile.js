@@ -10,7 +10,6 @@ module.exports = {
     try {
       wins = (await bot.historyDb.query(`SELECT * FROM history WHERE winner = ${player.id}`)).length
       losses = (await bot.historyDb.query(`SELECT * FROM history WHERE loser = ${player.id}`)).length
-      console.log(`wins: ${wins}, losses: ${losses}`)
     } catch (error) {
       message.channel.send('error recieving past results from the database: ' + error)
     }

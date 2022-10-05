@@ -31,10 +31,17 @@
   bot.characters = new Collection()
   bot.CommandTimeout = new Set()
   bot.doc = doc // move the spreadsheet into the bot object
-  // db
-  const Datastore = require('@seald-io/nedb')
-  bot.historyDb = new Datastore({ filename: 'db/history.db' })
-  bot.historyDb.loadDatabase()
+
+  // set up mariadb
+  const mariadb = require('mariadb')
+  const pool = mariadb.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
+  })
+  console.log('starting connection to database...')
+  bot.historyDb = await pool.getConnection()
 
   // TODO: add error event
   const eventPath = path.join(__dirname, 'src/events')
@@ -65,5 +72,18 @@
     })
   })
 
+  // login and start the bot
   bot.login(process.env.TOKEN)
+
+  // safely close the bot
+  const exitHandler = async (signal) => {
+    if (bot.historyDb) await bot.historyDb.end()
+    console.log('\nclossed connection to database')
+    if (bot) bot.destroy()
+
+    process.exit()
+  }
+  process.on('exit', exitHandler)
+  process.on('SIGINT', exitHandler)
+  process.on('SIGTERM', exitHandler)
 })()

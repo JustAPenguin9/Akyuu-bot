@@ -20,16 +20,20 @@ To update to the latest commit (needs to be done in the project directory):
 git pull
 ```
 
-
 ## Creating your own version of the bot
 
 To help further develop the bot or use the code for your own purposes add a .env, and a key.json file to the project directory.
 
 In the .env file include:
-```
+```dosini
 TOKEN=[the token given to you through the discord developer portal]
 PREFIX=[the prefix to all commands, commonly "!"]
 SPREADSHEETID=1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0
+
+DB_Host=[probably localhost]
+DB_USER=[your username]
+DB_PASSWORD=[your password]
+DB_NAME=[name of your database]
 ```
 
 The key.json file should be the file given to you when you set up the google sheets api through the [google developer portal](https://console.cloud.google.com/) but renamed to *key*. Should look something like:
@@ -46,6 +50,16 @@ The key.json file should be the file given to you when you set up the google she
   "auth_provider_x509_cert_url": "",
   "client_x509_cert_url": ""
 }
+```
+
+As of commit [b6150ac](https://github.com/JustAPenguin9/Akyuu-bot/commit/b6150ac081b50b7181784f0118818977b93e49b0), Akyuu went from using [nedb](https://github.com/seald/nedb) to MariaDB for storing game results. Akyuu requires a table called history with fields for the id, winner discord client id, loser discord client id, and timestamp.
+```sql
+CREATE TABLE history (
+  id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  winner VARCHAR(18) NOT NULL,
+  loser VARCHAR(18) NOT NULL,
+  time VARCHAR(13) NOT NULL
+);
 ```
 
 ## Running the bot

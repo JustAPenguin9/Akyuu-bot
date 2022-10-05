@@ -42,12 +42,22 @@ module.exports = {
         }
 
         // record results
+        let m
+        const values = []
         if (args[0] === 'win') { // author beat mentioned user
-          await msg.edit(`Results recorded: <@${message.author.id}> beat <@${message.mentions.users.first().id}>`)
-          bot.historyDb.insert({ winner: message.author.id, looser: message.mentions.users.first().id, time: Date.now() })
+          m = `Results recorded: <@${message.author.id}> beat <@${message.mentions.users.first().id}>`
+          values.push(message.author.id, message.mentions.users.first().id)
         } else { // mentioned user beat author
-          await msg.edit(`Results recorded: <@${message.mentions.users.first().id}> beat <@${message.author.id}>`)
-          bot.historyDb.insert({ winner: message.mentions.users.first().id, looser: message.author.id, time: Date.now() })
+          m = `Results recorded: <@${message.mentions.users.first().id}> beat <@${message.author.id}>`
+          values.push(message.mentions.users.first().id, message.author.id)
+        }
+        try {
+          values.push(Date.now().toString())
+          await bot.historyDb.query('INSERT INTO history (winner, loser, time) VALUES (?, ?, ?);', values)
+          msg.edit(m)
+        } catch (error) {
+          message.channel.send('error recording the results to the database')
+          console.log(error)
         }
       }
     })

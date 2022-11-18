@@ -13,6 +13,9 @@ module.exports = {
     } catch (error) {
       message.channel.send('error recieving past results from the database: ' + error)
     } finally {
+      if (wins === undefined || losses === undefined) {
+        return message.channel.send('error recieving past results from the database: undefined results')
+      }
       let ratio = (wins / losses).toPrecision(2)
       if (isNaN(ratio)) ratio = '0.0' // zero wins
       if (ratio === 'Infinity') ratio = '1.0' // zero losses

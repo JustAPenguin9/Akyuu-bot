@@ -79,5 +79,5 @@ for contributing
 ## Links
 
 * [AOCF discord server](https://discord.com/invite/kfJTRBq) - the only place the official bot is being used
-* [AOCF wiki](https://aocf.koumakan.jp/Antinomy_of_Common_Flowers_Wiki) - where most of the data is taken from
+* [AOCF wiki](https://aocf.koumakan.jp/wiki/Antinomy_of_Common_Flowers_Wiki) - where most of the data is taken from
 * [Google sheet](https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing) - where all the data the bot uses is stored

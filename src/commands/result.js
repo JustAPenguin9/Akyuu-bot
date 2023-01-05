@@ -52,9 +52,15 @@ module.exports = {
           values.push(message.mentions.users.first().id, message.author.id)
         }
         try {
+          // create db connection
+          const conn = await bot.pool.getConnection()
+
           values.push(Date.now().toString())
-          await bot.historyDb.query('INSERT INTO history (winner, loser, time) VALUES (?, ?, ?);', values)
+          await conn.query('INSERT INTO history (winner, loser, time) VALUES (?, ?, ?);', values)
           msg.edit(m)
+
+          // release db connection
+          conn.release()
         } catch (error) {
           message.channel.send('error recording the results to the database')
           console.log(error)

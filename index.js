@@ -78,7 +78,7 @@
   const exitHandler = async (signal) => {
     if (bot) bot.destroy()
 
-    console.log('bye bye')
+    process.exit()
   }
   process.on('exit', exitHandler)
   process.on('SIGINT', exitHandler)

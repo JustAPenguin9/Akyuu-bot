@@ -1,6 +1,6 @@
 module.exports = {
   name: 'starthere',
-  aliases: ['starterpack', 'start', 'sh'],
+  aliases: ['starterpack', 'start', 'sh', 'game'],
   run: (bot, message, args) => {
     message.channel.send(
       "Here's the link to **SonofGod's** starter pack: <https://drive.google.com/drive/folders/1cVEb1kN7X8lOsXn6XTBN1aphOEsD6SA8?usp=sharing>" +

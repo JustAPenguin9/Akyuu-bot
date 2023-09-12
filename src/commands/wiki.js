@@ -68,6 +68,9 @@ module.exports = {
       case 'glossary':
         message.reply('<https://aocf.koumakan.jp/wiki/Glossary>')
         break
+      case 'modding': case 'mods': case 'mod':
+        message.reply('<https://aocf.koumakan.jp/wiki/Modding>')
+        break
       default:
         message.reply('<https://aocf.koumakan.jp/wiki/Antinomy_of_Common_Flowers_Wiki>')
         break

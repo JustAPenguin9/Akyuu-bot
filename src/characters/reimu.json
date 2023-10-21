@@ -75,6 +75,7 @@
     },
     {
       "names": ["5c", "c"],
+      "image": "Reimu5c_mid.gif",
       "rowOffset": 15
     },
     {
@@ -87,10 +88,12 @@
     },
     {
       "names": ["2c"],
+      "image": "Reimu2c_400f.gif",
       "rowOffset": 18
     },
     {
       "names": ["8c"],
+      "image": "Reimu8c.gif",
       "rowOffset": 19
     },
     {

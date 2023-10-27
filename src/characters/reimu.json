@@ -16,7 +16,7 @@
     },
     {
       "names": ["6a"],
-      "image": "Reimu6a.png",
+      "image": "Reimu-6a.gif",
       "rowOffset": 2
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "names": ["j6a"],
-      "image": "Reimuj6a.png",
+      "image": "Reimu-j6a.gif",
       "rowOffset": 6
     },
     {
@@ -98,7 +98,7 @@
     },
     {
       "names": ["da", "66a", "dasha"],
-      "image": "Reimu66a.png",
+      "image": "Reimu-66a.gif",
       "rowOffset": 20
     },
     {

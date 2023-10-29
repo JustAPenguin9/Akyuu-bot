@@ -5,13 +5,33 @@
   "moves": [
     {
       "names": ["5a", "a", "4a", "c5a"],
-      "image": "Mikoc5a.gif",
-      "rowOffset": 0
+      "pages": [
+        {
+          "title": "No red cape",
+          "image": "Mikoc5a.gif",
+          "rowOffset": 0
+        },
+        {
+          "title": "With red cape",
+          "image": "Miko-red-4a.gif",
+          "rowOffset": 0
+        }
+      ]
     },
     {
       "names": ["f5a"],
-      "image": "miko-f5a-no-cape.gif",
-      "rowOffset": 1
+      "pages": [
+        {
+          "title": "No red cape",
+          "image": "miko-f5a-no-cape.gif",
+          "rowOffset": 1
+        },
+        {
+          "title": "With red cape",
+          "image": "Miko-red-f5a.gif",
+          "rowOffset": 1
+        }
+      ]
     },
     {
       "names": ["6a"],
@@ -30,8 +50,18 @@
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Miko-j5a.gif",
-      "rowOffset": 5
+      "pages": [
+        {
+          "title": "No red cape",
+          "image": "Miko-j5a.gif",
+          "rowOffset": 5
+        },
+        {
+          "title": "With red cape",
+          "image": "Miko-red-j5a.gif",
+          "rowOffset": 5
+        }
+      ]
     },
     {
       "names": ["j6a"],
@@ -98,8 +128,18 @@
     },
     {
       "names": ["da", "66a", "dasha"],
-      "image": "Miko66a.gif",
-      "rowOffset": 21
+      "pages": [
+        {
+          "title": "No red cape",
+          "image": "Miko66a.gif",
+          "rowOffset": 21
+        },
+        {
+          "title": "With red cape",
+          "image": "Miko-red-66a.gif",
+          "rowOffset": 21
+        }
+      ]
     },
     {
       "names": ["db", "66b", "dashb"],

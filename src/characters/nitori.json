@@ -87,10 +87,12 @@
     },
     {
       "names": ["lowj6c", "lj6c", "l.j6c"],
+      "image": "Nitori-lj6c.gif",
       "rowOffset": 18
     },
     {
       "names": ["highj6c", "hj6c", "h.j6c"],
+      "image": "Nitori-hj6c.gif",
       "rowOffset": 19
     },
     {
@@ -103,6 +105,7 @@
     },
     {
       "names": ["8c"],
+      "image": "Nitori8c-missing-explosion.gif",
       "rowOffset": 22
     },
     {

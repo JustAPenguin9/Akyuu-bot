@@ -25,8 +25,12 @@ module.exports = async (bot, sheet, message, args) => {
       embeds.push(embedGenerator(sheet, json, move))
     })
 
-    if (move.pages[page].image) messageEmbed = await message.channel.send({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
-    else messageEmbed = await message.channel.send({ embeds: [embeds[page]] })
+    if (move.pages[page].image) {
+      messageEmbed = await message.channel.send({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
+    } else {
+      messageEmbed = await message.channel.send({ embeds: [embeds[page]] })
+    }
+
     messageEmbed.react('⬅️')
     messageEmbed.react('➡️')
 
@@ -34,23 +38,34 @@ module.exports = async (bot, sheet, message, args) => {
     collector.on('collect', async (reaction) => {
       switch (reaction.emoji.name) {
         case '⬅️':
-          if (page === 0) page = 3
-          else page--
-          if (move.pages[page].image) messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
-          else messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]] })
+          if (page === 0) {
+            page = embeds.length - 1
+          } else {
+            page--
+          }
           break
         case '➡️':
-          if (page === embeds.length - 1) page = 0
-          else page++
-          if (move.pages[page].image) messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
-          else messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]] })
+          if (page === embeds.length - 1) {
+            page = 0
+          } else {
+            page++
+          }
           break
+      }
+
+      if (move.pages[page].image) {
+        messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]], files: [`./attachments/${json.name}/${move.pages[page].image}`] })
+      } else {
+        messageEmbed = await messageEmbed.edit({ embeds: [embeds[page]] })
       }
     })
   } else {
     embeds.push(embedGenerator(sheet, json, move))
 
-    if (move.image) message.channel.send({ embeds, files: [`./attachments/${json.name}/${move.image}`] })
-    else message.channel.send({ embeds })
+    if (move.image) {
+      message.channel.send({ embeds, files: [`./attachments/${json.name}/${move.image}`] })
+    } else {
+      message.channel.send({ embeds })
+    }
   }
 }

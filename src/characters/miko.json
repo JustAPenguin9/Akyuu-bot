@@ -137,14 +137,24 @@
         {
           "title": "With red cape",
           "image": "Miko-red-66a.gif",
-          "rowOffset": 21
+          "rowOffset": 31
         }
       ]
     },
     {
       "names": ["db", "66b", "dashb"],
-      "image": "Miko66b.png",
-      "rowOffset": 22
+      "pages": [
+        {
+          "title": "No red cape",
+          "image": "Miko66b.png",
+          "rowOffset": 22
+        },
+        {
+          "title": "With red cape",
+          "image": "Miko66b.png",
+          "rowOffset": 32
+        }
+      ]
     },
     {
       "names": ["ab", "occult"],

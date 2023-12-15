@@ -65,8 +65,18 @@
     },
     {
       "names": ["j6a"],
-      "image": "Miko6a.png",
-      "rowOffset": 6
+      "pages": [
+        {
+          "title": "No red cape",
+          "image": "Miko-j6a.gif",
+          "rowOffset": 6
+        },
+        {
+          "title": "With red cape",
+          "image": "Miko-red-j6a.gif",
+          "rowOffset": 6
+        }
+      ]
     },
     {
       "names": ["j8a"],
@@ -75,7 +85,7 @@
     },
     {
       "names": ["j2a"],
-      "image": "Mikoj2a.gif",
+      "image": "miko-j2a.gif",
       "rowOffset": 8
     },
     {

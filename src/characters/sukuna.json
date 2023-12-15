@@ -1,6 +1,6 @@
 {
   "name": "sukuna",
-  "aliases": ["shinmyoumaru", "shimmy", "sinmyoumaru"],
+  "aliases": ["shinmyoumaru", "shimmy", "shinmy", "sinmyoumaru"],
   "startingRow": 393,
   "colour": "#FF00A6",
   "moves": [
@@ -96,6 +96,7 @@
     },
     {
       "names": ["8c"],
+      "image": "Sukuna-8c.gif",
       "rowOffset": 20
     },
     {

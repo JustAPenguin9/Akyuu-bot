@@ -23,7 +23,7 @@
       "pages": [
         {
           "title": "No red cape",
-          "image": "miko-f5a-no-cape.gif",
+          "image": "Miko-f5a.gif",
           "rowOffset": 1
         },
         {
@@ -85,7 +85,7 @@
     },
     {
       "names": ["j2a"],
-      "image": "miko-j2a.gif",
+      "image": "Miko-j2a.gif",
       "rowOffset": 8
     },
     {

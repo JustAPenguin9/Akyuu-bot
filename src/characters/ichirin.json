@@ -35,7 +35,7 @@
     },
     {
       "names": ["j6a"],
-      "image": "Ichirin6a.png",
+      "image": "Ichirin-Unzan-j6a.gif",
       "rowOffset": 6
     },
     {
@@ -45,7 +45,7 @@
     },
     {
       "names": ["j2a"],
-      "image": "Ichirin2a.png",
+      "image": "Ichirin-Unzan-j2a.gif",
       "rowOffset": 8
     },
     {
@@ -90,6 +90,7 @@
     },
     {
       "names": ["8c"],
+      "image": "Ichirin-8c.gif",
       "rowOffset": 19
     },
     {
@@ -98,7 +99,7 @@
     },
     {
       "names": ["da", "66a", "dasha"],
-      "image": "Ichirin66a.png",
+      "image": "Ichirin-Unzan-66a.gif",
       "rowOffset": 21
     },
     {

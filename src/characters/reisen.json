@@ -11,7 +11,7 @@
     },
     {
       "names": ["f5a"],
-      "image": "Reisenf5a.png",
+      "image": "Reisen-f5a.gif",
       "rowOffset": 1
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "names": ["8a"],
-      "image": "Reisen8a.png",
+      "image": "Reisen-8a.gif",
       "rowOffset": 3
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "names": ["j6a"],
-      "image": "Reisenj6a.png",
+      "image": "Reisen-j6a.gif",
       "rowOffset": 6
     },
     {
@@ -95,12 +95,12 @@
     },
     {
       "names": ["da", "66a", "dasha"],
-      "image": "Reisen66a.png",
+      "image": "Reisen-66a.gif",
       "rowOffset": 20
     },
     {
       "names": ["db", "66b", "dashb"],
-      "image": "Reisenj6a.png",
+      "image": "Reisen-66b.gif",
       "rowOffset": 21
     },
     {

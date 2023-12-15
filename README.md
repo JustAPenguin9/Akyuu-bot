@@ -69,12 +69,14 @@ In the project directory:
 node .
 ```
 
-## Thanks to
+# Thanks to
 
-SonofGod1998#4546<br>
-Degaliuss#4752<br>
+@sonofgod_1998<br>
+@degaliuss<br>
 nimiala#8595<br>
-for contributing
+@cabadmdp<br>
+@elysiastarlight<br>
+for contributing through Discord
 
 ## Links
 

@@ -76,6 +76,7 @@ node .
 nimiala#8595<br>
 @cabadmdp<br>
 @elysiastarlight<br>
+@gato_rescatador<br>
 for contributing through Discord
 
 ## Links

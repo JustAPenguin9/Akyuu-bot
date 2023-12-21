@@ -35,12 +35,12 @@
     },
     {
       "names": ["j6a"],
-      "image": "Nitori6a.png",
+      "image": "Nitori-j6a.gif",
       "rowOffset": 6
     },
     {
       "names": ["j8a", "highj8a", "hj8a", "h.j8a"],
-      "image": "Nitori66a.png",
+      "image": "Nitori-hj8a.gif",
       "rowOffset": 7
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "names": ["j2a"],
-      "image": "Nitorij2a.png",
+      "image": "Nitori-j2a.gif",
       "rowOffset": 9
     },
     {

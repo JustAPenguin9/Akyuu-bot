@@ -78,10 +78,12 @@
     },
     {
       "names": ["6c"],
+      "image": "Futo-6c-max.gif",
       "rowOffset": 16
     },
     {
       "names": ["j6c"],
+      "image": "Futo-j6c.gif",
       "rowOffset": 17
     },
     {
@@ -90,10 +92,12 @@
     },
     {
       "names": ["2c", "j2c", "highj2c", "hj2c", "h.2c"],
+      "image": "Futo-hj2c.gif",
       "rowOffset": 19
     },
     {
       "names": ["low2c", "l2c", "l.2c"],
+      "image": "Futo-lj2c.gif",
       "rowOffset": 20
     },
     {

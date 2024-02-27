@@ -26,12 +26,12 @@
     },
     {
       "names": ["2a"],
-      "image": "Hijiri2a.png",
+      "image": "Hijiri-2a.gif",
       "rowOffset": 4
     },
     {
       "names": ["ja", "j5a"],
-      "image": "Hijirij5a.png",
+      "image": "Hijiri-j5a.gif",
       "rowOffset": 5
     },
     {
@@ -46,12 +46,12 @@
     },
     {
       "names": ["j2a", "highj2a", "hj2a", "h.j2a"],
-      "image": "Hijirij2a.png",
+      "image": "Hijiri-hj2a.gif",
       "rowOffset": 8
     },
     {
       "names": ["lowj2a", "lj2a", "l.j2a"],
-      "image": "Hijiri2a.png",
+      "image": "Hijiri-lj2a.gif",
       "rowOffset": 9
     },
     {

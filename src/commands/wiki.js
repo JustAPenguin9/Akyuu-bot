@@ -59,6 +59,9 @@ module.exports = {
       case 'joon': case "jo'on": case 'jyoon': case 'june': case 'john':
         message.reply('<https://aocf.koumakan.jp/wiki/Joon_Yorigami>')
         break
+      case 'random': case 'r':
+        message.reply('<https://aocf.koumakan.jp/wiki/Special:RandomInCategory/Characters>')
+        break
       case 'controls': case 'control':
         message.reply('<https://aocf.koumakan.jp/wiki/Controls>')
         break

@@ -100,8 +100,18 @@
     },
     {
       "names": ["8c"],
-      "image": "Mamizou8c.png",
-      "rowOffset": 20
+      "pages": [
+        {
+          "title": "Mid/High 8c",
+          "image": "Mamizou-8c.gif",
+          "rowOffset": 20
+        },
+        {
+          "title": "Low 8c",
+          "image": "Mamizou-lj8c.gif",
+          "rowOffset": 20
+        }
+      ]
     },
     {
       "names": ["da", "66a", "dasha"],

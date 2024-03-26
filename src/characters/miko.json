@@ -40,8 +40,18 @@
     },
     {
       "names": ["8a"],
-      "image": "Miko8a.png",
-      "rowOffset": 3
+      "pages": [
+        {
+          "title": "No red cape",
+          "image": "Miko-8a.gif",
+          "rowOffset": 3
+        },
+        {
+          "title": "With red cape",
+          "image": "Miko-red-8a.gif",
+          "rowOffset": 3
+        }
+      ]
     },
     {
       "names": ["2a"],

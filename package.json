@@ -13,7 +13,7 @@
   "dependencies": {
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5",
-    "google-auth-library": "^9.6.3",
+    "google-auth-library": "^9.8.0",
     "google-spreadsheet": "^4.1.1",
     "mariadb": "^3.2.3"
   },

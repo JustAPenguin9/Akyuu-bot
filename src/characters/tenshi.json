@@ -145,6 +145,7 @@
     },
     {
       "names": ["lw", "lastword"],
+      "image": "Tenshi-LW-max-radius.png",
       "rowOffset": 29
     }
   ]

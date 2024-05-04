@@ -40,7 +40,7 @@
     },
     {
       "names": ["j8a"],
-      "image": "Mokouj8a.png",
+      "image": "Mokou-j8a.gif",
       "rowOffset": 7
     },
     {
@@ -78,10 +78,12 @@
     },
     {
       "names": ["6c"],
+      "image": "Mokou-6c.gif",
       "rowOffset": 16
     },
     {
       "names": ["4c"],
+      "image": "Mokou-4c.gif",
       "rowOffset": 17
     },
     {
@@ -91,6 +93,7 @@
     },
     {
       "names": ["8c"],
+      "image": "Mokou-8c.gif",
       "rowOffset": 19
     },
     {

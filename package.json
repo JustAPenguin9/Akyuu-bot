@@ -15,7 +15,7 @@
     "dotenv": "^16.4.5",
     "google-auth-library": "^9.6.3",
     "google-spreadsheet": "^4.1.1",
-    "mariadb": "^3.2.3"
+    "mariadb": "^3.3.1"
   },
   "devDependencies": {
     "standard": "^17.1.0"

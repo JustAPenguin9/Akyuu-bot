@@ -7,6 +7,10 @@ module.exports = {
     const sheet = bot.doc.sheetsByIndex[0]
 
     if (message.author.bot) return
+	
+	// NOTE: do not react to any messages sent in the global aocf server
+	const aocf_global_id = "273513597622157322"
+	if (message.guildId == aocf_global_id) return
 
     // commands with no prefix
     switch (message.content) {

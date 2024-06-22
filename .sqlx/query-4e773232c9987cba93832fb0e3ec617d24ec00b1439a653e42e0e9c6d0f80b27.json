@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "INSERT INTO `history` (\n\t\t\t\t\t`winner`,\n\t\t\t\t\t`loser`,\n\t\t\t\t\t`games_played`,\n\t\t\t\t\t`recorded_by`\n\t\t\t\t) VALUES (?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 4
+    },
+    "nullable": []
+  },
+  "hash": "4e773232c9987cba93832fb0e3ec617d24ec00b1439a653e42e0e9c6d0f80b27"
+}

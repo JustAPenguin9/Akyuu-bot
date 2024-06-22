@@ -118,7 +118,8 @@ async fn result(
 
 	let msg = ctx
 		.send(|b| {
-			b.content(format!("<@{}> is this true?", other.id)).components(|c| {
+			b.content(format!("<@{}> {} - {} <@{}>, is this true <@{}>?", winner.id, wins, losses,
+					loser.id, other.id)).components(|c| {
 				c.create_action_row(|ar| {
 					ar.create_button(|b| {
 						b.style(ButtonStyle::Success).label("Yes").custom_id(&btn_id_yes)

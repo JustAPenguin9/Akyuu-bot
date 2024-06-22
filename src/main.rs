@@ -56,6 +56,7 @@ async fn main() {
 			// event_handler: ,
 			// pre_command: ,
 			// post_command: ,
+			// TODO: remove these check
 			command_check: Some(|ctx| {
 				Box::pin(async move {
 					// always allow owner to test bot
@@ -66,7 +67,6 @@ async fn main() {
 					let id = ctx.guild_id().unwrap_or(serenity::GuildId(1));
 					let aocf_global_id = 273513597622157322;
 
-					// TODO: remove this check
 					Ok(id == aocf_global_id)
 				})
 			}),

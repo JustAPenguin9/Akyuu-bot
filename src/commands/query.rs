@@ -47,7 +47,7 @@ async fn query_inner(
 
 	let data: MoveData = serde_json::from_str(&row[0].data)?;
 
-	let (embeds, titles) = create_move_embeds(data, &input);
+	let (embeds, titles) = create_move_embeds(data, &character, &input);
 
 	let ctx_id = ctx.id();
 	let btn_id_prev = format!("{}prev", ctx_id);
@@ -106,9 +106,10 @@ async fn query_inner(
 	Ok(())
 }
 
-fn create_move_embeds(data: MoveData, q: &String) -> (Vec<CreateEmbed>, Vec<String>) {
+fn create_move_embeds(data: MoveData, character: &CharacterChoices, q: &String) -> (Vec<CreateEmbed>, Vec<String>) {
 	// FIX: could be cleaner
 	let mut embeds = vec![];
+	// TODO: something with this variable
 	let mut titles = vec![];
 
 	for var in data.variations.iter() {
@@ -117,7 +118,8 @@ fn create_move_embeds(data: MoveData, q: &String) -> (Vec<CreateEmbed>, Vec<Stri
 		embed.colour(0xB3E04D);
 
 		if let Some(title) = &var.title {
-			embed.title(title);
+			let real_title = format!("{} {}", character.to_string(), title);
+			embed.title(real_title);
 			titles.push(title.into());
 		} else {
 			embed.title(q);

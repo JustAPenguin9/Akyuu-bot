@@ -105,7 +105,7 @@ async fn result(
 	let ctx_id = ctx.id();
 
 	// no cheating
-	if winner.bot || loser.bot || winner.id == loser.id {
+	if winner.bot || loser.bot || winner.id == loser.id || (wins == 0 && losses == 0) {
 		ctx.send(|b| b.content("Nice try.").ephemeral(true)).await?;
 		return Ok(());
 	};

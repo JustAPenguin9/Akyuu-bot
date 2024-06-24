@@ -106,7 +106,11 @@ async fn query_inner(
 	Ok(())
 }
 
-fn create_move_embeds(data: MoveData, character: &CharacterChoices, q: &String) -> (Vec<CreateEmbed>, Vec<String>) {
+fn create_move_embeds(
+	data: MoveData,
+	character: &CharacterChoices,
+	q: &String,
+) -> (Vec<CreateEmbed>, Vec<String>) {
 	// FIX: could be cleaner
 	let mut embeds = vec![];
 	// TODO: something with this variable

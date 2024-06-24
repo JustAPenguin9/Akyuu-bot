@@ -61,9 +61,9 @@ async fn main() {
 				Box::pin(async move {
 					// always allow owner to test bot
 					if ctx.framework().options().owners.contains(&ctx.author().id) {
-						return Ok(true)
+						return Ok(true);
 					}
-					
+
 					let id = ctx.guild_id().unwrap_or(serenity::GuildId(1));
 					let aocf_global_id = 273513597622157322;
 

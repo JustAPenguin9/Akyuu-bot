@@ -44,9 +44,9 @@ pub async fn profile(
 				.title(&user.name)
 				.thumbnail(user.avatar_url().unwrap_or(default_avatar))
 				.field("Wins", wins, true)
-				.field("losses", losses, true)
-				.field("W/L Ratios", format!("{:.2}", ratio), true)
-				.field("W/L Ratio", wins + losses, true)
+				.field("Losses", losses, true)
+				.field("W/L Ratio", format!("{:.2}", ratio), true)
+				.field("Total games played", wins + losses, true)
 		})
 		.reply(true)
 	})
@@ -210,8 +210,13 @@ async fn result(
 			interaction
 				.unwrap()
 				.create_interaction_response(ctx, |b| {
-					b.kind(InteractionResponseType::UpdateMessage)
-						.interaction_response_data(|d| d.content("Recorded!").components(|c| c))
+					b.kind(InteractionResponseType::UpdateMessage).interaction_response_data(|d| {
+						d.content(format!(
+							"~~<@{}> {} - {} <@{}>, is this true <@{}>?~~ Recorded!",
+							winner.id, wins, losses, loser.id, other.id
+						))
+						.components(|c| c)
+					})
 				})
 				.await?;
 		};

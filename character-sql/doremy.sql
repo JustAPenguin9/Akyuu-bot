@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 12,
 			"damage": 200,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/91/Doremyc5a.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": 2,
 			"recovery": 22,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/6a/Doremyf5a.png"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 25,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/92/Doremy6a.png"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": 8,
 			"recovery": 27,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/15/Doremy8a.png"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -49,7 +53,8 @@ INSERT INTO `moves` (
 			"active": 30,
 			"recovery": 32,
 			"damage": "250 > 750",
-			"stun": "40 (on last hit)"
+			"stun": "40 (on last hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/82/Doremy2a.png"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -59,7 +64,8 @@ INSERT INTO `moves` (
 			"active": 15,
 			"recovery": 26,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/33/Doremyj5a.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +75,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 43,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/f7/Doremyj6a.png"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +86,8 @@ INSERT INTO `moves` (
 			"active": 15,
 			"recovery": 24,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/91/Doremyj8a.png"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -89,7 +97,8 @@ INSERT INTO `moves` (
 			"active": "30f > 9f not active > 6f",
 			"recovery": 26,
 			"damage": "375-806 (125/hit and 500 on last hit)",
-			"stun": "40 (on last hit)"
+			"stun": "40 (on last hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/9b/Doremyj2a.png"
 		},
 		{
 			"title": "bottom lane j2a",
@@ -97,7 +106,8 @@ INSERT INTO `moves` (
 			"active": "30f > 12 not active > 30",
 			"recovery": 61,
 			"damage": "375-806 (125/hit and 500 on last hit)",
-			"stun": "40 (on last hit)"
+			"stun": "40 (on last hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/9b/Doremyj2a.png"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -184,7 +194,8 @@ INSERT INTO `moves` (
 			"active": 15,
 			"recovery": 20,
 			"damage": "553 (if all hit)",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/a/af/Doremy66a.png"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -194,7 +205,8 @@ INSERT INTO `moves` (
 			"active": 27,
 			"recovery": 28,
 			"damage": "1016 (if all hit)",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/1e/Doremy66b.png"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [
@@ -218,19 +230,22 @@ INSERT INTO `moves` (
 			"title": "spellcard 1",
 			"damage": 1845,
 			"stun": 100,
-			"cost": 800
+			"cost": 800,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/8d/Doremy_0.png"
 		},
 		{
 			"title": "spellcard 2",
 			"damage": "3637 (if all hit)",
 			"stun": 100,
-			"cost": 1000
+			"cost": 1000,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/5/5f/Doremy_1.png"
 		},
 		{
 			"title": "spellcard 3",
 			"damage": "2888-3999",
 			"stun": 100,
-			"cost": 1400
+			"cost": 1400,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/6d/Doremy_2.png"
 		}
 	]}')),
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [

@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": "2f",
 			"recovery": "13f",
 			"damage": 200,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/fe/Hijiric5a.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": "2f",
 			"recovery": "20f",
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/9d/Hijiri-f5a.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": "11f",
 			"recovery": "27f",
 			"damage": 825,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/83/Hijiri6a.png"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "45f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d7/Hijiri-8a.gif"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -49,7 +53,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "29f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/16/Hijiri-2a.gif"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -59,7 +64,8 @@ INSERT INTO `moves` (
 			"active": "9f",
 			"recovery": "18f",
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e4/Hijiri-j5a.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +75,8 @@ INSERT INTO `moves` (
 			"active": "7f",
 			"recovery": "29f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/77/Hijiri-j6a.gif"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +86,8 @@ INSERT INTO `moves` (
 			"active": "5f",
 			"recovery": "37f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/04/Hijirij8a.png"
 		},
 		{
 			"title": "bottom lane j8a",
@@ -87,7 +95,8 @@ INSERT INTO `moves` (
 			"active": "5f",
 			"recovery": "59f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/04/Hijirij8a.png"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -97,7 +106,8 @@ INSERT INTO `moves` (
 			"active": "4f",
 			"recovery": "38f",
 			"damage": "250 > 962",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d6/Hijiri-hj2a.gif"
 		},
 		{
 			"title": "bottom lane j2a",
@@ -105,7 +115,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "38f",
 			"damage": "750",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/da/Hijiri-lj2a.gif"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -179,7 +190,8 @@ INSERT INTO `moves` (
 			"active": "8f",
 			"recovery": "34f + 6f if the move connects",
 			"damage": "281 - 1437",
-			"stun": "20 - 30"
+			"stun": "20 - 30",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7d/Byakuren-6c.gif"
 		}
 	]}')),
 	(@game, @character, '4c', JSON_COMPACT('{ "variations": [
@@ -217,7 +229,8 @@ INSERT INTO `moves` (
 			"active": "20f",
 			"recovery": "14f",
 			"damage": "671 (if all hit)",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d9/Hijiri66a.png"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -227,6 +240,8 @@ INSERT INTO `moves` (
 			"active": "8f",
 			"recovery": "27f",
 			"damage": "825"
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7f/Hijiri66b.png"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [
@@ -249,17 +264,20 @@ INSERT INTO `moves` (
 		{
 			"title": "spellcard 1",
 			"damage": "3068",
-			"cost": 1000
+			"cost": 1000,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/92/Hijiri_0.png"
 		},
 		{
 			"title": "spellcard 2",
 			"damage": "3597",
-			"cost": 800
+			"cost": 800,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/fe/Hijiri_1.png"
 		},
 		{
 			"title": "spellcard 3",
 			"damage": "3921",
-			"cost": 1200
+			"cost": 1200,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b1/Hijiri_2.png"
 		}
 	]}')),
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [

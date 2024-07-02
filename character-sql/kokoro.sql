@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": 9,
 			"recovery": 15,
 			"damage": 339,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/dd/Kokoroc5a.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 21,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/31/Kokorof5a.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 30,
 			"damage": 812,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/08/Kokoro6a.gif"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": "3f > 12f not active, 6f",
 			"recovery": 20,
 			"damage": "375 > 984",
-			"stun": "20 per (max 40)"
+			"stun": "20 per (max 40)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/61/Kokoro8a.gif"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -49,7 +53,8 @@ INSERT INTO `moves` (
 			"active": 18,
 			"recovery": 32,
 			"damage": "807 (if all hit)",
-			"stun": "8 per (max 48)"
+			"stun": "8 per (max 48)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/03/Kokoro2a.gif"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -59,7 +64,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 25,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/83/Kokoroj5a.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +75,8 @@ INSERT INTO `moves` (
 			"active": 7,
 			"recovery": 37,
 			"damage": 812,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/88/Kokoroj6a.gif"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +86,8 @@ INSERT INTO `moves` (
 			"active": "3f > 12f not active > 6f",
 			"recovery": 20,
 			"damage": "375 > 984",
-			"stun": "20 > 40"
+			"stun": "20 > 40",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/61/Kokoro8a.gif"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -89,7 +97,8 @@ INSERT INTO `moves` (
 			"active": 18,
 			"recovery": 27,
 			"damage": "686 (if all hit)",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/76/Kokoroj2a.gif"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -220,7 +229,8 @@ INSERT INTO `moves` (
 			"active": "minimum 41f",
 			"recovery": 29,
 			"damage": "1341",
-			"stun": "40 (on last hit)"
+			"stun": "40 (on last hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/f5/Kokoro6c.gif"
 		}
 	]}')),
 	(@game, @character, '4c', JSON_COMPACT('{ "variations": [
@@ -230,7 +240,8 @@ INSERT INTO `moves` (
 			"active": 8,
 			"recovery": 22,
 			"damage": "250 > 843 or 750 (on last hit)",
-			"stun": "0 > 40"
+			"stun": "0 > 40",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d9/Kokoro-4c.gif"
 		}
 	]}')),
 	(@game, @character, '2c', JSON_COMPACT('{ "variations": [
@@ -254,7 +265,8 @@ INSERT INTO `moves` (
 			"active": "3f > 12f not active > 3f",
 			"recovery": 16,
 			"damage": "312 > 645",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/5/5e/Kokoro66a.gif"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -264,7 +276,8 @@ INSERT INTO `moves` (
 			"active": 12,
 			"recovery": 30,
 			"damage": "375 > 725 > 1052",
-			"stun": 45
+			"stun": 45,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/2/23/Kokoro66b.gif"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [
@@ -291,19 +304,22 @@ INSERT INTO `moves` (
 			"title": "spellcard 1",
 			"damage": "3071",
 			"stun": 100,
-			"cost": 1200
+			"cost": 1200,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/ef/Kokoro_0.png"
 		},
 		{
 			"title": "spellcard 2",
 			"damage": "2008",
 			"stun": 100,
-			"cost": 700
+			"cost": 700,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/fc/Kokoro_1.png"
 		},
 		{
 			"title": "spellcard 3",
 			"damage": 3337,
 			"stun": 100,
-			"cost": 1000
+			"cost": 1000,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/db/Kokoro_2.png"
 		}
 	]}')),
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [

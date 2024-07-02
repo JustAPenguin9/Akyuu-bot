@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": 2,
 			"recovery": 11,
 			"damage": 200,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/2/24/Joonc5a.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 16,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/16/Joon-f5a.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 21,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/80/Joon-6a.gif"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": 9,
 			"recovery": 26,
 			"damage": "250 > 918",
-			"stun": "40 (on final hit)"
+			"stun": "40 (on final hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/c9/Joon8a.png"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -49,7 +53,8 @@ INSERT INTO `moves` (
 			"active": 5,
 			"recovery": 21,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/da/Joon2a.png"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -59,7 +64,8 @@ INSERT INTO `moves` (
 			"active": 9,
 			"recovery": 32,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/4d/Joon-j5a.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +75,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 25,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/cb/Joon-j6a.gif"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +86,8 @@ INSERT INTO `moves` (
 			"active": 9,
 			"recovery": 29,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/3d/Joon_j8a.gif"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -89,7 +97,8 @@ INSERT INTO `moves` (
 			"active": 17,
 			"recovery": 66,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/47/Joonj2a.png"
 		},
 		{
 			"title": "bottom lane j2a",
@@ -97,7 +106,8 @@ INSERT INTO `moves` (
 			"active": 17,
 			"recovery": 66,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/47/Joonj2a.png"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -187,7 +197,8 @@ INSERT INTO `moves` (
 			"active": 4,
 			"recovery": 27,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/37/Joon66a.png"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -197,7 +208,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 31,
 			"damage": 825,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/08/Joon66b.png"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [
@@ -223,19 +235,22 @@ INSERT INTO `moves` (
 			"title": "spellcard 1",
 			"damage": 2500,
 			"stun": 100,
-			"cost": 1000
+			"cost": 1000,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/5/5c/Jyoon_0.png"
 		},
 		{
 			"title": "spellcard 2",
 			"damage": "3962-4119",
 			"stun": 100,
-			"cost": 1400
+			"cost": 1400,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/99/Jyoon_1.png"
 		},
 		{
 			"title": "spellcard 3",
 			"damage": 5248,
 			"stun": 100,
-			"cost": 1200
+			"cost": 1200,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/ed/Jyoon_2.png"
 		}
 	]}')),
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [

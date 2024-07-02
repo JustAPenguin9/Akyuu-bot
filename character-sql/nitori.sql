@@ -49,7 +49,8 @@ INSERT INTO `moves` (
 			"active": "15f",
 			"recovery": "22f",
 			"damage": 697,
-			"stun": 30
+			"stun": 30,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/91/Nitori2a.gif"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -69,7 +70,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "32f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/ed/Nitori-j6a.gif"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +81,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "28f",
 			"damage": 706,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/4f/Nitori-hj8a.gif"
 		},
 		{
 			"title": "low j8a",
@@ -87,7 +90,8 @@ INSERT INTO `moves` (
 			"active": "minimum 9f",
 			"recovery": "16f",
 			"damage": 625,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/04/Nitorilj8a.gif"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -97,7 +101,8 @@ INSERT INTO `moves` (
 			"active": "10f",
 			"recovery": "30f",
 			"damage": "750",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/2/23/Nitori-j2a.gif"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -165,7 +170,8 @@ INSERT INTO `moves` (
 			"active": "12f > 12f not active > 9f",
 			"recovery": "21f",
 			"damage": "1125",
-			"stun": "40"
+			"stun": "40",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b8/Nitori-lj6c.gif"
 		},
 		{
 			"title": "high j6c",
@@ -173,7 +179,8 @@ INSERT INTO `moves` (
 			"active": "12f > 9f not active > 15f",
 			"recovery": "15f",
 			"damage": "1125",
-			"stun": "40"
+			"stun": "40",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d9/Nitori-hj6c.gif"
 		}
 	]}')),
 	(@game, @character, '4c', JSON_COMPACT('{ "variations": [
@@ -197,7 +204,8 @@ INSERT INTO `moves` (
 			"active": "15f",
 			"recovery": "17f",
 			"damage": "1453 (625 launch + 1000 rocket)",
-			"stun": "20 > 40"
+			"stun": "20 > 40",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/11/Nitori8c.gif"
 		}
 	]}')),
 	(@game, @character, 'da,dasha,66a', JSON_COMPACT('{ "variations": [

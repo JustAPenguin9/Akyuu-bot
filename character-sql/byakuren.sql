@@ -239,7 +239,7 @@ INSERT INTO `moves` (
 			"startup": "31f",
 			"active": "8f",
 			"recovery": "27f",
-			"damage": "825"
+			"damage": "825",
 			"stun": 40,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7f/Hijiri66b.png"
 		}

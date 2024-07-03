@@ -4,7 +4,7 @@ use crate::types::{CharacterChoices, MoveData};
 use crate::{Context, Error};
 
 /// Query the frame data for a characters move (alias for move)
-#[poise::command(prefix_command, track_edits, slash_command, aliases("q", "move", "m"))]
+#[poise::command(prefix_command, slash_command, aliases("q", "move", "m"))]
 pub async fn query(
 	ctx: Context<'_>,
 	#[description = "Character whose move you want to query"] character: CharacterChoices,
@@ -14,7 +14,7 @@ pub async fn query(
 }
 
 /// Query the frame data for a characters move (alias for query)
-#[poise::command(prefix_command, track_edits, slash_command, rename = "move")]
+#[poise::command(slash_command, rename = "move")]
 pub async fn query_alias(
 	ctx: Context<'_>,
 	#[description = "Character whose move you want to query"] character: CharacterChoices,
@@ -47,7 +47,7 @@ async fn query_inner(
 
 	let data: MoveData = serde_json::from_str(&row[0].data)?;
 
-	let (embeds, titles) = create_move_embeds(data, &character, &input);
+	let (embeds, _titles) = create_move_embeds(data, &character, &input);
 
 	let ctx_id = ctx.id();
 	let btn_id_prev = format!("{}prev", ctx_id);

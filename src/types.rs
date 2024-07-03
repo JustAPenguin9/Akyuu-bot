@@ -27,8 +27,8 @@ pub struct Variation {
 	#[serde(deserialize_with = "de_num_str", default)]
 	pub cost: Option<String>,
 
-	pub thumbnail: Option<String>,
 	pub attachment: Option<String>,
+	pub thumbnail: Option<String>,
 }
 
 fn de_num_str_as_frames<'de, D: Deserializer<'de>>(

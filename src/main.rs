@@ -1,5 +1,5 @@
 use dotenvy::dotenv;
-use poise::serenity_prelude::{self as serenity};
+use poise::serenity_prelude::{self as serenity, futures::TryFutureExt};
 use sqlx::MySqlPool;
 
 mod types;
@@ -63,7 +63,7 @@ async fn main() {
 					match event {
 						Ready { data_about_bot } => {
 							ctx.set_presence(
-								Some(serenity::Activity::listening("to Kosuzu ramble")),
+								Some(serenity::Activity::listening("Kosuzu ramble")),
 								serenity::OnlineStatus::Idle,
 							)
 							.await;
@@ -76,6 +76,7 @@ async fn main() {
 								info!("{author_name} ({author_id}) called o/");
 
 								match new_message.reply(&ctx.http, "o/").await {
+								// match new_message.channel(&ctx.http).unwrap_or_else(|_| todo!()) {
 									Ok(_) => {
 										info!("{author_name} ({author_id}) successfully called o/")
 									}

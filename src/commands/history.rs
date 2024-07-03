@@ -35,6 +35,7 @@ pub async fn profile(
 		format!("https://cdn.discordapp.com/embed/avatars/{}.png", user.id.as_u64() >> (22 % 6))
 	} else {
 		// legacy user
+		tracing::debug!("legeacy pfp");
 		format!("https://cdn.discordapp.com/embed/avatars/{}.png", user.discriminator % 5)
 	};
 
@@ -46,7 +47,7 @@ pub async fn profile(
 				.field("Wins", wins, true)
 				.field("Losses", losses, true)
 				.field("W/L Ratio", format!("{:.2}", ratio), true)
-				.field("Total games played", wins + losses, true)
+				.field("Total games", wins + losses, true)
 		})
 		.reply(true)
 	})
@@ -224,10 +225,8 @@ async fn result(
 		interaction
 			.unwrap()
 			.create_interaction_response(ctx, |b| {
-				b.kind(InteractionResponseType::UpdateMessage).interaction_response_data(|b| {
-					b.content("Seems like i'm not going to record anything today.")
-						.components(|c| c)
-				})
+				b.kind(InteractionResponseType::UpdateMessage)
+					.interaction_response_data(|b| b.content("Ran out of time!").components(|c| c))
 			})
 			.await?;
 	}

@@ -1,5 +1,6 @@
 use poise::serenity_prelude::{ButtonStyle, InteractionResponseType, User};
 use sqlx::types::chrono;
+use tracing::info;
 
 use crate::{Context, Error};
 
@@ -154,8 +155,8 @@ async fn result(
 	};
 
 	if *btn_id == btn_id_yes {
-		// record wins
 		if losses == 0 {
+			// record only wins
 			sqlx::query!(
 				r#"INSERT INTO `history` (
 					`winner`,
@@ -170,63 +171,73 @@ async fn result(
 			)
 			.execute(&ctx.data().pool)
 			.await?;
+			info!("Recored 1 row to the database");
 		} else {
 			// record a full set
 			let time = chrono::Utc::now();
+			let (winner_result, loser_result) = tokio::join!(
+				sqlx::query!(
+					r#"INSERT INTO `history` (
+						`winner`,
+						`loser`,
+						`games_played`,
+						`recorded_at`,
+						`recorded_by`
+					) VALUES (?, ?, ?, ?, ?)"#,
+					u64::from(winner.id),
+					u64::from(loser.id),
+					wins,
+					time,
+					u64::from(ctx.author().id)
+				)
+				.execute(&ctx.data().pool),
+				sqlx::query!(
+					r#"INSERT INTO `history` (
+						`winner`,
+						`loser`,
+						`games_played`,
+						`recorded_at`,
+						`recorded_by`
+					) VALUES (?, ?, ?, ?, ?)"#,
+					u64::from(loser.id),
+					u64::from(winner.id),
+					losses,
+					time,
+					u64::from(ctx.author().id)
+				)
+				.execute(&ctx.data().pool),
+			);
 
-			sqlx::query!(
-				r#"INSERT INTO `history` (
-					`winner`,
-					`loser`,
-					`games_played`,
-					`recorded_at`,
-					`recorded_by`
-				) VALUES (?, ?, ?, ?, ?)"#,
-				u64::from(winner.id),
-				u64::from(loser.id),
-				wins,
-				time,
-				u64::from(ctx.author().id)
-			)
-			.execute(&ctx.data().pool)
-			.await?;
-
-			sqlx::query!(
-				r#"INSERT INTO `history` (
-					`winner`,
-					`loser`,
-					`games_played`,
-					`recorded_at`,
-					`recorded_by`
-				) VALUES (?, ?, ?, ?, ?)"#,
-				u64::from(loser.id),
-				u64::from(winner.id),
-				losses,
-				time,
-				u64::from(ctx.author().id)
-			)
-			.execute(&ctx.data().pool)
-			.await?;
-
-			interaction
-				.unwrap()
-				.create_interaction_response(ctx, |b| {
-					b.kind(InteractionResponseType::UpdateMessage).interaction_response_data(|d| {
-						d.content(format!(
-							"~~<@{}> {} - {} <@{}>, is this true <@{}>?~~ Recorded!",
-							winner.id, wins, losses, loser.id, other.id
-						))
-						.components(|c| c)
-					})
-				})
-				.await?;
+			// FIX: this is probably not very good
+			// bubble up errors
+			winner_result?;
+			loser_result?;
+			info!("Recored 2 rows to the database");
 		};
+
+		interaction
+			.unwrap()
+			.create_interaction_response(ctx, |b| {
+				b.kind(InteractionResponseType::UpdateMessage).interaction_response_data(|d| {
+					d.content(format!(
+						"~~<@{}> {} - {} <@{}>, is this true <@{}>?~~ Recorded!",
+						winner.id, wins, losses, loser.id, other.id
+					))
+					.components(|c| c)
+				})
+			})
+			.await?;
 	} else if *btn_id == btn_id_no {
 		interaction
 			.unwrap()
 			.create_interaction_response(ctx, |b| {
-				b.kind(InteractionResponseType::UpdateMessage)
-					.interaction_response_data(|b| b.content("Ran out of time!").components(|c| c))
+				b.kind(InteractionResponseType::UpdateMessage).interaction_response_data(|b| {
+					b.content(format!(
+						"~~<@{}> {} - {} <@{}>, is this true <@{}>?~~ <@{}> said no!",
+						winner.id, wins, losses, loser.id, other.id, other.id
+					))
+					.components(|c| c)
+				})
 			})
 			.await?;
 	}

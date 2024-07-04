@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": "3f > 9f not active > 3f",
 			"recovery": "11f",
 			"damage": 200,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/6f/Nitoric5a.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "18f",
 			"damage": "500",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b9/Nitorif5a.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "29f",
 			"damage": "750",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/4e/Nitori6a.png"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": "18f",
 			"recovery": "23f",
 			"damage": "839",
-			"stun": 55
+			"stun": 55,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/0a/Nitori8a.png"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -60,7 +64,8 @@ INSERT INTO `moves` (
 			"active": "3f > 9f not active > 3f",
 			"recovery": "20f",
 			"damage": "472",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/6f/Nitoric5a.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -215,7 +220,8 @@ INSERT INTO `moves` (
 			"active": "9f",
 			"recovery": "23f",
 			"damage": "780",
-			"stun": "40 (on last hit)"
+			"stun": "40 (on last hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/33/Nitori66a.png"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -225,7 +231,8 @@ INSERT INTO `moves` (
 			"active": "24f",
 			"recovery": "16f",
 			"damage": "1293",
-			"stun": 60
+			"stun": 60,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/47/Nitori66b.png"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [
@@ -251,19 +258,22 @@ INSERT INTO `moves` (
 			"title": "spellcard 1",
 			"damage": "3547",
 			"stun": 100,
-			"cost": 1200
+			"cost": 1200,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/5/57/Nitori_0.png"
 		},
 		{
 			"title": "spellcard 2",
 			"damage": "3426 or 4575",
 			"stun": 100,
-			"cost": 1000
+			"cost": 1000,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/bf/Nitori_1.png"
 		},
 		{
 			"title": "spellcard 3",
 			"damage": 2532,
 			"stun": 100,
-			"cost": 700
+			"cost": 700,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/6a/Nitori_2.png"
 		}
 	]}')),
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [

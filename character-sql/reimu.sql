@@ -31,7 +31,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "22f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/8b/Reimu-6a.gif"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -41,7 +42,8 @@ INSERT INTO `moves` (
 			"active": "9f",
 			"recovery": "19f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e3/Reimu8a.png"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -51,7 +53,8 @@ INSERT INTO `moves` (
 			"active": "4f",
 			"recovery": "36f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/04/Reimu2a.png"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -61,7 +64,8 @@ INSERT INTO `moves` (
 			"active": "8f",
 			"recovery": "28f",
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/91/Reimu-j5a.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -71,7 +75,8 @@ INSERT INTO `moves` (
 			"active": "6f",
 			"recovery": "29f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/67/Reimu-j6a.gif"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -81,7 +86,8 @@ INSERT INTO `moves` (
 			"active": "9f",
 			"recovery": "18f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e3/Reimu8a.png"
 		},
 		{
 			"title": "bottom lane j8a",
@@ -89,7 +95,8 @@ INSERT INTO `moves` (
 			"active": "23f",
 			"recovery": "21f",
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/72/Reimu-lj8a.gif"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -99,7 +106,8 @@ INSERT INTO `moves` (
 			"active": "64f",
 			"recovery": "16f",
 			"damage": "750",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/3f/Reimuj2a.png"
 		},
 		{
 			"title": "bottom lane j2a",
@@ -107,7 +115,8 @@ INSERT INTO `moves` (
 			"active": "4f",
 			"recovery": "23f",
 			"damage": "750",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/3f/Reimuj2a.png"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -135,20 +144,23 @@ INSERT INTO `moves` (
 		{
 			"title": "6b",
 			"damage": "618 (if all hit)",
-			"stun": "8 per hit (max 32)"
+			"stun": "8 per hit (max 32)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/cd/Reimu6b.png"
 		}
 	]}')),
 	(@game, @character, 'cb,chargeb,[b]', JSON_COMPACT('{ "variations": [
 		{
 			"title": "charge b",
 			"damage": "1000",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/92/Reimu%28b%29.png"
 		}
 	]}')),
 	(@game, @character, 'bbb,tenkai', JSON_COMPACT('{ "variations": [
 		{
 			"title": "tenkai",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b6/Reimubbb.png"
 		}
 	]}')),
 	(@game, @character, '5c,c', JSON_COMPACT('{ "variations": [
@@ -158,7 +170,8 @@ INSERT INTO `moves` (
 			"active": "10f > 15f not active > 32f",
 			"recovery": "23f",
 			"damage": "1179 (if all hit)",
-			"stun": "20 per hit (max 40)"
+			"stun": "20 per hit (max 40)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/42/Reimu-5c-mid.gif"
 		}
 	]}')),
 	(@game, @character, '6c', JSON_COMPACT('{ "variations": [
@@ -181,7 +194,8 @@ INSERT INTO `moves` (
 			"startup": "47f",
 			"recovery": "15f",
 			"damage": "1727 (if all hit)",
-			"stun": "10 per hit (max 40)"
+			"stun": "10 per hit (max 40)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/67/Reimu2c.gif"
 		}
 	]}')),
 	(@game, @character, '8c', JSON_COMPACT('{ "variations": [
@@ -191,7 +205,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "45f",
 			"damage": "875",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/63/Reimu8c.gif"
 		}
 	]}')),
 	(@game, @character, 'da,dasha,66a', JSON_COMPACT('{ "variations": [
@@ -201,7 +216,8 @@ INSERT INTO `moves` (
 			"active": "6f",
 			"recovery": "16f",
 			"damage": "550",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/3e/Reimu-66a.gif"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -211,7 +227,8 @@ INSERT INTO `moves` (
 			"active": "10f",
 			"recovery": "36f",
 			"damage": "825",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/a/a1/Reimu66b.png"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [
@@ -242,19 +259,22 @@ INSERT INTO `moves` (
 			"title": "spellcard 1",
 			"damage": "2487 (if all hit)",
 			"stun": 100,
-			"cost": 800
+			"cost": 800,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e9/Reimu_0.png"
 		},
 		{
 			"title": "spellcard 2",
 			"damage": "3275",
 			"stun": 100,
-			"cost": 1200
+			"cost": 1200,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/01/Reimu_1.png"
 		},
 		{
 			"title": "spellcard 3",
 			"damage": "3108 (if all hit)",
 			"stun": 100,
-			"cost": 1000
+			"cost": 1000,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e2/Reimu_2.png"
 		}
 	]}')),
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [

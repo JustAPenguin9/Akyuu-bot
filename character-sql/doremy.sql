@@ -172,7 +172,7 @@ INSERT INTO `moves` (
 	]}')),
 	(@game, @character, '8c', JSON_COMPACT('{ "variations": [
 		{
-			"title": "8c top lane",
+			"title": "8c",
 			"damage": "500 (if all hit)",
 			"stun": "40 (if all hit)"
 		}

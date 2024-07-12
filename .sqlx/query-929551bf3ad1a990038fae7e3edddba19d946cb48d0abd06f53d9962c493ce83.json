@@ -1,6 +1,6 @@
 {
   "db_name": "MySQL",
-  "query": "SELECT * FROM `moves` where `character` = ? and find_in_set(?, `lables`) > 0;",
+  "query": "SELECT * FROM `moves` WHERE `character` = ? and find_in_set(?, `lables`) > 0;",
   "describe": {
     "columns": [
       {
@@ -65,5 +65,5 @@
       false
     ]
   },
-  "hash": "15a2be139eb80b0505f75a7a320a75ffbeff10fd1a25478921e641454bc67d21"
+  "hash": "929551bf3ad1a990038fae7e3edddba19d946cb48d0abd06f53d9962c493ce83"
 }

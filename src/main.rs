@@ -1,12 +1,12 @@
 use dotenvy::dotenv;
-use poise::serenity_prelude::{self as serenity, futures::TryFutureExt};
+use poise::serenity_prelude as serenity;
 use sqlx::MySqlPool;
+use tracing::{error, info};
 
 mod types;
 
 mod commands;
 use commands::*;
-use tracing::{error, info};
 
 #[derive(Debug)]
 struct Data {
@@ -58,15 +58,14 @@ async fn main() {
 				history::set(),
 			],
 			event_handler: |ctx, event, _framework, _data| {
-				use poise::Event::*;
+				use serenity::FullEvent::*;
 				Box::pin(async move {
 					match event {
 						Ready { data_about_bot } => {
 							ctx.set_presence(
-								Some(serenity::Activity::listening("Kosuzu ramble")),
+								Some(serenity::ActivityData::listening("Kosuzu ramble")),
 								serenity::OnlineStatus::Idle,
-							)
-							.await;
+							);
 							info!("<{} online>", data_about_bot.user.name)
 						}
 						Message { new_message } => {
@@ -76,7 +75,7 @@ async fn main() {
 								info!("{author_name} ({author_id}) called o/");
 
 								match new_message.reply(&ctx.http, "o/").await {
-								// match new_message.channel(&ctx.http).unwrap_or_else(|_| todo!()) {
+									// match new_message.channel(&ctx.http).unwrap_or_else(|_| todo!()) {
 									Ok(_) => {
 										info!("{author_name} ({author_id}) successfully called o/")
 									}
@@ -123,7 +122,7 @@ async fn main() {
 						Setup { error, .. } => {
 							panic!("Failed to start the bot: {:?}", error)
 						}
-						Command { error, ctx } => {
+						Command { error, ctx, .. } => {
 							error!(
 								"{} ({}) failed to call {}{}: {:?}",
 								&ctx.author().name,
@@ -133,7 +132,7 @@ async fn main() {
 								error
 							)
 						}
-						ArgumentParse { error, input, ctx } => {
+						ArgumentParse { error, input, ctx, .. } => {
 							error!(
 								"Failed to parse \"{:?}\" called by {}: {:?}",
 								input,
@@ -141,7 +140,7 @@ async fn main() {
 								error
 							)
 						}
-						CommandPanic { payload, ctx } => {
+						CommandPanic { payload, ctx, .. } => {
 							error!("Command {:?}, panicked: {:?}", ctx.command().name, payload)
 						}
 						EventHandler { error, event, .. } => {
@@ -159,7 +158,9 @@ async fn main() {
 						return Ok(true);
 					}
 
-					let id = ctx.guild_id().unwrap_or(serenity::GuildId(1));
+					// if there is no guild id then the command was called in
+					// dms which should be skipped
+					let id = ctx.guild_id().unwrap_or(serenity::GuildId::new(1));
 					let aocf_global_id = 273513597622157322;
 
 					Ok(id == aocf_global_id)
@@ -171,11 +172,14 @@ async fn main() {
 			},
 			..Default::default()
 		})
-		.token(std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN in envionment"))
-		.intents(
-			serenity::GatewayIntents::non_privileged() | serenity::GatewayIntents::MESSAGE_CONTENT,
-		)
-		.setup(move |_ctx, _ready, _framework| Box::pin(async move { Ok(Data { pool }) }));
+		.setup(move |_ctx, _ready, _framework| Box::pin(async move { Ok(Data { pool }) }))
+		.build();
 
-	framework.run().await.unwrap();
+	let token = std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN in envionment");
+	let intents =
+		serenity::GatewayIntents::non_privileged() | serenity::GatewayIntents::MESSAGE_CONTENT;
+
+	let client = serenity::ClientBuilder::new(token, intents).framework(framework).await;
+
+	client.unwrap().start().await.unwrap();
 }

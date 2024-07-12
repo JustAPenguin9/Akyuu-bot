@@ -1,4 +1,7 @@
-use poise::serenity_prelude as serenity;
+use poise::{
+	serenity_prelude::{ButtonStyle, CreateActionRow, CreateButton, CreateInteractionResponse},
+	CreateReply,
+};
 
 use crate::{Context, Error};
 
@@ -12,17 +15,14 @@ pub async fn register(ctx: Context<'_>) -> Result<(), Error> {
 /// clear the move database
 #[poise::command(prefix_command, hide_in_help, owners_only)]
 pub async fn resetmoves(ctx: Context<'_>) -> Result<(), Error> {
-	let yes_id = format!("{}yes", ctx.id());
+	let btn_id_yes = format!("{}yes", ctx.id());
+
 	let reply = ctx
-		.send(|r| {
-			r.content("are you sure?").components(|c| {
-				c.create_action_row(|ar| {
-					ar.create_button(|b| {
-						b.label("yes").custom_id(yes_id).style(serenity::ButtonStyle::Danger)
-					})
-				})
-			})
-		})
+		.send(CreateReply::default().content("Are you sure?").components(vec![
+			CreateActionRow::Buttons(vec![
+				CreateButton::new(btn_id_yes).label("Yes").style(ButtonStyle::Danger),
+			]),
+		]))
 		.await?;
 
 	let interaction =
@@ -56,9 +56,7 @@ pub async fn resetmoves(ctx: Context<'_>) -> Result<(), Error> {
 		// sqlx::query_file!("character-sql/tenshi.sql").execute(&ctx.data().pool).await?;
 		// sqlx::query_file!("character-sql/yukari.sql").execute(&ctx.data().pool).await?;
 
-		press
-			.create_interaction_response(ctx, |b| b.kind(serenity::InteractionResponseType::Pong))
-			.await?;
+		press.create_response(ctx, CreateInteractionResponse::Pong).await?;
 	}
 
 	Ok(())

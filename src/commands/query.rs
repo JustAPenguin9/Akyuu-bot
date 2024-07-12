@@ -1,4 +1,8 @@
-use poise::serenity_prelude::{self, CollectComponentInteraction, CreateEmbed};
+use poise::serenity_prelude::{
+	ComponentInteractionCollector, CreateActionRow, CreateButton, CreateEmbed,
+	CreateInteractionResponse, CreateInteractionResponseMessage,
+};
+use poise::{ChoiceParameter, CreateReply};
 
 use crate::types::{CharacterChoices, MoveData};
 use crate::{Context, Error};
@@ -29,8 +33,8 @@ async fn query_inner(
 	input: String,
 ) -> Result<(), Error> {
 	let row = sqlx::query!(
-		"SELECT * FROM `moves` where `character` = ? and find_in_set(?, `lables`) > 0;",
-		&character.to_string(),
+		"SELECT * FROM `moves` WHERE `character` = ? and find_in_set(?, `lables`) > 0;",
+		&character.name(),
 		&input
 	)
 	.fetch_all(&ctx.data().pool)
@@ -42,7 +46,11 @@ async fn query_inner(
 	}
 
 	if row.len() > 1 {
-		ctx.say("There are multiple results when there should only be one! Someone should fix that... until then I'm only using the first result.").await?;
+		ctx.say(
+			"There are multiple results when there should only be one! Someone should fix that... \
+			until then I'm only using the first result.",
+		)
+		.await?;
 	}
 
 	let data: MoveData = serde_json::from_str(&row[0].data)?;
@@ -57,18 +65,15 @@ async fn query_inner(
 	if embeds.len() > 1 {
 		let mut page = 0;
 
-		ctx.send(|r| {
-			r.embeds = vec![embeds[page].clone()];
-			r.components(|c| {
-				c.create_action_row(|ar| {
-					ar.create_button(|b| b.emoji('◀').custom_id(&btn_id_prev))
-						.create_button(|b| b.emoji('▶').custom_id(&btn_id_next))
-				})
-			})
-		})
+		ctx.send(CreateReply::default().embed(embeds[page].clone()).components(vec![
+			CreateActionRow::Buttons(vec![
+				CreateButton::new(&btn_id_prev).emoji('◀'),
+				CreateButton::new(&btn_id_next).emoji('▶'),
+			]),
+		]))
 		.await?;
 
-		while let Some(press) = CollectComponentInteraction::new(ctx)
+		while let Some(press) = ComponentInteractionCollector::new(ctx)
 			.author_id(ctx.author().id)
 			.timeout(std::time::Duration::from_secs(120))
 			.filter(move |press| press.data.custom_id.starts_with(&ctx_id.to_string()))
@@ -89,18 +94,16 @@ async fn query_inner(
 			}
 
 			press
-				.create_interaction_response(ctx, |b| {
-					b.kind(serenity_prelude::InteractionResponseType::UpdateMessage)
-						.interaction_response_data(|d| d.set_embed(embeds[page].clone()))
-				})
+				.create_response(
+					ctx,
+					CreateInteractionResponse::UpdateMessage(
+						CreateInteractionResponseMessage::default().embed(embeds[page].clone()),
+					),
+				)
 				.await?;
 		}
 	} else {
-		ctx.send(|r| {
-			r.embeds = vec![embeds[0].clone()];
-			r
-		})
-		.await?;
+		ctx.send(CreateReply::default().embed(embeds[0].clone())).await?;
 	}
 
 	Ok(())
@@ -109,69 +112,67 @@ async fn query_inner(
 fn create_move_embeds(
 	data: MoveData,
 	character: &CharacterChoices,
-	q: &String,
+	backup_title: &String,
 ) -> (Vec<CreateEmbed>, Vec<String>) {
-	// FIX: could be cleaner
 	let mut embeds = vec![];
-	// TODO: something with this variable
 	let mut titles = vec![];
 
-	for var in data.variations.iter() {
-		let mut embed = CreateEmbed::default();
+	for (n, var) in data.variations.iter().enumerate() {
+		let mut embed = CreateEmbed::new();
 
-		embed.colour(0xB3E04D);
+		embed = embed.colour(0xB3E04D);
 
 		if let Some(title) = &var.title {
-			let real_title = format!("{} {}", character.to_string(), title);
-			embed.title(real_title);
+			let real_title = format!("{} {}", character.name(), title);
+			embed = embed.title(real_title);
 			titles.push(title.into());
 		} else {
-			embed.title(q);
-			titles.push("missing title".into());
+			embed = embed.title(backup_title);
+			titles.push(backup_title.clone() + " " + n.to_string().as_str());
 		}
 
 		// frame data
 		if let Some(startup) = &var.startup {
-			embed.field("startup", startup, true);
+			embed = embed.field("startup", startup, true);
 		} else {
-			embed.field("startup", "?", true);
+			embed = embed.field("startup", "?", true);
 		}
 		if let Some(active) = &var.active {
-			embed.field("active", active, true);
+			embed = embed.field("active", active, true);
 		} else {
-			embed.field("active", "?", true);
+			embed = embed.field("active", "?", true);
 		}
 		if let Some(recovery) = &var.recovery {
-			embed.field("recovery", recovery, true);
+			embed = embed.field("recovery", recovery, true);
 		} else {
-			embed.field("recovery", "?", true);
+			embed = embed.field("recovery", "?", true);
 		}
 		if let Some(damage) = &var.damage {
-			embed.field("damage", damage, true);
+			embed = embed.field("damage", damage, true);
 		} else {
-			embed.field("damage", "?", true);
+			embed = embed.field("damage", "?", true);
 		}
 		if let Some(stun) = &var.stun {
-			embed.field("stun", stun, true);
+			embed = embed.field("stun", stun, true);
 		} else {
-			embed.field("stun", "?", true);
+			embed = embed.field("stun", "?", true);
 		}
 
 		// spellcard cost
 		if let Some(cost) = &var.cost {
-			embed.field("cost", cost, true);
+			embed = embed.field("cost", cost, true);
 		}
 
 		// images
 		if let Some(thumbnail) = &var.thumbnail {
-			embed.thumbnail(thumbnail);
+			embed = embed.thumbnail(thumbnail);
 		}
 		if let Some(attachment) = &var.attachment {
-			embed.image(attachment);
+			embed = embed.image(attachment);
 		}
 
 		embeds.push(embed);
 	}
 
-	return (embeds, titles);
+	(embeds, titles)
 }

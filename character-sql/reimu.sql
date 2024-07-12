@@ -21,7 +21,7 @@ INSERT INTO `moves` (
 			"recovery": "20f",
 			"damage": 500,
 			"stun": 0,
-			"thumbnail": "https://wiki.koumakan.jp/images/aocf/e/e5/Reimuf5a.gif"
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e5/Reimuf5a.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [

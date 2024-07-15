@@ -5,14 +5,14 @@ use poise::{
 
 use crate::{Context, Error};
 
-/// register slash commands to a guild or globally
+/// Register slash commands to a guild or globally
 #[poise::command(prefix_command, hide_in_help, owners_only)]
 pub async fn register(ctx: Context<'_>) -> Result<(), Error> {
 	poise::builtins::register_application_commands_buttons(ctx).await?;
 	Ok(())
 }
 
-/// clear the move database
+/// Clear the move database
 #[poise::command(prefix_command, hide_in_help, owners_only)]
 pub async fn resetmoves(ctx: Context<'_>) -> Result<(), Error> {
 	let btn_id_yes = format!("{}yes", ctx.id());

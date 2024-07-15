@@ -92,7 +92,7 @@ pub async fn set(
 	result(ctx, ctx.author().clone(), opponent, wins, losses).await
 }
 
-/// only for win, loss, and set commands not the to command
+/// Only for win, loss, and set commands not the to command
 async fn result(
 	ctx: Context<'_>,
 	winner: User,
@@ -133,7 +133,7 @@ async fn result(
 		.await?
 		.await_component_interaction(ctx)
 		.author_id(other.id)
-		.timeout(std::time::Duration::from_secs(30))
+		.timeout(std::time::Duration::from_secs(60))
 		.filter(move |press| press.data.custom_id.starts_with(&ctx_id.to_string()))
 		.await;
 

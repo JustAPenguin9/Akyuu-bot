@@ -134,14 +134,6 @@ async fn main() {
 								error
 							)
 						}
-						ArgumentParse { error, input, ctx, .. } => {
-							error!(
-								"Failed to parse \"{:?}\" called by {}: {:?}",
-								input,
-								ctx.author().name,
-								error
-							)
-						}
 						CommandPanic { payload, ctx, .. } => {
 							error!("Command {:?}, panicked: {:?}", ctx.command().name, payload)
 						}

@@ -3,6 +3,8 @@ use poise::serenity_prelude as serenity;
 use sqlx::MySqlPool;
 use tracing::{error, info};
 
+mod choice_parameters;
+mod choices;
 mod types;
 
 mod commands;

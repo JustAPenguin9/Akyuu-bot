@@ -27,7 +27,8 @@ pub async fn query_alias(
 	query_inner(ctx, character, input).await
 }
 
-async fn query_inner(
+// TODO: move this to a util file as this is now also used in characters.rs
+pub async fn query_inner(
 	ctx: Context<'_>,
 	character: CharacterChoices,
 	input: String,

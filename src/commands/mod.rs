@@ -1,3 +1,4 @@
+pub mod characters;
 pub mod history;
 pub mod links;
 pub mod owner;

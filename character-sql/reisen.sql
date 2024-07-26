@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": 2,
 			"recovery": 12,
 			"damage": 200,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/1c/Reisenc5a.gif"			
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 17,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/fa/Reisen-f5a.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": 2,
 			"recovery": 27,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/43/Reisen6a.png"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 43,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/0e/Reisen-8a.gif"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -49,7 +53,8 @@ INSERT INTO `moves` (
 			"active": 10,
 			"recovery": 18,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/16/Reisen2a.png"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -59,7 +64,8 @@ INSERT INTO `moves` (
 			"active": 8,
 			"recovery": 40,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/a/aa/Reisenj5a.png"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +75,8 @@ INSERT INTO `moves` (
 			"active": "2f > 4f not active > 2f > 4f not active > 2f",
 			"recovery": 24,
 			"damage": "919 (if all hit)",
-			"stun": "20 + 10 x 2 = [40]"
+			"stun": "20 + 10 x 2 = [40]",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e6/Reisen-j6a.gif"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +86,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 24,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/cd/Reisen8a.png"
 		},
 		{
 			"title": "bottom lane j8a",
@@ -87,7 +95,8 @@ INSERT INTO `moves` (
 			"active": 86,
 			"recovery": 41,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/cd/Reisen8a.png"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -97,7 +106,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 43,
 			"damage": "919 (if all hit)",
-			"stun": "20 + 10 x 2 = [40]"
+			"stun": "20 + 10 x 2 = [40]",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/a/a8/Reisenj2a.png"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -173,7 +183,8 @@ INSERT INTO `moves` (
 			"active": 25,
 			"recovery": 20,
 			"damage": "1240 (if all hit)",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/83/Reisen-2c.gif"
 		}
 	]}')),
 	(@game, @character, '8c', JSON_COMPACT('{ "variations": [
@@ -190,7 +201,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 16,
 			"damage": 675,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/49/Reisen-66a.gif"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -200,7 +212,8 @@ INSERT INTO `moves` (
 			"active": "2f > 4f not active > 2f > 4f not active > 2f",
 			"recovery": 29,
 			"damage": "1020 (if all hit)",
-			"stun": "10 x 3 = [30]"
+			"stun": "10 x 3 = [30]",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/cd/Reisen-66b.gif"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [

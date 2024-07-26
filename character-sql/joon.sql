@@ -198,7 +198,7 @@ INSERT INTO `moves` (
 			"recovery": 27,
 			"damage": 500,
 			"stun": 0,
-			"attachment": "https://wiki.koumakan.jp/images/aocf/3/37/Joon66a.png"
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/0f/Joon66a.gif"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [

@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": 2,
 			"recovery": 11,
 			"damage": 180,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/70/Sukunac5a.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": 4,
 			"recovery": 17,
 			"damage": 470,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/15/Shinmy-f5a.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": 8,
 			"recovery": 20,
 			"damage": 690,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/37/Sukuna6a.png"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 78,
 			"damage": 690,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/70/Sukuna8a.png"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -49,7 +53,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 26,
 			"damage": 625,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/5/53/Sukuna2a.png"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -59,7 +64,8 @@ INSERT INTO `moves` (
 			"active": 8,
 			"recovery": 28,
 			"damage": 470,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/c9/Sukunaj5a.png"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +75,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 35,
 			"damage": 690,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/2/25/Sukunaj6a.png"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +86,8 @@ INSERT INTO `moves` (
 			"active": 8,
 			"recovery": 30,
 			"damage": 690,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/64/Sukuna-j8a.gif"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -89,7 +97,8 @@ INSERT INTO `moves` (
 			"active": 7,
 			"recovery": 42,
 			"damage": 625,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/41/Sukuna-j2a.gif"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -120,7 +129,8 @@ INSERT INTO `moves` (
 			"active": "2f > 5f not active > 2f > 5f not active > 2f > 5f not active > 2f > 5f not active > 2f",
 			"recovery": 35,
 			"damage": "511 (if all hit)",
-			"stun": "25 (5 per)"
+			"stun": "25 (5 per)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/3c/Shinmy-6b.gif"
 		}
 	]}')),
 	(@game, @character, 'cb,chargeb,[b]', JSON_COMPACT('{ "variations": [
@@ -159,7 +169,8 @@ INSERT INTO `moves` (
 			"active": "min: 4f, mean: 12f, max: reaching mid lane",
 			"recovery": 26,
 			"damage": "845 (if all hit, 250 per)",
-			"stun": "40 (on last hit)"
+			"stun": "40 (on last hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/0b/Shinmy-j6c-one-loop.gif"
 		}
 	]}')),
 	(@game, @character, '4c', JSON_COMPACT('{ "variations": [
@@ -183,7 +194,8 @@ INSERT INTO `moves` (
 			"active": "39f-55f or until land canceled",
 			"recovery": 15,
 			"damage": "955 (if all hit)",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7c/Shinmy-8c.gif"
 		},
 		{
 			"title": "8c bottom lane",
@@ -191,7 +203,8 @@ INSERT INTO `moves` (
 			"active": "39f-55f or until land canceled",
 			"recovery": 15,
 			"damage": "955 (if all hit)",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7c/Shinmy-8c.gif"
 		}
 	]}')),
 	(@game, @character, 'da,dasha,66a', JSON_COMPACT('{ "variations": [
@@ -201,7 +214,8 @@ INSERT INTO `moves` (
 			"active": 4,
 			"recovery": 17,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/43/Sukuna66a.png"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -211,7 +225,8 @@ INSERT INTO `moves` (
 			"active": 26,
 			"recovery": 28,
 			"damage": "1496 (if all hit)",
-			"stun": "40 (if all hit)"
+			"stun": "40 (if all hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/39/Sukuna66b.png"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [

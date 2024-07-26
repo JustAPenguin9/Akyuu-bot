@@ -62,10 +62,10 @@ INSERT INTO `moves` (
 			"title": "j5a",
 			"startup": "11f",
 			"active": "3f",
-			"recovery": "35f",
+			"recovery": "29f",
 			"damage": "562 or 500",
 			"stun": 0,
-			"attachment": "https://wiki.koumakan.jp/images/aocf/8/81/Ichirinj5a.png"
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7d/IchirinUnzanj5a.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [

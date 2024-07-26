@@ -152,7 +152,8 @@ INSERT INTO `moves` (
 			"title": "5c",
 			"startup": 26,
 			"damage": "1381 (500 + 1000)",
-			"stun": "40 (on ball)"
+			"stun": "40 (on ball)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/9/9a/5c.gif"
 		}
 	]}')),
 	(@game, @character, '6c', JSON_COMPACT('{ "variations": [

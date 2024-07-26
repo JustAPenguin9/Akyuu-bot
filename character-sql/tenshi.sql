@@ -11,7 +11,8 @@ INSERT INTO `moves` (
 			"active": 2,
 			"recovery": 12,
 			"damage": 200,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/a/a7/Tenshic5a.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +20,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 22,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7b/Tenshif5a.png"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -29,7 +31,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 23,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/5/5f/Tenshi6a.png"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -39,7 +42,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 21,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/1/1b/Tenshi8a.png"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -49,7 +53,8 @@ INSERT INTO `moves` (
 			"active": 4,
 			"recovery": 21,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/a/a8/Tenshi2a.png"
 		}
 	]}')),
 	(@game, @character, 'ja,j5a', JSON_COMPACT('{ "variations": [
@@ -59,7 +64,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 35,
 			"damage": 500,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/6/6b/Tenshij5a.png"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +75,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 34,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/eb/Tenshij6a.png"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -79,7 +86,8 @@ INSERT INTO `moves` (
 			"active": 3,
 			"recovery": 33,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b7/Tenshij8a.png"
 		}
 	]}')),
 	(@game, @character, 'j2a', JSON_COMPACT('{ "variations": [
@@ -89,7 +97,8 @@ INSERT INTO `moves` (
 			"active": 10,
 			"recovery": 38,
 			"damage": 750,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/2/23/Tenshij2a.png"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -123,7 +132,8 @@ INSERT INTO `moves` (
 			"startup": 11,
 			"recovery": "35f, catch: 25f",
 			"damage": "479 (if all hit)",
-			"stun": 30
+			"stun": "10 x 3 = [30]",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b5/Tenshi-6b.gif"
 		}
 	]}')),
 	(@game, @character, 'cb,chargeb,[b]', JSON_COMPACT('{ "variations": [
@@ -162,7 +172,8 @@ INSERT INTO `moves` (
 			"active": 15,
 			"recovery": 35,
 			"damage": 1429,
-			"stun": "40 (on second hit)"
+			"stun": "40 (on second hit)",
+			"attachment": "https://wiki.koumakan.jp/images/aocf/4/48/Tenshi-4c.gif"
 		}
 	]}')),
 	(@game, @character, '2c', JSON_COMPACT('{ "variations": [
@@ -172,7 +183,8 @@ INSERT INTO `moves` (
 			"active": 6,
 			"recovery": 36,
 			"damage": 1000,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d4/Tenshi2c.gif"
 		}
 	]}')),
 	(@game, @character, '8c', JSON_COMPACT('{ "variations": [
@@ -189,7 +201,8 @@ INSERT INTO `moves` (
 			"active": 14,
 			"recovery": 15,
 			"damage": 585,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/2/2d/Tenshi66a.png"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [
@@ -199,7 +212,8 @@ INSERT INTO `moves` (
 			"active": 18,
 			"recovery": 17,
 			"damage": 1170,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b6/Tenshi66b.png"
 		}
 	]}')),
 	(@game, @character, 'ab,occult', JSON_COMPACT('{ "variations": [
@@ -248,6 +262,7 @@ INSERT INTO `moves` (
 			"active": 41,
 			"recovery": 39,
 			"damage": 4925,
-			"stun": 100
+			"stun": 100,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/74/Tenshi-LW.png"
 		}
 	]}'));

@@ -3,6 +3,7 @@ use poise::serenity_prelude::{
 	CreateInteractionResponse, CreateInteractionResponseMessage,
 };
 use poise::{ChoiceParameter, CreateReply};
+use tracing::info;
 
 use crate::types::{CharacterChoices, MoveData};
 use crate::{Context, Error};
@@ -74,6 +75,8 @@ pub async fn query_inner(
 		]))
 		.await?;
 
+		info!(character = character.name(), input = input, "sent multi page embed");
+
 		while let Some(press) = ComponentInteractionCollector::new(ctx)
 			.author_id(ctx.author().id)
 			.timeout(std::time::Duration::from_secs(120))
@@ -105,6 +108,7 @@ pub async fn query_inner(
 		}
 	} else {
 		ctx.send(CreateReply::default().embed(embeds[0].clone())).await?;
+		info!(character = character.name(), input = input, "sent single page embed")
 	}
 
 	Ok(())

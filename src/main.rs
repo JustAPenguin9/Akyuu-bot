@@ -72,6 +72,7 @@ async fn main() {
 				characters::mokou(),
 				characters::sukuna(),
 				characters::sumireko(),
+				characters::reisen(),
 				characters::doremy(),
 				characters::tenshi(),
 				characters::yukari(),

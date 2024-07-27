@@ -46,6 +46,7 @@ async fn main() {
 	let framework = poise::Framework::builder()
 		.options(poise::FrameworkOptions {
 			commands: vec![
+				help::help(),
 				owner::register(),
 				owner::resetmoves(),
 				links::starthere(),

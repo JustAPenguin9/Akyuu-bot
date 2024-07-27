@@ -73,10 +73,7 @@ fn write_character_cmds() {
 		result += "\tctx: crate::Context<'_>,\n";
 		result += "\t#[description = \"Move you want to query\"] input: String,\n";
 		result += ") -> Result<(), crate::Error> {\n";
-		result += &format!(
-			"\tcrate::commands::query::query_inner(ctx, {}, input).await\n",
-			c.name
-		);
+		result += &format!("\tcrate::commands::query::query_inner(ctx, {}, input).await\n", c.name);
 		result += "}\n\n";
 	}
 

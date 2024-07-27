@@ -1,3 +1,5 @@
+// this is only in a module so that #[allow(unused)] and #[rustfmt::skip] dont
+// need to be on every struct and const
 #[allow(unused)]
 #[rustfmt::skip]
 mod choices {

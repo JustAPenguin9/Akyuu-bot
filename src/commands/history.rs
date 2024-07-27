@@ -57,24 +57,24 @@ pub async fn profile(
 #[poise::command(prefix_command, slash_command)]
 pub async fn win(
 	ctx: Context<'_>,
-	#[description = "Who you beat"] other: User,
+	#[description = "Who you beat"] opponent: User,
 	#[description = "Games played (default 1)"]
 	#[min = 1]
 	games_played: Option<u32>,
 ) -> Result<(), Error> {
-	result(ctx, ctx.author().clone(), other, games_played.unwrap_or(1), 0).await
+	result(ctx, ctx.author().clone(), opponent, games_played.unwrap_or(1), 0).await
 }
 
 /// Record a loss over another player
 #[poise::command(prefix_command, slash_command)]
 pub async fn loss(
 	ctx: Context<'_>,
-	#[description = "Who you loss to"] other: User,
+	#[description = "Who you loss to"] opponent: User,
 	#[description = "Games played (default 1)"]
 	#[min = 1]
 	games_played: Option<u32>,
 ) -> Result<(), Error> {
-	result(ctx, other, ctx.author().clone(), games_played.unwrap_or(1), 0).await
+	result(ctx, opponent, ctx.author().clone(), games_played.unwrap_or(1), 0).await
 }
 
 /// Record the results of a whole set

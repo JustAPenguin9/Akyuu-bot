@@ -32,12 +32,14 @@ async fn main() {
 	// db stuff
 	let db_url = std::env::var("DB_URL").expect("expected a database url in the enviornment");
 
+	info!("connecting to the database");
 	let pool = sqlx::mysql::MySqlPoolOptions::new()
 		.max_connections(5)
 		.connect(&db_url)
 		.await
 		.expect("error connecting to the database");
 
+	info!("running migrations if any");
 	sqlx::migrate!("./migrations")
 		.run(&pool)
 		.await

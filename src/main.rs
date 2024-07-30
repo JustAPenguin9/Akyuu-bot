@@ -166,22 +166,6 @@ async fn main() {
 					}
 				})
 			},
-			// TODO: remove these checks when the beta is over
-			command_check: Some(|ctx| {
-				Box::pin(async move {
-					// always allow owner to test bot
-					if ctx.framework().options().owners.contains(&ctx.author().id) {
-						return Ok(true);
-					}
-
-					// if there is no guild id then the command was called in
-					// dms which should be skipped
-					let id = ctx.guild_id().unwrap_or(serenity::GuildId::new(1));
-					let aocf_global_id = 273513597622157322;
-
-					Ok(id == aocf_global_id)
-				})
-			}),
 			prefix_options: poise::PrefixFrameworkOptions {
 				prefix: Some(std::env::var("COMMAND_PREFIX").unwrap_or('!'.into())),
 				..Default::default()

@@ -2,7 +2,7 @@ use crate::types::WikiChoices;
 use crate::{Context, Error};
 
 /// Send the URL of the AoCF wiki
-#[poise::command(prefix_command, slash_command, aliases("starterpack", "start", "sh", "game"))]
+#[poise::command(prefix_command, slash_command)]
 pub async fn wiki(
 	ctx: Context<'_>,
 	#[description = "Jump to a specific wiki page"] page: Option<WikiChoices>,

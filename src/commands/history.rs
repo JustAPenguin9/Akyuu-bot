@@ -162,7 +162,7 @@ async fn result(
 			)
 			.execute(&ctx.data().pool)
 			.await?;
-			info!("Recored 1 row to the database");
+			info!("Recorded 1 row to the database");
 		} else {
 			// record a full set
 			let time = chrono::Utc::now();
@@ -199,11 +199,9 @@ async fn result(
 				.execute(&ctx.data().pool),
 			);
 
-			// FIX: this is probably not very good
-			// bubble up errors
 			winner_result?;
 			loser_result?;
-			info!("Recored 2 rows to the database");
+			info!("Recorded 2 rows to the database");
 		};
 
 		interaction

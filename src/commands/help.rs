@@ -6,10 +6,9 @@ use crate::{Context, Error};
 #[poise::command(prefix_command, slash_command)]
 pub async fn help(
 	ctx: Context<'_>,
-	//TODO: maybe make it so that /help [command] gives the command description
+	//TODO: make it so that /help [command] gives the command description
 	// #[description = "Query the help of a specific command"] command: Option<String>,
 ) -> Result<(), Error> {
-
 	#[rustfmt::skip]
 	let embed = CreateEmbed::new().colour(0xB3E04D).title("Akyuu commands").fields([
 		(
@@ -31,10 +30,8 @@ pub async fn help(
 		),
 		(
 			"Wiki arguments",
-			// "Wiki arguments include: the characters, `controls`, `mechanics`, \
-			// `glossary`, and `modding`.",
-			"Any of the characters, `controls`, `mechanics`, \
-			`glossary`, and `modding`.",
+			"Wiki arguments include any of the characters, `controls`, \
+			`mechanics`, `glossary`, and `modding`.",
 			true
 		),
 		(

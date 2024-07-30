@@ -81,7 +81,7 @@ pub async fn activity(ctx: Context<'_>, activity: Option<String>) -> Result<(), 
 				}
 				_ => {
 					ctx.say(
-						"Unkown activity, please start with `playing`, `listening`, \
+						"Unknown activity, please start with `playing`, `listening`, \
 						`watching`, `custom`, `competing`, or `default`",
 					)
 					.await?;

@@ -30,7 +30,7 @@ async fn main() {
 	}
 
 	// db stuff
-	let db_url = std::env::var("DB_URL").expect("expected a database url in the enviornment");
+	let db_url = std::env::var("DB_URL").expect("expected a database url in the environment");
 
 	info!("connecting to the database");
 	let pool = sqlx::mysql::MySqlPoolOptions::new()
@@ -100,7 +100,6 @@ async fn main() {
 								info!("{author_name} ({author_id}) called o/");
 
 								match new_message.reply(&ctx.http, "o/").await {
-									// match new_message.channel(&ctx.http).unwrap_or_else(|_| todo!()) {
 									Ok(_) => {
 										info!("{author_name} ({author_id}) successfully called o/")
 									}
@@ -192,7 +191,7 @@ async fn main() {
 		.setup(move |_ctx, _ready, _framework| Box::pin(async move { Ok(Data { pool }) }))
 		.build();
 
-	let token = std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN in envionment");
+	let token = std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN in environment");
 	let intents =
 		serenity::GatewayIntents::non_privileged() | serenity::GatewayIntents::MESSAGE_CONTENT;
 

@@ -1,73 +1,60 @@
 # Akyuu Bot
 
-Akyuu is a discord bot created with the [discord.js](https://github.com/discordjs/discord.js) node module. The purpose of the bot is to give players information regarding the characters in the 15.5 installment of the Touhou series *Touhou Hyouibana ~ Antinomy of Common Flowers* developed by Tasofro.
+Akyuu is a discord bot created with [Poise](https://crates.io/crates/poise). The purpose of the bot is to give players information regarding the characters in the 15.5 installment of the Touhou series *Touhou Hyouibana ~ Antinomy of Common Flowers* developed by [Twilight Frontier](https://en.touhouwiki.net/wiki/Twilight_Frontier).
 
-
-## Downloading the source code
+## Running Akyuu
 
 Clone the repository:
 ```shell
 git clone https://github.com/JustAPenguin9/Akyuu-bot.git
 ```
 
-To get the node packages (needs to be done in the project directory):
+**If a database already exists that was used with JS Akyuu** leave it as is because the initial migration transitions it to the new format.
+
+**If you are importing a `mariadb-dump` or `mysql-dump`** name the file "dump.sql" and run `./import-sql-dump.sh` before running Akyuu for the first time to set it up for the initial migration.
+
+[After a MariaDB or MySQL database is setup](#running-the-database-using-containers), either by itself or though a container, [create a .env file](#envionment-variables) and run Akyuu.
+
 ```shell
-npm install
+cargo run
+# OR
+podman compose up -d --build
+# OR
+docker compose up -d --build
 ```
 
-To update to the latest commit (needs to be done in the project directory):
-```shell
-git pull
-```
+### Populating the moves table
 
-## Creating your own version of the bot
+After running the migrations (migrations are ran when Akyuu is ran) use `./import-character-sql.sh` to to include all the moves in ./character-sql/* in the `moves` table.
 
-To help further develop the bot or use the code for your own purposes add a .env, and a key.json file to the project directory.
+### Environment variables
 
 In the .env file include:
 ```dosini
-TOKEN=[the token given to you through the discord developer portal]
-PREFIX=[the prefix to all commands, commonly "!"]
-SPREADSHEETID=1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0
+DISCORD_TOKEN=[the token given to you through the discord developer portal]
+COMMAND_PREFIX=[the prefix to all commands, by default it is "!"]
 
-DB_Host=[probably localhost]
-DB_USER=[your username]
-DB_PASSWORD=[your password]
-DB_NAME=[name of your database]
+DB_PASSWORD=[password to the database]
+DB_URL=[this will likely be "mariadb://akyuu:${DB_PASSWORD}@127.0.0.1:3306/akyuu_records"]
 ```
 
-The key.json file should be the file given to you when you set up the google sheets api through the [google developer portal](https://console.cloud.google.com/) but renamed to *key*. Should look something like:
-```json
-{
-  "type": "service_account",
-  "project_id": "discord-bot",
-  "private_key_id": "",
-  "private_key": "",
-  "client_email": "",
-  "client_id": "",
-  "auth_uri": "",
-  "token_uri": "",
-  "auth_provider_x509_cert_url": "",
-  "client_x509_cert_url": ""
-}
-```
+## Running the database using containers
 
-As of commit [b6150ac](https://github.com/JustAPenguin9/Akyuu-bot/commit/b6150ac081b50b7181784f0118818977b93e49b0), Akyuu went from using [nedb](https://github.com/seald/nedb) to MariaDB for storing game results. Akyuu requires a table called history with fields for the id, winner discord client id, loser discord client id, and timestamp.
-```sql
-CREATE TABLE history (
-  id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  winner VARCHAR(18) NOT NULL,
-  loser VARCHAR(18) NOT NULL,
-  time VARCHAR(13) NOT NULL
-);
-```
-
-## Running the bot
-
-In the project directory:
 ```shell
-node .
+podman compose -f db.docker-compose.yaml up -d
+# OR
+docker compose -f db.docker-compose.yaml up -d
 ```
+
+## Migrations
+
+Migrations are checked and ran when Akyuu is ran but they can also be manually applied and reverted using the [sqlx cli](https://crates.io/crates/sqlx-cli) eg.
+
+```shell
+DATABASE_URL=mariadb://akyuu:$PASSWORD@127.0.0.1:3306/akyuu_records 
+cargo sqlx mig run
+cargo sqlx prepare
+``` 
 
 # Thanks to
 
@@ -79,8 +66,7 @@ nimiala#8595<br>
 @gato_rescatador<br>
 for contributing through Discord
 
-## Links
+# Links
 
 * [AOCF discord server](https://discord.com/invite/kfJTRBq) - the only place the official bot is being used
 * [AOCF wiki](https://aocf.koumakan.jp/wiki/Antinomy_of_Common_Flowers_Wiki) - where most of the data is taken from
-* [Google sheet](https://docs.google.com/spreadsheets/d/1SPHJUIq8Wi-OOJhNmgmCGrn9d7frfcjhJhWlpLT3ej0/edit?usp=sharing) - where all the data the bot uses is stored

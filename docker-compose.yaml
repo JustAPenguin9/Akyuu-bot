@@ -1,0 +1,17 @@
+services:
+  akyuu:
+    image: akyuu
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      COMMAND_PREFIX: ${COMMAND_PREFIX:-!}
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      DB_URL: "mariadb://akyuu:${DB_PASSWORD}@db/akyuu_records"
+    networks:
+      database: {}
+
+networks:
+  database:
+    external: true

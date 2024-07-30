@@ -1,0 +1,26 @@
+services:
+  db:
+    image: mariadb
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_volume:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: akyuu_records
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: akyuu
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      # database: {}
+      default: {}
+
+volumes:
+  mariadb_volume:
+
+networks:
+  # database:
+  #   external: true
+  default:
+    name: database
+    attachable: true

@@ -50,7 +50,8 @@ async fn main() {
 			commands: vec![
 				help::help(),
 				owner::register(),
-				owner::resetmoves(),
+				// owner::resetmoves(),
+				// owner::activity(),
 				links::starthere(),
 				links::links(),
 				links::repository(),
@@ -88,7 +89,7 @@ async fn main() {
 						Ready { data_about_bot } => {
 							ctx.set_presence(
 								Some(serenity::ActivityData::listening("Kosuzu ramble")),
-								serenity::OnlineStatus::Idle,
+								serenity::OnlineStatus::Online,
 							);
 							info!("<{} online>", data_about_bot.user.name)
 						}

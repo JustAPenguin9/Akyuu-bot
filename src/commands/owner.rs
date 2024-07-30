@@ -1,7 +1,11 @@
 use poise::{
-	serenity_prelude::{ButtonStyle, CreateActionRow, CreateButton, CreateInteractionResponse},
+	serenity_prelude::{
+		ActivityData, ButtonStyle, CreateActionRow, CreateButton,
+		CreateInteractionResponse, OnlineStatus,
+	},
 	CreateReply,
 };
+use tracing::info;
 
 use crate::{Context, Error};
 
@@ -12,7 +16,89 @@ pub async fn register(ctx: Context<'_>) -> Result<(), Error> {
 	Ok(())
 }
 
+/// Set Akyuu's status
+// FIX: this doesnt work and i dont know why it takes forever to load
+#[poise::command(prefix_command, hide_in_help, owners_only)]
+pub async fn activity(ctx: Context<'_>, activity: Option<String>) -> Result<(), Error> {
+	dbg!(&activity);
+	match activity {
+		Some(a) => {
+			dbg!(&a);
+			let words: Vec<&str> = a.split_whitespace().collect();
+			dbg!(&words);
+
+			match words.first().unwrap().to_lowercase().as_ref() {
+				"default" => {
+					ctx.serenity_context().set_presence(
+						Some(ActivityData::listening("Kosuzu ramble")),
+						OnlineStatus::Online,
+					);
+					info!("Activity changed");
+				}
+				"playing" => {
+					dbg!(words[1..].join(" "));
+					ctx.serenity_context().set_presence(
+						Some(ActivityData::playing(words[1..].join(" "))),
+						OnlineStatus::Online,
+					);
+					info!("Activity changed");
+				}
+				// NOTE: streaming requires a url argument if we want this to be an option
+				// "streaming" => {
+				// 	ctx.serenity_context().set_presence(
+				// 		Some(ActivityData::streaming(words[1..].join(" "))),
+				// 		OnlineStatus::Online,
+				// 	);
+				// 	info!("Activity changed");
+				// },
+				"listening" => {
+					ctx.serenity_context().set_presence(
+						Some(ActivityData::listening(words[1..].join(" "))),
+						OnlineStatus::Online,
+					);
+					info!("Activity changed");
+				}
+				"watching" => {
+					ctx.serenity_context().set_presence(
+						Some(ActivityData::watching(words[1..].join(" "))),
+						OnlineStatus::Online,
+					);
+					info!("Activity changed");
+				}
+				"custom" => {
+					ctx.serenity_context().set_presence(
+						Some(ActivityData::custom(words[1..].join(" "))),
+						OnlineStatus::Online,
+					);
+					info!("Activity changed");
+				}
+				"competing" => {
+					ctx.serenity_context().set_presence(
+						Some(ActivityData::competing(words[1..].join(" "))),
+						OnlineStatus::Online,
+					);
+					info!("Activity changed");
+				}
+				_ => {
+					ctx.say(
+						"Unkown activity, please start with `playing`, `listening`, \
+						`watching`, `custom`, `competing`, or `default`",
+					)
+					.await?;
+				}
+			};
+		}
+		None => {
+			ctx.serenity_context().reset_presence();
+			info!("Activity reset");
+		}
+	}
+
+	Ok(())
+}
+
 /// Clear the move database
+// TODO: this
 #[poise::command(prefix_command, hide_in_help, owners_only)]
 pub async fn resetmoves(ctx: Context<'_>) -> Result<(), Error> {
 	let btn_id_yes = format!("{}yes", ctx.id());

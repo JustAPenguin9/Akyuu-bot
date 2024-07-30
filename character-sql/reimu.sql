@@ -177,6 +177,9 @@ INSERT INTO `moves` (
 	(@game, @character, '6c', JSON_COMPACT('{ "variations": [
 		{
 			"title": "6c",
+			"startup": 14,
+			"active": "44f after startup",
+			"recovery": "23f after startup",
 			"damage": "1027 (if all hit)",
 			"stun": "10 per talisman (max 40)"
 		}

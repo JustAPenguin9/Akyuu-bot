@@ -1,6 +1,6 @@
 {
   "db_name": "MySQL",
-  "query": "SELECT * FROM `moves` WHERE `character` = ? and find_in_set(?, `lables`) > 0;",
+  "query": "SELECT * FROM `moves` WHERE `character` = ? and find_in_set(?, `labels`) > 0;",
   "describe": {
     "columns": [
       {
@@ -35,7 +35,7 @@
       },
       {
         "ordinal": 3,
-        "name": "lables",
+        "name": "labels",
         "type_info": {
           "type": "VarString",
           "flags": "NOT_NULL | NO_DEFAULT_VALUE",
@@ -65,5 +65,5 @@
       false
     ]
   },
-  "hash": "929551bf3ad1a990038fae7e3edddba19d946cb48d0abd06f53d9962c493ce83"
+  "hash": "2e13a7b95334683ec00caee3ac9312878dfcba38362ce794b01097bbf931ec3b"
 }

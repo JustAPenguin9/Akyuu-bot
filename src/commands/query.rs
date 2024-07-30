@@ -35,7 +35,7 @@ pub async fn query_inner(
 	input: String,
 ) -> Result<(), Error> {
 	let row = sqlx::query!(
-		"SELECT * FROM `moves` WHERE `character` = ? and find_in_set(?, `lables`) > 0;",
+		"SELECT * FROM `moves` WHERE `character` = ? and find_in_set(?, `labels`) > 0;",
 		&character.name(),
 		&input
 	)

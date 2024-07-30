@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `moves` (
 	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`game` VARCHAR(5459) NOT NULL,
 	`character` VARCHAR(5459) NOT NULL,
-	`lables` VARCHAR(5459) NOT NULL,
+	`labels` VARCHAR(5459) NOT NULL,
 	`data` JSON NOT NULL,
 	PRIMARY KEY (`id`),
 	KEY character_index(`character`)

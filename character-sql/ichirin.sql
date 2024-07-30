@@ -2,7 +2,7 @@ SET @game = 'AoCF';
 SET @character = 'Ichirin Kumoi';
 
 INSERT INTO `moves` (
-	`game`, `character`, `lables`, `data`
+	`game`, `character`, `labels`, `data`
 ) VALUES
 	(@game, @character, '5a,a,4a,c5a,f5a', JSON_COMPACT('{ "variations": [
 		{

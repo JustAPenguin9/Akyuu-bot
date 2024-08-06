@@ -11,7 +11,17 @@ INSERT INTO `moves` (
 			"active": "2f",
 			"recovery": "13f",
 			"damage": 200,
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/39/Mikoc5a.gif"
+		},
+		{
+			"title": "red cape close 5a",
+			"startup": "8f",
+			"active": "2f",
+			"recovery": "13f",
+			"damage": 200,
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7c/Mikoc5a-red.gif"
 		},
 		{
 			"title": "far 5a",
@@ -19,7 +29,17 @@ INSERT INTO `moves` (
 			"active": "18f",
 			"recovery": "15f",
 			"damage": "200",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/c7/Miko-f5a-no-cape.gif"
+		},
+		{
+			"title": "red cape far 5a",
+			"startup": "11f",
+			"active": "18f",
+			"recovery": "15f",
+			"damage": "200",
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/f1/Mikof5a-red.gif"
 		}
 	]}')),
 	(@game, @character, '6a', JSON_COMPACT('{ "variations": [
@@ -39,7 +59,17 @@ INSERT INTO `moves` (
 			"active": "6f",
 			"recovery": "26f",
 			"damage": "750",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/c/c7/Miko-8a-no-cape.gif"
+		},
+		{
+			"title": "red cape 8a",
+			"startup": "15f",
+			"active": "6f",
+			"recovery": "26f",
+			"damage": "750",
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/b/b6/Miko8a-red.gif"
 		}
 	]}')),
 	(@game, @character, '2a', JSON_COMPACT('{ "variations": [
@@ -59,7 +89,17 @@ INSERT INTO `moves` (
 			"active": "6f",
 			"recovery": "24f",
 			"damage": "500",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/3/36/Miko-j5a.gif"
+		},
+		{
+			"title": "red cape j5a",
+			"startup": "9f",
+			"active": "6f",
+			"recovery": "24f",
+			"damage": "500",
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/5/5e/Mikoj5a-red.gif"
 		}
 	]}')),
 	(@game, @character, 'j6a', JSON_COMPACT('{ "variations": [
@@ -69,7 +109,17 @@ INSERT INTO `moves` (
 			"active": "29f",
 			"recovery": "9f",
 			"damage": 1230,
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/e/e5/Miko-j6a-nocape.gif"
+		},
+		{
+			"title": "red cape j6a",
+			"startup": "15f",
+			"active": "29f",
+			"recovery": "9f",
+			"damage": 1230,
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d1/Mikoj6a-red.gif"
 		}
 	]}')),
 	(@game, @character, 'j8a', JSON_COMPACT('{ "variations": [
@@ -89,7 +139,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "42f",
 			"damage": "750",
-			"stun": 40
+			"stun": 40,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d1/Mikoj6a-red.gif"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [
@@ -215,7 +266,8 @@ INSERT INTO `moves` (
 			"active": "3f",
 			"recovery": "22f",
 			"damage": "550",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/8/82/Miko_66a_no_cape.gif"
 		},
 		{
 			"title": "dash a (red cape)",
@@ -223,7 +275,8 @@ INSERT INTO `moves` (
 			"active": "6f",
 			"recovery": "22f",
 			"damage": "550",
-			"stun": 0
+			"stun": 0,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/0/02/Miko66a-red.gif"
 		}
 	]}')),
 	(@game, @character, 'db,dashb,66b', JSON_COMPACT('{ "variations": [

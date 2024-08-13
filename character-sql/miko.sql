@@ -140,7 +140,7 @@ INSERT INTO `moves` (
 			"recovery": "42f",
 			"damage": "750",
 			"stun": 40,
-			"attachment": "https://wiki.koumakan.jp/images/aocf/d/d1/Mikoj6a-red.gif"
+			"attachment": "https://wiki.koumakan.jp/images/aocf/f/f1/Miko2a.png"
 		}
 	]}')),
 	(@game, @character, '5b,b', JSON_COMPACT('{ "variations": [

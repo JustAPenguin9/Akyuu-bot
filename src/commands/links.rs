@@ -19,9 +19,9 @@ pub async fn links(ctx: Context<'_>) -> Result<(), Error> {
 	ctx.reply(
 		"**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>\n\
 		**AoCF wiki:** <https://aocf.koumakan.jp/wiki/Antinomy_of_Common_Flowers_Wiki>\n\
-		**AoCF starter pack** <https://drive.google.com/drive/folders/1cVEb1kN7X8lOsXn6XTBN1aphOEsD6SA8?usp=sharing>\n\
-		**AoCF netplay patch** <http://lunarcast.net/aocf.php>\n\
-		**Proxypunch** <https://github.com/delthas/proxypunch/releases/latest>"
+		**AoCF starter pack:** <https://drive.google.com/drive/folders/1cVEb1kN7X8lOsXn6XTBN1aphOEsD6SA8?usp=sharing>\n\
+		**AoCF netplay patch:** <http://lunarcast.net/aocf.php>\n\
+		**Proxypunch:** <https://github.com/delthas/proxypunch/releases/latest>"
 	).await?;
 
 	Ok(())

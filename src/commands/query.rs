@@ -1,6 +1,5 @@
 use poise::serenity_prelude::{
-	ComponentInteractionCollector, CreateActionRow, CreateButton, CreateEmbed,
-	CreateInteractionResponse, CreateInteractionResponseMessage,
+	ComponentInteractionCollector, CreateActionRow, CreateButton, CreateEmbed, CreateEmbedFooter, CreateInteractionResponse, CreateInteractionResponseMessage
 };
 use poise::{ChoiceParameter, CreateReply};
 use tracing::info;
@@ -174,6 +173,7 @@ fn create_move_embeds(
 		}
 		if let Some(attachment) = &var.attachment {
 			embed = embed.image(attachment);
+			embed = embed.footer(CreateEmbedFooter::new("An image should be visible"));
 		}
 
 		embeds.push(embed);

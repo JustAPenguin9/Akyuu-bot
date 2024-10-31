@@ -1,3 +1,5 @@
+use std::time::Duration;
+
 use dotenvy::dotenv;
 use poise::serenity_prelude as serenity;
 use sqlx::MySqlPool;
@@ -94,7 +96,7 @@ async fn main() {
 							info!("<{} online>", data_about_bot.user.name)
 						}
 						Message { new_message } => {
-							if new_message.content.starts_with("o/") && !new_message.author.bot {
+							if !new_message.author.bot && new_message.content.starts_with("o/") {
 								let author_name = &new_message.author.name;
 								let author_id = &new_message.author.id;
 								info!("{author_name} ({author_id}) called o/");
@@ -110,6 +112,49 @@ async fn main() {
 										)
 									}
 								};
+							}
+
+							// check if a message includes a local ip and warn if so
+							info!("checking for ip");
+							for m in ["10.", "172.", "192.168."] {
+								if !new_message.author.bot && new_message.content.contains(m) {
+									match new_message
+										.reply(
+											&ctx.http,
+											"This message seems to contain a local IP address, \
+											are you sure it's good?",
+										)
+										.await
+									{
+										Ok(msg) => {
+											if let Err(error) = msg.react(&ctx.http, '👍').await {
+												error!(
+													"failed to react to message {:?}: {:?}",
+													msg.id, error
+												)
+											};
+											let collector = msg
+												.await_reaction(&ctx.shard)
+												.timeout(Duration::from_secs(60))
+												.author_id(new_message.author.id);
+
+											if let Some(_) = collector.await {
+												if let Err(error) = msg.delete(&ctx.http).await {
+													error!(
+														"failed to delete message {:?}: {:?}",
+														msg.id, error
+													)
+												}
+											}
+										}
+										Err(error) => {
+											error!(
+												"failed to reply to local ip in message {:?}: {:?}",
+												new_message.id, error
+											);
+										}
+									}
+								}
 							}
 						}
 						_ => {}

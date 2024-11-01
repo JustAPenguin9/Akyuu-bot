@@ -96,65 +96,78 @@ async fn main() {
 							info!("<{} online>", data_about_bot.user.name)
 						}
 						Message { new_message } => {
-							if !new_message.author.bot && new_message.content.starts_with("o/") {
-								let author_name = &new_message.author.name;
-								let author_id = &new_message.author.id;
-								info!("{author_name} ({author_id}) called o/");
+							if !new_message.author.bot {
+								if new_message.content.starts_with("o/") {
+									let author_name = &new_message.author.name;
+									let author_id = &new_message.author.id;
+									info!("{author_name} ({author_id}) called o/");
 
-								match new_message.reply(&ctx.http, "o/").await {
-									Ok(_) => {
-										info!("{author_name} ({author_id}) successfully called o/")
-									}
-									Err(error) => {
-										error!(
-											"{author_name} ({author_id}) failed to call o/: {:?}",
-											error
-										)
-									}
-								};
-							}
-
-							// check if a message includes a local ip and warn if so
-							info!("checking for ip");
-							for m in ["10.", "172.", "192.168."] {
-								if !new_message.author.bot && new_message.content.contains(m) {
-									match new_message
-										.reply(
-											&ctx.http,
-											"This message seems to contain a local IP address, \
-											are you sure it's good?",
-										)
-										.await
-									{
-										Ok(msg) => {
-											if let Err(error) = msg.react(&ctx.http, '👍').await {
-												error!(
-													"failed to react to message {:?}: {:?}",
-													msg.id, error
-												)
-											};
-											let collector = msg
-												.await_reaction(&ctx.shard)
-												.timeout(Duration::from_secs(60))
-												.author_id(new_message.author.id);
-
-											if let Some(_) = collector.await {
-												if let Err(error) = msg.delete(&ctx.http).await {
-													error!(
-														"failed to delete message {:?}: {:?}",
-														msg.id, error
-													)
-												}
-											}
+									match new_message.reply(&ctx.http, "o/").await {
+										Ok(_) => {
+											info!("{author_name} ({author_id}) successfully called o/")
 										}
 										Err(error) => {
 											error!(
-												"failed to reply to local ip in message {:?}: {:?}",
-												new_message.id, error
-											);
+												"{author_name} ({author_id}) failed to call o/: {:?}",
+												error
+											)
+										}
+									};
+								}
+
+								// check if a message includes a local ip and warn if so
+								info!("checking for ip");
+								if let Some(caps) =
+									regex::Regex::new(r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})")
+										.unwrap()
+										.captures(new_message.content.as_str())
+								{
+									info!("got a local ip: {}", caps[0].to_string());
+									if caps[1] == *"10"
+										|| (caps[1] == *"192" && caps[2] == *"168")
+										|| (caps[1] == *"172"
+											&& (0o16 < caps[2].parse().unwrap_or(0)
+												|| caps[2].parse().unwrap_or(0) < 0o31))
+										|| (caps[1] == *"127"
+											&& caps[2] == *"0" && caps[3] == *"0"
+											&& caps[4] == *"1")
+									{
+										match new_message.reply(
+											&ctx.http,
+											"This message seems to contain a local IP address, \
+											are you sure it's good?",
+										).await {
+											Ok(msg) => {
+												if let Err(error) = msg.react(&ctx.http, '👍').await {
+													error!(
+														"failed to react to message {:?}: {:?}",
+														msg.id, error
+													)
+												};
+
+												let collector = msg
+													.await_reaction(&ctx.shard)
+													.timeout(Duration::from_secs(60))
+													.author_id(new_message.author.id);
+
+												if let Some(_) = collector.await {
+													if let Err(error) = msg.delete(&ctx.http).await {
+														error!(
+															"failed to delete message {:?}: {:?}",
+															msg.id, error
+														)
+													}
+												}
+											}
+											Err(error) => {
+												error!(
+													"failed to reply to local ip in message {:?}: {:?}",
+													new_message.id, error
+												);
+											}
 										}
 									}
-								}
+								};
 							}
 						}
 						_ => {}

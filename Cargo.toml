@@ -14,3 +14,4 @@ sqlx = { version = "0.7.2", features = ["runtime-tokio", "mysql", "chrono", "jso
 tokio = { version = "1.33.0", features = ["rt", "rt-multi-thread", "macros"] }
 tracing = "0.1.40"
 tracing-subscriber = "0.3.9"
+regex = "1.10.5"

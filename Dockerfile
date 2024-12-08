@@ -1,8 +1,6 @@
-ARG RUST_VERSION=1.74
-
-FROM rust:${RUST_VERSION}-slim as build
+FROM rust:slim AS build
 ENV SQLX_OFFLINE=true
-workdir /akyuu
+WORKDIR /akyuu
 
 COPY . .
 RUN cargo install --path .

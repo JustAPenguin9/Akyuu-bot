@@ -1,5 +1,8 @@
+use core::str;
+
 use poise::serenity_prelude::{
-	ComponentInteractionCollector, CreateActionRow, CreateButton, CreateEmbed, CreateEmbedFooter, CreateInteractionResponse, CreateInteractionResponseMessage
+	ComponentInteractionCollector, CreateActionRow, CreateButton, CreateEmbed, CreateEmbedFooter,
+	CreateInteractionResponse, CreateInteractionResponseMessage,
 };
 use poise::{ChoiceParameter, CreateReply};
 use tracing::info;
@@ -54,7 +57,7 @@ pub async fn query_inner(
 		.await?;
 	}
 
-	let data: MoveData = serde_json::from_str(&row[0].data)?;
+	let data: MoveData = serde_json::from_str(str::from_utf8(&row[0].data)?)?;
 
 	let (embeds, _titles) = create_move_embeds(data, &character, &input);
 

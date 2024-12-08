@@ -172,4 +172,3 @@ pub async fn joon(
 ) -> Result<(), crate::Error> {
 	crate::commands::query::query_inner(ctx, Joon, input).await
 }
-

@@ -77,5 +77,8 @@ fn write_character_cmds() {
 		result += "}\n\n";
 	}
 
+	// cargo fmt will yell if there are 2 newlines
+	result.pop();
+
 	std::fs::write(dest, result).unwrap();
 }

@@ -6,10 +6,10 @@ use crate::{Context, Error};
 #[poise::command(prefix_command, slash_command, aliases("starterpack", "start", "sh", "game"))]
 pub async fn starthere(ctx: Context<'_>) -> Result<(), Error> {
 	ctx.reply(
-		"- **sonofgod_1998's** starter pack about: <https://github.com/SonofGod1998/AoCF-Starter-Pack?tab=readme-ov-file#aocf-starter-pack>\n\
-		- **sonofgod_1998's** starter pack download: <https://github.com/SonofGod1998/AoCF-Starter-Pack/releases/latest>\n\
-		- Lobby mod **Squiroll** about and help: <https://discord.com/channels/273513597622157322/1315035342318862398>\n\
-		- Lobby mod **Squiroll** download: <https://github.com/Dazegambler/squiroll/releases/latest>\n\
+		"- **sonofgod_1998's** AoCF starter pack [about](<https://github.com/SonofGod1998/AoCF-Starter-Pack?tab=readme-ov-file#aocf-starter-pack>)\n\
+		- **sonofgod_1998's** AoCF starter pack [download](<https://github.com/SonofGod1998/AoCF-Starter-Pack/releases/latest>)\n\
+		- Lobby mod **Squiroll** [about and help](<https://discord.com/channels/273513597622157322/1315035342318862398>)\n\
+		- Lobby mod **Squiroll** [download](<https://github.com/Dazegambler/squiroll/releases/latest>)\n\
 		Make sure to ask for help if you need any and have fun!",
 	)
 	.await?;

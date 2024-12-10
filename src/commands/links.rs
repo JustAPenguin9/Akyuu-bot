@@ -10,6 +10,7 @@ pub async fn starthere(ctx: Context<'_>) -> Result<(), Error> {
 		- **sonofgod_1998's** AoCF starter pack [download](<https://github.com/SonofGod1998/AoCF-Starter-Pack/releases/latest>)\n\
 		- Lobby mod **Squiroll** [about and help](<https://discord.com/channels/273513597622157322/1315035342318862398>)\n\
 		- Lobby mod **Squiroll** [download](<https://github.com/Dazegambler/squiroll/releases/latest>)\n\
+		- Netplay patch [homepage](<http://lunarcast.net/aocf.php>)\n\
 		Make sure to ask for help if you need any and have fun!",
 	)
 	.await?;
@@ -21,12 +22,19 @@ pub async fn starthere(ctx: Context<'_>) -> Result<(), Error> {
 #[poise::command(prefix_command, slash_command, aliases("link"))]
 pub async fn links(ctx: Context<'_>) -> Result<(), Error> {
 	ctx.reply(
-		"**Github repo:** <https://github.com/JustAPenguin9/Akyuu-bot>\n\
-		**AoCF wiki:** <https://aocf.koumakan.jp/wiki/Antinomy_of_Common_Flowers_Wiki>\n\
-		**AoCF starter pack:** <https://drive.google.com/drive/folders/1cVEb1kN7X8lOsXn6XTBN1aphOEsD6SA8?usp=sharing>\n\
-		**AoCF netplay patch:** <http://lunarcast.net/aocf.php>\n\
-		**Proxypunch:** <https://github.com/delthas/proxypunch/releases/latest>"
-	).await?;
+		"- Akyuu: \
+		[repo](<https://github.com/JustAPenguin9/Akyuu-bot>)\
+		, [homepage](<https://justapenguin.ca/akyuu>)\
+		\n- AoCF: \
+		[wiki](<https://aocf.koumakan.jp/wiki/Antinomy_of_Common_Flowers_Wiki>)\
+		, [starter pack](<https://github.com/SonofGod1998/AoCF-Starter-Pack/releases/latest>)\
+		\n- Netplay: \
+		[Squiroll](<https://github.com/Dazegambler/squiroll/releases/latest>)\
+		, [netplay patch](<http://lunarcast.net/aocf.php>)\
+		, [Proxypunch](<https://github.com/delthas/proxypunch/releases/latest>)\
+		\nAlso check out the /starthere command!",
+	)
+	.await?;
 
 	Ok(())
 }

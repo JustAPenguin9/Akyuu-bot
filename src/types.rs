@@ -3,11 +3,29 @@ use serde_json::Value;
 
 pub use crate::choice_parameters::*;
 
+// TODO: the strings can be replaced with a player struct
+#[derive(Serialize, Deserialize, Debug, Default)]
+pub struct LobbyMessage {
+	#[serde(rename = "Free")]
+	pub free: Option<Vec<String>>,
+	#[serde(rename = "Novice")]
+	pub novice: Option<Vec<String>>,
+	#[serde(rename = "Veteran")]
+	pub veteran: Option<Vec<String>>,
+	#[serde(rename = "EU")]
+	pub eu: Option<Vec<String>>,
+	#[serde(rename = "NA")]
+	pub na: Option<Vec<String>>,
+	#[serde(rename = "SA")]
+	pub sa: Option<Vec<String>>,
+	#[serde(rename = "Asia")]
+	pub asia: Option<Vec<String>>,
+}
+
 // TODO: rename "variation" to "page" and add an option for a list of "option"s
 // that have emojis associated to each "option" in the list
 // pages have left/right arrows
 // options have emojis (especially useful for kokoro)
-
 #[derive(Serialize, Deserialize)]
 pub struct MoveData {
 	pub variations: Vec<Variation>,

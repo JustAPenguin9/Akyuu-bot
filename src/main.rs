@@ -1,20 +1,26 @@
-use std::time::Duration;
+use std::{sync::Arc, time::Duration};
 
 use dotenvy::dotenv;
+use lobby::lobby_stuff;
 use poise::serenity_prelude as serenity;
 use sqlx::MySqlPool;
+use tokio::sync::Mutex;
 use tracing::{error, info};
 
 mod choice_parameters;
 mod choices;
+mod lobby;
 mod types;
 
 mod commands;
 use commands::*;
+use types::LobbyMessage;
 
 #[derive(Debug)]
 struct Data {
 	pool: MySqlPool,
+	// NOTE: the mutex is a little overkill but who cares
+	lobby_data: Arc<Mutex<LobbyMessage>>,
 }
 
 type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -33,6 +39,9 @@ async fn main() {
 
 	// db stuff
 	let db_url = std::env::var("DB_URL").expect("expected a database url in the environment");
+
+	let lobby_data = Arc::new(Mutex::new(LobbyMessage { ..Default::default() }));
+	let lobby_data2 = Arc::clone(&lobby_data);
 
 	info!("connecting to the database");
 	let pool = sqlx::mysql::MySqlPoolOptions::new()
@@ -230,7 +239,9 @@ async fn main() {
 			},
 			..Default::default()
 		})
-		.setup(move |_ctx, _ready, _framework| Box::pin(async move { Ok(Data { pool }) }))
+		.setup(move |_ctx, _ready, _framework| {
+			Box::pin(async move { Ok(Data { pool, lobby_data }) })
+		})
 		.build();
 
 	let token = std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN in environment");
@@ -238,6 +249,9 @@ async fn main() {
 		serenity::GatewayIntents::non_privileged() | serenity::GatewayIntents::MESSAGE_CONTENT;
 
 	let client = serenity::ClientBuilder::new(token, intents).framework(framework).await;
+
+	// communicate with squiroll lobby to get the online players
+	tokio::spawn(lobby_stuff(lobby_data2));
 
 	client.unwrap().start().await.unwrap();
 }

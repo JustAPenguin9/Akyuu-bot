@@ -73,6 +73,7 @@ async fn main() {
 				history::win(),
 				history::loss(),
 				history::set(),
+				online::online(),
 				characters::reimu(),
 				characters::marisa(),
 				characters::ichirin(),

@@ -4,6 +4,8 @@ use serde_json::Value;
 pub use crate::choice_parameters::*;
 
 // TODO: the strings can be replaced with a player struct
+// TODO: have a seperate LobbyMessageRaw struct that has options while the
+// global struct has empty vectors
 #[derive(Serialize, Deserialize, Debug, Default)]
 pub struct LobbyMessage {
 	#[serde(rename = "Free")]

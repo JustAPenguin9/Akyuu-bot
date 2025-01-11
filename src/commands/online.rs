@@ -4,43 +4,29 @@ use crate::{Context, Error};
 #[poise::command(prefix_command, slash_command, aliases("lobby", "squiroll"))]
 pub async fn online(ctx: Context<'_>) -> Result<(), Error> {
 	let mut count = 0;
-	let mut free = 0;
-	let mut novice = 0;
-	let mut veteran = 0;
-	let mut eu = 0;
-	let mut na = 0;
-	let mut sa = 0;
-	let mut asia = 0;
+	let free;
+	let novice;
+	let veteran;
+	let eu;
+	let na;
+	let sa;
+	let asia;
 	{
 		let lock = ctx.data().lobby_data.lock().await;
-		if let Some(arr) = &(*lock).free {
-			count += arr.len();
-			free = arr.len();
-		}
-		if let Some(arr) = &(*lock).novice {
-			count += arr.len();
-			novice = arr.len();
-		}
-		if let Some(arr) = &(*lock).veteran {
-			count += arr.len();
-			veteran = arr.len();
-		}
-		if let Some(arr) = &(*lock).eu {
-			count += arr.len();
-			eu = arr.len();
-		}
-		if let Some(arr) = &(*lock).na {
-			count += arr.len();
-			na = arr.len();
-		}
-		if let Some(arr) = &(*lock).sa {
-			count += arr.len();
-			sa = arr.len();
-		}
-		if let Some(arr) = &(*lock).asia {
-			count += arr.len();
-			asia = arr.len();
-		}
+		count += (*lock).free.len();
+		free = (*lock).free.len();
+		count += (*lock).novice.len();
+		novice = (*lock).novice.len();
+		count += (*lock).veteran.len();
+		veteran = (*lock).veteran.len();
+		count += (*lock).eu.len();
+		eu = (*lock).eu.len();
+		count += (*lock).na.len();
+		na = (*lock).na.len();
+		count += (*lock).sa.len();
+		sa = (*lock).sa.len();
+		count += (*lock).asia.len();
+		asia = (*lock).asia.len();
 	}
 	ctx.reply(format!(
 		"The total number of players currently waiting in the lobby is: **{count}**\n\

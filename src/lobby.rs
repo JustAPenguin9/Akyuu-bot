@@ -7,7 +7,7 @@ use tokio::{
 };
 use tracing::{debug, error, info, warn};
 
-use crate::types::LobbyMessage;
+use crate::types::{LobbyMessage, LobbyMessageRaw};
 
 pub async fn lobby_stuff(global: Arc<Mutex<LobbyMessage>>) -> ! {
 	info!("start tcp thread");
@@ -51,7 +51,7 @@ pub async fn lobby_stuff(global: Arc<Mutex<LobbyMessage>>) -> ! {
 			warn!("did not get the test message, instead got {:?}", out)
 		}
 
-		let to_write = b"
+		let to_write = b"\
 NICK bot
 USER bot
 PASS kzxmckfqbpqieh8rw<rczuturKfnsjxhauhybttboiuuzmWdmnt5mnlczpythaxf";
@@ -74,43 +74,13 @@ PASS kzxmckfqbpqieh8rw<rczuturKfnsjxhauhybttboiuuzmWdmnt5mnlczpythaxf";
 					if let Ok(msg) = String::from_utf8(buf.clone()) {
 						info!("read {n} bytes saying: {msg}");
 						if msg.starts_with(":LOBBY PRIVMSG bot :") {
-							match serde_json::from_str::<LobbyMessage>(&msg[20..]) {
-								Ok(data) => {
-									info!("{:?}", data);
-									if let Some(change) = data.free {
-										let mut lock = global.lock().await;
-										(*lock).free = Some(change);
-										debug!("updated free");
-									}
-									if let Some(change) = data.novice {
-										let mut lock = global.lock().await;
-										(*lock).novice = Some(change);
-										debug!("updated novice");
-									}
-									if let Some(change) = data.veteran {
-										let mut lock = global.lock().await;
-										(*lock).veteran = Some(change);
-										debug!("updated veteran");
-									}
-									if let Some(change) = data.eu {
-										let mut lock = global.lock().await;
-										(*lock).eu = Some(change);
-										debug!("updated eu");
-									}
-									if let Some(change) = data.na {
-										let mut lock = global.lock().await;
-										(*lock).na = Some(change);
-										debug!("updated na");
-									}
-									if let Some(change) = data.sa {
-										let mut lock = global.lock().await;
-										(*lock).sa = Some(change);
-										debug!("updated sa");
-									}
-									if let Some(change) = data.asia {
-										let mut lock = global.lock().await;
-										(*lock).asia = Some(change);
-										debug!("updated asia");
+							match serde_json::from_str::<LobbyMessageRaw>(&msg[20..]) {
+								Ok(raw) => {
+									let mut lock = global.lock().await;
+									if let Err(_) = (*lock).from_delta(&raw) {
+										warn!("could not parse {:?}", &raw);
+									} else {
+										info!("successfully read the message and parsed it's contents");
 									}
 								}
 								Err(e) => warn!("could not deserialise {} :: {e}", &msg[20..]),

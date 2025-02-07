@@ -1,15 +1,21 @@
-use std::sync::Arc;
+use std::{sync::Arc, time::Duration};
 
 use tokio::{
 	io::{AsyncBufReadExt, AsyncWriteExt, BufReader},
 	net::TcpSocket,
 	sync::Mutex,
+	time::sleep,
 };
 use tracing::{debug, error, info, warn};
 
 use crate::types::{LobbyMessage, LobbyMessageRaw};
 
 pub async fn lobby_stuff(global: Arc<Mutex<LobbyMessage>>) -> ! {
+	// wait for lobby to startup
+	sleep(Duration::from_secs(10)).await;
+
+	let mut attempts = 0;
+
 	info!("start tcp thread");
 	loop {
 		// TODO: move the url to a env variable
@@ -24,10 +30,19 @@ pub async fn lobby_stuff(global: Arc<Mutex<LobbyMessage>>) -> ! {
 			}
 		};
 		info!("Created TCP socket");
+
 		let mut stream = match socket.connect(addr).await {
-			Ok(stream) => stream,
+			Ok(stream) => {
+				attempts = 0;
+				stream
+			}
 			Err(e) => {
-				error!("could not connect to the lobby: {e}");
+				// try again in some ammount of seconds
+				let t = std::cmp::min(30 * attempts, 60 * 2);
+				error!("could not connect to the lobby trying again in {t} seconds: {e}");
+
+				sleep(Duration::from_secs(t)).await;
+				attempts += 1;
 				continue;
 			}
 		};

@@ -1,7 +1,5 @@
 use crate::{Context, Error};
 
-//TODO: make these commands ephemeral
-
 /// Send the link to the starter pack
 #[poise::command(prefix_command, slash_command, aliases("starterpack", "start", "sh", "game"))]
 pub async fn starthere(ctx: Context<'_>) -> Result<(), Error> {

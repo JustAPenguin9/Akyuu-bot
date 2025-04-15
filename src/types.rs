@@ -1,4 +1,4 @@
-use poise::serenity_prelude::UserId;
+use poise::serenity_prelude::{ChannelId, MessageId, UserId};
 use serde::{de, Deserialize, Deserializer, Serialize};
 use serde_json::Value;
 
@@ -25,13 +25,13 @@ pub struct LobbyMessageRaw {
 	pub asia: Option<Vec<String>>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Player {
 	Generic(usize),
 	Discord(UserId),
 }
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, PartialEq, Clone)]
 pub struct LobbyMessage {
 	pub free: Vec<Player>,
 	pub novice: Vec<Player>,
@@ -102,6 +102,14 @@ impl LobbyMessage {
 
 		return Ok(result);
 	}
+}
+
+// NOTE: not yet used but should be eventually
+#[derive(Serialize, Deserialize)]
+pub struct GuildConfig {
+	#[serde(default, skip_serializing_if = "Option::is_none")]
+	squiroll_messages: Option<Vec<(ChannelId, MessageId)>>,
+	// tournament_organisers: Option<Vec<UserId>>,
 }
 
 // TODO: rename "variation" to "page" and add an option for a list of "option"s

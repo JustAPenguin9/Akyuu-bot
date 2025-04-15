@@ -1,4 +1,5 @@
 pub mod characters;
+pub mod config;
 pub mod help;
 pub mod history;
 pub mod links;

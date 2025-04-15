@@ -1,11 +1,11 @@
-use std::{sync::Arc, time::Duration};
+use std::{sync::Arc, time};
 
 use dotenvy::dotenv;
-use lobby::lobby_stuff;
-use poise::serenity_prelude as serenity;
+use lobby::{update_lobby_data, update_lobby_messages};
+use poise::serenity_prelude::{self as serenity, ChannelId, MessageId};
 use sqlx::MySqlPool;
-use tokio::sync::Mutex;
-use tracing::{error, info};
+use tokio::sync::{Mutex, RwLock};
+use tracing::{debug, error, info};
 
 mod choice_parameters;
 mod choices;
@@ -19,8 +19,10 @@ use types::LobbyMessage;
 #[derive(Debug)]
 struct Data {
 	pool: MySqlPool,
-	// NOTE: the mutex is a little overkill but who cares
+	// TODO: instead of mutexes these should be rwlocks like last_update
 	lobby_data: Arc<Mutex<LobbyMessage>>,
+	squiroll_messages: Mutex<Vec<(ChannelId, MessageId)>>,
+	lobby_messages_last_update: RwLock<(time::Instant, LobbyMessage)>,
 }
 
 type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -40,9 +42,6 @@ async fn main() {
 	// db stuff
 	let db_url = std::env::var("DB_URL").expect("expected a database url in the environment");
 
-	let lobby_data = Arc::new(Mutex::new(LobbyMessage { ..Default::default() }));
-	let lobby_data2 = Arc::clone(&lobby_data);
-
 	info!("connecting to the database");
 	let pool = sqlx::mysql::MySqlPoolOptions::new()
 		.max_connections(5)
@@ -56,57 +55,97 @@ async fn main() {
 		.await
 		.expect("error applying migrations to the database");
 
-	let framework = poise::Framework::builder()
-		.options(poise::FrameworkOptions {
-			commands: vec![
-				help::help(),
-				owner::register(),
-				// owner::resetmoves(),
-				// owner::activity(),
-				links::starthere(),
-				links::links(),
-				links::repository(),
-				wiki::wiki(),
-				query::query(),
-				query::query_alias(),
-				history::profile(),
-				history::win(),
-				history::loss(),
-				history::set(),
-				online::online(),
-				characters::reimu(),
-				characters::marisa(),
-				characters::ichirin(),
-				characters::byakuren(),
-				characters::futo(),
-				characters::miko(),
-				characters::nitori(),
-				characters::koishi(),
-				characters::mamizou(),
-				characters::kokoro(),
-				characters::kasen(),
-				characters::mokou(),
-				characters::sukuna(),
-				characters::sumireko(),
-				characters::reisen(),
-				characters::doremy(),
-				characters::tenshi(),
-				characters::yukari(),
-				characters::joon(),
-			],
-			event_handler: |ctx, event, _framework, _data| {
-				use serenity::FullEvent::*;
-				Box::pin(async move {
-					match event {
-						Ready { data_about_bot } => {
-							ctx.set_presence(
-								Some(serenity::ActivityData::listening("Kosuzu ramble")),
-								serenity::OnlineStatus::Online,
-							);
-							info!("<{} online>", data_about_bot.user.name)
-						}
-						Message { new_message } => {
-							if !new_message.author.bot {
+	// global squiroll data
+	let lobby_data = Arc::new(Mutex::new(LobbyMessage { ..Default::default() }));
+	let squiroll_messages: Vec<(ChannelId, MessageId)> =
+	sqlx::query!("select JSON_QUERY(`config`, '$.squiroll_messages') as arr from `guild` where JSON_CONTAINS_PATH(`config`, 'all', '$.squiroll_messages')")
+		.fetch_all(&pool).await.expect("unable to query squiroll messages").into_iter().map(|record| {
+			let json:Vec<(u64, u64)> = serde_json::from_slice(record.arr.unwrap().as_slice()).expect("unable to read squiroll_message");
+			return json;
+		}).flatten().map(|(channelid, messageid)| { (ChannelId::new(channelid), MessageId::new(messageid)) }).collect();
+
+	// communicate with squiroll lobby to get the online players
+	tokio::spawn(update_lobby_data(lobby_data.clone()));
+
+	let framework =
+		poise::Framework::builder()
+			.options(poise::FrameworkOptions {
+				commands: vec![
+					help::help(),
+					owner::register(),
+					// owner::resetmoves(),
+					// owner::activity(),
+					links::starthere(),
+					links::links(),
+					links::repository(),
+					wiki::wiki(),
+					query::query(),
+					query::query_alias(),
+					history::profile(),
+					history::win(),
+					history::loss(),
+					history::set(),
+					online::online(),
+					config::config(),
+					characters::reimu(),
+					characters::marisa(),
+					characters::ichirin(),
+					characters::byakuren(),
+					characters::futo(),
+					characters::miko(),
+					characters::nitori(),
+					characters::koishi(),
+					characters::mamizou(),
+					characters::kokoro(),
+					characters::kasen(),
+					characters::mokou(),
+					characters::sukuna(),
+					characters::sumireko(),
+					characters::reisen(),
+					characters::doremy(),
+					characters::tenshi(),
+					characters::yukari(),
+					characters::joon(),
+				],
+				event_handler: |ctx, event, _framework, data| {
+					use serenity::FullEvent::*;
+					Box::pin(async move {
+						match event {
+							Ready { data_about_bot } => {
+								ctx.set_presence(
+									Some(serenity::ActivityData::listening("Kosuzu ramble")),
+									serenity::OnlineStatus::Online,
+								);
+								// initial update
+								update_lobby_messages(ctx, data).await?;
+								info!("<{} online>", data_about_bot.user.name);
+							}
+							Message { new_message } => {
+								if new_message.author.bot {
+									return Ok(());
+								}
+
+								// update squiroll messages if necessary
+								let elapsed =
+									data.lobby_messages_last_update.read().await.0.elapsed();
+								if elapsed > time::Duration::from_secs(5) {
+									debug!("checking squiroll changes as time has elapsed...");
+									let last_lobby_message;
+									{
+										let lock = data.lobby_data.lock().await;
+										last_lobby_message = (*lock).clone();
+									}
+									if data.lobby_messages_last_update.read().await.1
+										!= last_lobby_message
+									{
+										update_lobby_messages(ctx, data).await?;
+										info!("updated squiroll messages");
+									} else {
+										debug!("no squiroll change");
+									}
+								}
+
+								// handle waves
 								if new_message.content.starts_with("o/") {
 									let author_name = &new_message.author.name;
 									let author_id = &new_message.author.id;
@@ -126,7 +165,6 @@ async fn main() {
 								}
 
 								// check if a message includes a local ip and warn if so
-								info!("checking for ip");
 								if let Some(caps) =
 									regex::Regex::new(r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})")
 										.unwrap()
@@ -157,7 +195,7 @@ async fn main() {
 
 												let collector = msg
 													.await_reaction(&ctx.shard)
-													.timeout(Duration::from_secs(60))
+													.timeout(time::Duration::from_secs(60))
 													.author_id(new_message.author.id);
 
 												if let Some(_) = collector.await {
@@ -179,80 +217,86 @@ async fn main() {
 									}
 								};
 							}
+							_ => {}
 						}
-						_ => {}
-					}
-					Ok(())
-				})
-			},
-			pre_command: |ctx| {
-				Box::pin(async move {
-					info!(
-						"{} ({}) called {}{}",
-						&ctx.author().name,
-						&ctx.author().id,
-						&ctx.prefix(),
-						&ctx.command().name
-					);
-				})
-			},
-			post_command: |ctx| {
-				Box::pin(async move {
-					info!(
-						"{} ({}) successfully called {}{}",
-						&ctx.author().name,
-						&ctx.author().id,
-						&ctx.prefix(),
-						&ctx.command().name
-					);
-				})
-			},
-			on_error: |error| {
-				Box::pin(async move {
-					use poise::FrameworkError::*;
-					match error {
-						Setup { error, .. } => {
-							panic!("Failed to start the bot: {:?}", error)
+						Ok(())
+					})
+				},
+				pre_command: |ctx| {
+					Box::pin(async move {
+						info!(
+							"{} ({}) called {}{}",
+							&ctx.author().name,
+							&ctx.author().id,
+							&ctx.prefix(),
+							&ctx.command().name
+						);
+					})
+				},
+				post_command: |ctx| {
+					Box::pin(async move {
+						info!(
+							"{} ({}) successfully called {}{}",
+							&ctx.author().name,
+							&ctx.author().id,
+							&ctx.prefix(),
+							&ctx.command().name
+						);
+					})
+				},
+				on_error: |error| {
+					Box::pin(async move {
+						use poise::FrameworkError::*;
+						match error {
+							Setup { error, .. } => {
+								panic!("Failed to start the bot: {:?}", error)
+							}
+							Command { error, ctx, .. } => {
+								error!(
+									"{} ({}) failed to call {}{}: {:?}",
+									&ctx.author().name,
+									&ctx.author().id,
+									&ctx.prefix(),
+									&ctx.command().name,
+									error
+								)
+							}
+							CommandPanic { payload, ctx, .. } => {
+								error!("Command {:?}, panicked: {:?}", ctx.command().name, payload)
+							}
+							EventHandler { error, event, .. } => {
+								error!("Generic error from {:?}: {:?}", event, error)
+							}
+							_ => {} // all other errors are meaningless
 						}
-						Command { error, ctx, .. } => {
-							error!(
-								"{} ({}) failed to call {}{}: {:?}",
-								&ctx.author().name,
-								&ctx.author().id,
-								&ctx.prefix(),
-								&ctx.command().name,
-								error
-							)
-						}
-						CommandPanic { payload, ctx, .. } => {
-							error!("Command {:?}, panicked: {:?}", ctx.command().name, payload)
-						}
-						EventHandler { error, event, .. } => {
-							error!("Generic error from {:?}: {:?}", event, error)
-						}
-						_ => {} // all other errors are meaningless
-					}
-				})
-			},
-			prefix_options: poise::PrefixFrameworkOptions {
-				prefix: Some(std::env::var("COMMAND_PREFIX").unwrap_or('!'.into())),
+					})
+				},
+				prefix_options: poise::PrefixFrameworkOptions {
+					prefix: Some(std::env::var("COMMAND_PREFIX").unwrap_or('!'.into())),
+					..Default::default()
+				},
 				..Default::default()
-			},
-			..Default::default()
-		})
-		.setup(move |_ctx, _ready, _framework| {
-			Box::pin(async move { Ok(Data { pool, lobby_data }) })
-		})
-		.build();
+			})
+			.setup(move |_ctx, _ready, _framework| {
+				Box::pin(async move {
+					Ok(Data {
+						pool,
+						lobby_data,
+						squiroll_messages: squiroll_messages.into(),
+						lobby_messages_last_update: RwLock::new((
+							time::Instant::now(),
+							LobbyMessage { ..Default::default() },
+						)),
+					})
+				})
+			})
+			.build();
 
 	let token = std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN in environment");
 	let intents =
 		serenity::GatewayIntents::non_privileged() | serenity::GatewayIntents::MESSAGE_CONTENT;
 
 	let client = serenity::ClientBuilder::new(token, intents).framework(framework).await;
-
-	// communicate with squiroll lobby to get the online players
-	tokio::spawn(lobby_stuff(lobby_data2));
 
 	client.unwrap().start().await.unwrap();
 }

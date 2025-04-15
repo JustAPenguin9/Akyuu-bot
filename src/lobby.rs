@@ -1,5 +1,9 @@
-use std::{sync::Arc, time::Duration};
+use std::{
+	sync::Arc,
+	time::{Duration, Instant},
+};
 
+use poise::serenity_prelude::{CacheHttp, Context, EditMessage};
 use tokio::{
 	io::{AsyncBufReadExt, AsyncWriteExt, BufReader},
 	net::TcpSocket,
@@ -8,9 +12,12 @@ use tokio::{
 };
 use tracing::{debug, error, info, warn};
 
-use crate::types::{LobbyMessage, LobbyMessageRaw};
+use crate::{
+	types::{LobbyMessage, LobbyMessageRaw},
+	Data, Error,
+};
 
-pub async fn lobby_stuff(global: Arc<Mutex<LobbyMessage>>) -> ! {
+pub async fn update_lobby_data(lobby_data: Arc<Mutex<LobbyMessage>>) -> ! {
 	// wait for lobby to startup
 	sleep(Duration::from_secs(10)).await;
 
@@ -91,7 +98,7 @@ PASS kzxmckfqbpqieh8rw<rczuturKfnsjxhauhybttboiuuzmWdmnt5mnlczpythaxf";
 						if msg.starts_with(":LOBBY PRIVMSG bot :") {
 							match serde_json::from_str::<LobbyMessageRaw>(&msg[20..]) {
 								Ok(raw) => {
-									let mut lock = global.lock().await;
+									let mut lock = lobby_data.lock().await;
 									if let Err(_) = (*lock).from_delta(&raw) {
 										warn!("could not parse {:?}", &raw);
 									} else {
@@ -112,4 +119,47 @@ PASS kzxmckfqbpqieh8rw<rczuturKfnsjxhauhybttboiuuzmWdmnt5mnlczpythaxf";
 			}
 		}
 	}
+}
+
+pub async fn update_lobby_messages(
+	ctx: &Context,
+	data: &Data,
+	// framework: FrameworkContext<'_>,
+	// lobby_data: Arc<Mutex<LobbyMessage>>,
+	// lobby_messages: Arc<Vec<Message>>,
+) -> Result<(), Error> {
+	let squiroll_messages_lock = data.squiroll_messages.lock().await;
+	// NOTE: this is about the same as !online
+	let mut count = 0;
+	let (free, novice, veteran, eu, na, sa, asia);
+	{
+		let last = data.lobby_data.lock().await;
+		let inner = &*last;
+		count += inner.free.len();
+		free = inner.free.len();
+		count += inner.novice.len();
+		novice = inner.novice.len();
+		count += inner.veteran.len();
+		veteran = inner.veteran.len();
+		count += inner.eu.len();
+		eu = inner.eu.len();
+		count += inner.na.len();
+		na = inner.na.len();
+		count += inner.sa.len();
+		sa = inner.sa.len();
+		count += inner.asia.len();
+		asia = inner.asia.len();
+	}
+	let content = format!(
+		"The total number of players currently waiting in the lobby is: **{count}**\n\
+		Free: **{free}**, Novice: **{novice}**, Veteran: **{veteran}**, \
+		EU: **{eu}**, NA: **{na}**, SA: **{sa}**, Asia: **{asia}**"
+	);
+	for (channelid, messageid) in &*squiroll_messages_lock {
+		let mut message = ctx.http().get_message(*channelid, *messageid).await?;
+		message.edit(ctx, EditMessage::new().content(&content)).await?;
+	}
+	let last = data.lobby_data.lock().await;
+	*(data.lobby_messages_last_update.write().await) = (Instant::now(), (*last).clone());
+	return Ok(());
 }

@@ -1,0 +1,24 @@
+{
+  "db_name": "MySQL",
+  "query": "select JSON_QUERY(`config`, '$.squiroll_messages') as arr from `guild` where JSON_CONTAINS_PATH(`config`, 'all', '$.squiroll_messages')",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "arr",
+        "type_info": {
+          "type": "LongBlob",
+          "flags": "BINARY",
+          "max_size": 4294967295
+        }
+      }
+    ],
+    "parameters": {
+      "Right": 0
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "a61a50f44f8f8a5ce112c2178cafa4d49e003d098b109e881ef418a572eb828e"
+}

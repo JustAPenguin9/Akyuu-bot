@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "INSERT INTO `guild` (`guild_id`, `config`)\n\t\t\t\t\tVALUES ( ?, JSON_INSERT('{}', '$.squiroll_messages', JSON_ARRAY(JSON_ARRAY(?,?))) )\n\t\t\t\tON DUPLICATE KEY UPDATE\n\t\t\t\t`config` = IF(JSON_CONTAINS_PATH(`config`, 'all', '$.squiroll_messages'),\n\t\t\t\t\tJSON_ARRAY_APPEND(`config`, '$.squiroll_messages', JSON_ARRAY(?,?)),\n\t\t\t\t\tJSON_INSERT(`config`, '$.squiroll_messages', JSON_ARRAY(JSON_ARRAY(?,?)))\n\t\t\t\t)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 7
+    },
+    "nullable": []
+  },
+  "hash": "cdf8fb4d9b2f203af07b068e50f01bce955997b328223b13ab94a89f855e66d8"
+}

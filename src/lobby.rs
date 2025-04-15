@@ -19,7 +19,7 @@ use crate::{
 
 pub async fn update_lobby_data(lobby_data: Arc<Mutex<LobbyMessage>>) -> ! {
 	// wait for lobby to startup
-	sleep(Duration::from_secs(10)).await;
+	sleep(Duration::from_secs(3)).await;
 
 	let mut attempts = 0;
 

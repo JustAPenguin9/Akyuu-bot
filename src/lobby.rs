@@ -13,7 +13,7 @@ use tokio::{
 use tracing::{debug, error, info, warn};
 
 use crate::{
-	types::{LobbyMessage, LobbyMessageRaw},
+	types::{LobbyMessage, LobbyMessageRaw, Player},
 	Data, Error,
 };
 
@@ -129,32 +129,206 @@ pub async fn update_lobby_messages(
 	// lobby_messages: Arc<Vec<Message>>,
 ) -> Result<(), Error> {
 	let squiroll_messages_lock = data.squiroll_messages.lock().await;
-	// NOTE: this is about the same as !online
 	let mut count = 0;
-	let (free, novice, veteran, eu, na, sa, asia);
-	{
+	let mut free = 0;
+	let mut novice = 0;
+	let mut veteran = 0;
+	let mut eu = 0;
+	let mut na = 0;
+	let mut sa = 0;
+	let mut asia = 0;
+	let lobby = {
 		let last = data.lobby_data.lock().await;
 		let inner = &*last;
 		count += inner.free.len();
-		free = inner.free.len();
 		count += inner.novice.len();
-		novice = inner.novice.len();
 		count += inner.veteran.len();
-		veteran = inner.veteran.len();
 		count += inner.eu.len();
-		eu = inner.eu.len();
 		count += inner.na.len();
-		na = inner.na.len();
 		count += inner.sa.len();
-		sa = inner.sa.len();
 		count += inner.asia.len();
-		asia = inner.asia.len();
+		inner.clone() // lobby
+	};
+
+	let mut content =
+		format!("The total number of players currently waiting in the lobby is: **{count}**");
+
+	// free
+	if lobby.free.len() > 0 {
+		content.push_str(&format!("\n**Free: {}**", lobby.free.len()));
 	}
-	let content = format!(
-		"The total number of players currently waiting in the lobby is: **{count}**\n\
-		Free: **{free}**, Novice: **{novice}**, Veteran: **{veteran}**, \
-		EU: **{eu}**, NA: **{na}**, SA: **{sa}**, Asia: **{asia}**"
-	);
+	for player in lobby.free {
+		match player {
+			Player::Generic(_) => free += 1,
+			Player::Discord(user_id) => {
+				if let Ok(user) = user_id.to_user(ctx.http()).await {
+					content.push_str("\n> ");
+					content.push_str(&user.global_name.unwrap_or(user.name));
+				} else {
+					warn!("unable to find user with the id {user_id}");
+					free += 1;
+					continue;
+				}
+			}
+		}
+	}
+	if free == 1 {
+		content.push_str(&format!("\n> {free} unknown player"));
+	} else if free > 1 {
+		content.push_str(&format!("\n> {free} unknown players"));
+	}
+
+	// novice
+	if lobby.novice.len() > 0 {
+		content.push_str(&format!("\n**novice: {}**", lobby.novice.len()));
+	}
+	for player in lobby.novice {
+		match player {
+			Player::Generic(_) => novice += 1,
+			Player::Discord(user_id) => {
+				if let Ok(user) = user_id.to_user(ctx.http()).await {
+					content.push_str("\n> ");
+					content.push_str(&user.global_name.unwrap_or(user.name));
+				} else {
+					warn!("unable to find user with the id {user_id}");
+					novice += 1;
+					continue;
+				}
+			}
+		}
+	}
+	if novice == 1 {
+		content.push_str(&format!("\n> {novice} unknown player"));
+	} else if novice > 1 {
+		content.push_str(&format!("\n> {novice} unknown players"));
+	}
+
+	// veteran
+	if lobby.veteran.len() > 0 {
+		content.push_str(&format!("\n**veteran: {}**", lobby.veteran.len()));
+	}
+	for player in lobby.veteran {
+		match player {
+			Player::Generic(_) => veteran += 1,
+			Player::Discord(user_id) => {
+				if let Ok(user) = user_id.to_user(ctx.http()).await {
+					content.push_str("\n> ");
+					content.push_str(&user.global_name.unwrap_or(user.name));
+				} else {
+					warn!("unable to find user with the id {user_id}");
+					veteran += 1;
+					continue;
+				}
+			}
+		}
+	}
+	if veteran == 1 {
+		content.push_str(&format!("\n> {veteran} unknown player"));
+	} else if veteran > 1 {
+		content.push_str(&format!("\n> {veteran} unknown players"));
+	}
+
+	// eu
+	if lobby.eu.len() > 0 {
+		content.push_str(&format!("\n**eu: {}**", lobby.eu.len()));
+	}
+	for player in lobby.eu {
+		match player {
+			Player::Generic(_) => eu += 1,
+			Player::Discord(user_id) => {
+				if let Ok(user) = user_id.to_user(ctx.http()).await {
+					content.push_str("\n> ");
+					content.push_str(&user.global_name.unwrap_or(user.name));
+				} else {
+					warn!("unable to find user with the id {user_id}");
+					eu += 1;
+					continue;
+				}
+			}
+		}
+	}
+	if eu == 1 {
+		content.push_str(&format!("\n> {eu} unknown player"));
+	} else if eu > 1 {
+		content.push_str(&format!("\n> {eu} unknown players"));
+	}
+
+	// na
+	if lobby.na.len() > 0 {
+		content.push_str(&format!("\n**na: {}**", lobby.na.len()));
+	}
+	for player in lobby.na {
+		match player {
+			Player::Generic(_) => na += 1,
+			Player::Discord(user_id) => {
+				if let Ok(user) = user_id.to_user(ctx.http()).await {
+					content.push_str("\n> ");
+					content.push_str(&user.global_name.unwrap_or(user.name));
+				} else {
+					warn!("unable to find user with the id {user_id}");
+					na += 1;
+					continue;
+				}
+			}
+		}
+	}
+	if na == 1 {
+		content.push_str(&format!("\n> {na} unknown player"));
+	} else if na > 1 {
+		content.push_str(&format!("\n> {na} unknown players"));
+	}
+
+	// sa
+	if lobby.sa.len() > 0 {
+		content.push_str(&format!("\n**sa: {}**", lobby.sa.len()));
+	}
+	for player in lobby.sa {
+		match player {
+			Player::Generic(_) => sa += 1,
+			Player::Discord(user_id) => {
+				if let Ok(user) = user_id.to_user(ctx.http()).await {
+					content.push_str("\n> ");
+					content.push_str(&user.global_name.unwrap_or(user.name));
+				} else {
+					warn!("unable to find user with the id {user_id}");
+					sa += 1;
+					continue;
+				}
+			}
+		}
+	}
+	if sa == 1 {
+		content.push_str(&format!("\n> {sa} unknown player"));
+	} else if sa > 1 {
+		content.push_str(&format!("\n> {sa} unknown players"));
+	}
+
+	// asia
+	if lobby.asia.len() > 0 {
+		content.push_str(&format!("\n**asia: {}**", lobby.asia.len()));
+	}
+	for player in lobby.asia {
+		match player {
+			Player::Generic(_) => asia += 1,
+			Player::Discord(user_id) => {
+				if let Ok(user) = user_id.to_user(ctx.http()).await {
+					content.push_str("\n> ");
+					content.push_str(&user.global_name.unwrap_or(user.name));
+				} else {
+					warn!("unable to find user with the id {user_id}");
+					asia += 1;
+					continue;
+				}
+			}
+		}
+	}
+	if asia == 1 {
+		content.push_str(&format!("\n> {asia} unknown player"));
+	} else if asia > 1 {
+		content.push_str(&format!("\n> {asia} unknown players"));
+	}
+
+	// updating messages
 	for (channelid, messageid) in &*squiroll_messages_lock {
 		let mut message;
 		match ctx.http().get_message(*channelid, *messageid).await {
@@ -168,7 +342,9 @@ pub async fn update_lobby_messages(
 			error!("Error editing the message {messageid}: {e}");
 		});
 	}
+	// update last
 	let last = data.lobby_data.lock().await;
 	*(data.lobby_messages_last_update.write().await) = (Instant::now(), (*last).clone());
+
 	return Ok(());
 }

@@ -156,8 +156,17 @@ pub async fn update_lobby_messages(
 		EU: **{eu}**, NA: **{na}**, SA: **{sa}**, Asia: **{asia}**"
 	);
 	for (channelid, messageid) in &*squiroll_messages_lock {
-		let mut message = ctx.http().get_message(*channelid, *messageid).await?;
-		message.edit(ctx, EditMessage::new().content(&content)).await?;
+		let mut message;
+		match ctx.http().get_message(*channelid, *messageid).await {
+			Ok(m) => message = m,
+			Err(e) => {
+				error!("Error querying the message {messageid}: {e}");
+				continue;
+			}
+		};
+		message.edit(ctx, EditMessage::new().content(&content)).await.unwrap_or_else(|e| {
+			error!("Error editing the message {messageid}: {e}");
+		});
 	}
 	let last = data.lobby_data.lock().await;
 	*(data.lobby_messages_last_update.write().await) = (Instant::now(), (*last).clone());

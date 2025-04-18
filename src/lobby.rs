@@ -3,7 +3,9 @@ use std::{
 	time::{Duration, Instant},
 };
 
-use poise::serenity_prelude::{CacheHttp, Context, EditMessage};
+use poise::serenity_prelude::{
+	CacheHttp, ChannelId, Context, CreateMessage, EditMessage, MessageId,
+};
 use tokio::{
 	io::{AsyncBufReadExt, AsyncWriteExt, BufReader},
 	net::TcpSocket,
@@ -121,14 +123,7 @@ PASS kzxmckfqbpqieh8rw<rczuturKfnsjxhauhybttboiuuzmWdmnt5mnlczpythaxf";
 	}
 }
 
-pub async fn update_lobby_messages(
-	ctx: &Context,
-	data: &Data,
-	// framework: FrameworkContext<'_>,
-	// lobby_data: Arc<Mutex<LobbyMessage>>,
-	// lobby_messages: Arc<Vec<Message>>,
-) -> Result<(), Error> {
-	let squiroll_messages_lock = data.squiroll_messages.lock().await;
+pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Error> {
 	let mut count = 0;
 	let mut free = 0;
 	let mut novice = 0;
@@ -328,23 +323,63 @@ pub async fn update_lobby_messages(
 		content.push_str(&format!("\n> {asia} unknown players"));
 	}
 
+	let squiroll_messages = {
+		let inner = data.squiroll_messages.lock().await;
+		inner.clone()
+	};
 	// updating messages
-	for (channelid, messageid) in &*squiroll_messages_lock {
-		let mut message;
-		match ctx.http().get_message(*channelid, *messageid).await {
-			Ok(m) => message = m,
-			Err(e) => {
-				error!("Error querying the message {messageid}: {e}");
-				continue;
+	for (channel_id, message_id) in squiroll_messages {
+		let (_, _, last_count) = *data.lobby_messages_last_update.read().await;
+		let http = ctx.http.clone();
+		let content = content.clone();
+		// NOTE: content.clone() here is not good since every loop clones the whole string even
+		// though it is not edited during or after this for loop
+		// Maybe this could be removed if content was wrapped in an arc like http?
+
+		tokio::spawn(async move {
+			let mut message;
+			match http.get_message(ChannelId::new(channel_id), MessageId::new(message_id)).await {
+				Ok(m) => message = m,
+				Err(e) => {
+					error!("Error querying the message {message_id}: {e}");
+					return;
+				}
+			};
+
+			// only send a ping if more players have joined
+			if count >= last_count {
+				// update the message and send a ping
+				let (edit, ping) = tokio::join!(
+					message.edit(&http, EditMessage::new().content(&content)),
+					ChannelId::new(channel_id).send_message(
+						&http,
+						CreateMessage::new().content("A player has joined the lobby")
+					),
+				);
+				edit.unwrap_or_else(|e| {
+					error!("Error editing the message {message_id}: {e}");
+				});
+				match ping {
+					Ok(m) => {
+						m.delete(http).await.unwrap_or_else(|e| {
+							error!("Error deleting the lobby ping in {channel_id}: {e}");
+						});
+					}
+					Err(e) => {
+						error!("Error sending the lobby ping in {channel_id}: {e}");
+					}
+				};
+			} else {
+				// update the message
+				message.edit(http, EditMessage::new().content(content)).await.unwrap_or_else(|e| {
+					error!("Error editing the message {message_id}: {e}");
+				});
 			}
-		};
-		message.edit(ctx, EditMessage::new().content(&content)).await.unwrap_or_else(|e| {
-			error!("Error editing the message {messageid}: {e}");
 		});
 	}
 	// update last
 	let last = data.lobby_data.lock().await;
-	*(data.lobby_messages_last_update.write().await) = (Instant::now(), (*last).clone());
+	*(data.lobby_messages_last_update.write().await) = (Instant::now(), (*last).clone(), count);
 
 	return Ok(());
 }

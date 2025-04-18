@@ -76,7 +76,7 @@ pub async fn squiroll_channel(
 			.await?;
 			{
 				let mut lock = ctx.data().squiroll_messages.lock().await;
-				(*lock).push((channel.unwrap().id(), message.id));
+				(*lock).push((channel.unwrap().id().get(), message.id.get()));
 			}
 			info!("saved the message {} to the database and local vec", message.id.get());
 		}

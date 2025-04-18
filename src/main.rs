@@ -1,8 +1,7 @@
 use std::{sync::Arc, time};
 
 use dotenvy::dotenv;
-use lobby::{update_lobby_data, update_lobby_messages};
-use poise::serenity_prelude::{self as serenity, ChannelId, MessageId};
+use poise::serenity_prelude as serenity;
 use sqlx::MySqlPool;
 use tokio::sync::{Mutex, RwLock};
 use tracing::{debug, error, info};
@@ -14,6 +13,7 @@ mod types;
 
 mod commands;
 use commands::*;
+use lobby::{update_lobby_data, update_lobby_messages};
 use types::LobbyMessage;
 
 #[derive(Debug)]
@@ -21,8 +21,9 @@ struct Data {
 	pool: MySqlPool,
 	// TODO: instead of mutexes these should be rwlocks like last_update
 	lobby_data: Arc<Mutex<LobbyMessage>>,
-	squiroll_messages: Mutex<Vec<(ChannelId, MessageId)>>,
-	lobby_messages_last_update: RwLock<(time::Instant, LobbyMessage)>,
+	squiroll_messages: Mutex<Vec<(u64, u64)>>,
+	// (last update timestamp, last lobby state, last player count)
+	lobby_messages_last_update: RwLock<(time::Instant, LobbyMessage, usize)>,
 }
 
 type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -57,12 +58,12 @@ async fn main() {
 
 	// global squiroll data
 	let lobby_data = Arc::new(Mutex::new(LobbyMessage { ..Default::default() }));
-	let squiroll_messages: Vec<(ChannelId, MessageId)> =
+	let squiroll_messages: Vec<(u64, u64)> =
 	sqlx::query!("select JSON_QUERY(`config`, '$.squiroll_messages') as arr from `guild` where JSON_CONTAINS_PATH(`config`, 'all', '$.squiroll_messages')")
 		.fetch_all(&pool).await.expect("unable to query squiroll messages").into_iter().map(|record| {
-			let json:Vec<(u64, u64)> = serde_json::from_slice(record.arr.unwrap().as_slice()).expect("unable to read squiroll_message");
-			return json;
-		}).flatten().map(|(channelid, messageid)| { (ChannelId::new(channelid), MessageId::new(messageid)) }).collect();
+			serde_json::from_slice::<Vec<(u64, u64)>>(record.arr.unwrap().as_slice())
+				.expect("unable to read squiroll_message")
+		}).flatten().collect();
 
 	// communicate with squiroll lobby to get the online players
 	tokio::spawn(update_lobby_data(lobby_data.clone()));
@@ -286,6 +287,7 @@ async fn main() {
 						lobby_messages_last_update: RwLock::new((
 							time::Instant::now(),
 							LobbyMessage { ..Default::default() },
+							0,
 						)),
 					})
 				})

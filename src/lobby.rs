@@ -9,7 +9,7 @@ use poise::serenity_prelude::{
 use tokio::{
 	io::{AsyncBufReadExt, AsyncWriteExt, BufReader},
 	net::TcpSocket,
-	sync::Mutex,
+	sync::RwLock,
 	time::sleep,
 };
 use tracing::{debug, error, info, warn};
@@ -19,7 +19,7 @@ use crate::{
 	Data, Error,
 };
 
-pub async fn update_lobby_data(lobby_data: Arc<Mutex<LobbyMessage>>) -> ! {
+pub async fn update_lobby_data(lobby_data: Arc<RwLock<LobbyMessage>>) -> ! {
 	// wait for lobby to startup
 	sleep(Duration::from_secs(3)).await;
 
@@ -96,15 +96,14 @@ PASS kzxmckfqbpqieh8rw<rczuturKfnsjxhauhybttboiuuzmWdmnt5mnlczpythaxf";
 						continue;
 					}
 					if let Ok(msg) = String::from_utf8(buf.clone()) {
-						info!("read {n} bytes saying: {msg}");
+						debug!("read {n} bytes saying: {msg}");
 						if msg.starts_with(":LOBBY PRIVMSG bot :") {
 							match serde_json::from_str::<LobbyMessageRaw>(&msg[20..]) {
 								Ok(raw) => {
-									let mut lock = lobby_data.lock().await;
-									if let Err(_) = (*lock).from_delta(&raw) {
+									if let Err(_) = lobby_data.write().await.from_delta(&raw) {
 										warn!("could not parse {:?}", &raw);
 									} else {
-										info!("successfully read the message and parsed it's contents");
+										debug!("successfully read the message and parsed it's contents");
 									}
 								}
 								Err(e) => warn!("could not deserialise {} :: {e}", &msg[20..]),
@@ -124,7 +123,8 @@ PASS kzxmckfqbpqieh8rw<rczuturKfnsjxhauhybttboiuuzmWdmnt5mnlczpythaxf";
 }
 
 pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Error> {
-	let mut count = 0;
+	let lobby = data.lobby_data.read().await;
+	let count = lobby.count();
 	let mut free = 0;
 	let mut novice = 0;
 	let mut veteran = 0;
@@ -132,18 +132,6 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	let mut na = 0;
 	let mut sa = 0;
 	let mut asia = 0;
-	let lobby = {
-		let last = data.lobby_data.lock().await;
-		let inner = &*last;
-		count += inner.free.len();
-		count += inner.novice.len();
-		count += inner.veteran.len();
-		count += inner.eu.len();
-		count += inner.na.len();
-		count += inner.sa.len();
-		count += inner.asia.len();
-		inner.clone() // lobby
-	};
 
 	let mut content =
 		format!("The total number of players currently waiting in the lobby is: **{count}**");
@@ -152,7 +140,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	if lobby.free.len() > 0 {
 		content.push_str(&format!("\n**Free: {}**", lobby.free.len()));
 	}
-	for player in lobby.free {
+	for player in &lobby.free {
 		match player {
 			Player::Generic(_) => free += 1,
 			Player::Discord(user_id) => {
@@ -177,7 +165,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	if lobby.novice.len() > 0 {
 		content.push_str(&format!("\n**novice: {}**", lobby.novice.len()));
 	}
-	for player in lobby.novice {
+	for player in &lobby.novice {
 		match player {
 			Player::Generic(_) => novice += 1,
 			Player::Discord(user_id) => {
@@ -202,7 +190,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	if lobby.veteran.len() > 0 {
 		content.push_str(&format!("\n**veteran: {}**", lobby.veteran.len()));
 	}
-	for player in lobby.veteran {
+	for player in &lobby.veteran {
 		match player {
 			Player::Generic(_) => veteran += 1,
 			Player::Discord(user_id) => {
@@ -227,7 +215,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	if lobby.eu.len() > 0 {
 		content.push_str(&format!("\n**eu: {}**", lobby.eu.len()));
 	}
-	for player in lobby.eu {
+	for player in &lobby.eu {
 		match player {
 			Player::Generic(_) => eu += 1,
 			Player::Discord(user_id) => {
@@ -252,7 +240,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	if lobby.na.len() > 0 {
 		content.push_str(&format!("\n**na: {}**", lobby.na.len()));
 	}
-	for player in lobby.na {
+	for player in &lobby.na {
 		match player {
 			Player::Generic(_) => na += 1,
 			Player::Discord(user_id) => {
@@ -277,7 +265,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	if lobby.sa.len() > 0 {
 		content.push_str(&format!("\n**sa: {}**", lobby.sa.len()));
 	}
-	for player in lobby.sa {
+	for player in &lobby.sa {
 		match player {
 			Player::Generic(_) => sa += 1,
 			Player::Discord(user_id) => {
@@ -302,7 +290,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 	if lobby.asia.len() > 0 {
 		content.push_str(&format!("\n**asia: {}**", lobby.asia.len()));
 	}
-	for player in lobby.asia {
+	for player in &lobby.asia {
 		match player {
 			Player::Generic(_) => asia += 1,
 			Player::Discord(user_id) => {
@@ -323,18 +311,12 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 		content.push_str(&format!("\n> {asia} unknown players"));
 	}
 
-	let squiroll_messages = {
-		let inner = data.squiroll_messages.lock().await;
-		inner.clone()
-	};
 	// updating messages
-	for (channel_id, message_id) in squiroll_messages {
+	let content = Arc::new(content); // so no clones per thread are needed
+	for (channel_id, message_id) in data.squiroll_messages.read().await.clone() {
 		let (_, _, last_count) = *data.lobby_messages_last_update.read().await;
 		let http = ctx.http.clone();
 		let content = content.clone();
-		// NOTE: content.clone() here is not good since every loop clones the whole string even
-		// though it is not edited during or after this for loop
-		// Maybe this could be removed if content was wrapped in an arc like http?
 
 		tokio::spawn(async move {
 			let mut message;
@@ -350,7 +332,7 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 			if count >= last_count {
 				// update the message and send a ping
 				let (edit, ping) = tokio::join!(
-					message.edit(&http, EditMessage::new().content(&content)),
+					message.edit(&http, EditMessage::new().content(&*content)),
 					ChannelId::new(channel_id).send_message(
 						&http,
 						CreateMessage::new().content("A player has joined the lobby")
@@ -371,15 +353,17 @@ pub async fn update_lobby_messages(ctx: &Context, data: &Data) -> Result<(), Err
 				};
 			} else {
 				// update the message
-				message.edit(http, EditMessage::new().content(content)).await.unwrap_or_else(|e| {
-					error!("Error editing the message {message_id}: {e}");
-				});
+				message.edit(http, EditMessage::new().content(&*content)).await.unwrap_or_else(
+					|e| {
+						error!("Error editing the message {message_id}: {e}");
+					},
+				);
 			}
 		});
 	}
 	// update last
-	let last = data.lobby_data.lock().await;
-	*(data.lobby_messages_last_update.write().await) = (Instant::now(), (*last).clone(), count);
+	*(data.lobby_messages_last_update.write().await) =
+		(Instant::now(), data.lobby_data.read().await.clone(), count);
 
 	return Ok(());
 }

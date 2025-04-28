@@ -3,7 +3,7 @@ use std::{sync::Arc, time};
 use dotenvy::dotenv;
 use poise::serenity_prelude as serenity;
 use sqlx::MySqlPool;
-use tokio::sync::{Mutex, RwLock};
+use tokio::sync::RwLock;
 use tracing::{debug, error, info};
 
 mod choice_parameters;
@@ -19,9 +19,8 @@ use types::LobbyMessage;
 #[derive(Debug)]
 struct Data {
 	pool: MySqlPool,
-	// TODO: instead of mutexes these should be rwlocks like last_update
-	lobby_data: Arc<Mutex<LobbyMessage>>,
-	squiroll_messages: Mutex<Vec<(u64, u64)>>,
+	lobby_data: Arc<RwLock<LobbyMessage>>,
+	squiroll_messages: RwLock<Vec<(u64, u64)>>,
 	// (last update timestamp, last lobby state, last player count)
 	lobby_messages_last_update: RwLock<(time::Instant, LobbyMessage, usize)>,
 }
@@ -57,7 +56,7 @@ async fn main() {
 		.expect("error applying migrations to the database");
 
 	// global squiroll data
-	let lobby_data = Arc::new(Mutex::new(LobbyMessage { ..Default::default() }));
+	let lobby_data = Arc::new(RwLock::new(LobbyMessage { ..Default::default() }));
 	let squiroll_messages: Vec<(u64, u64)> =
 	sqlx::query!("select JSON_QUERY(`config`, '$.squiroll_messages') as arr from `guild` where JSON_CONTAINS_PATH(`config`, 'all', '$.squiroll_messages')")
 		.fetch_all(&pool).await.expect("unable to query squiroll messages").into_iter().map(|record| {
@@ -131,13 +130,8 @@ async fn main() {
 									data.lobby_messages_last_update.read().await.0.elapsed();
 								if elapsed > time::Duration::from_secs(5) {
 									debug!("checking squiroll changes as time has elapsed...");
-									let last_lobby_message;
-									{
-										let lock = data.lobby_data.lock().await;
-										last_lobby_message = (*lock).clone();
-									}
 									if data.lobby_messages_last_update.read().await.1
-										!= last_lobby_message
+										!= *data.lobby_data.read().await
 									{
 										update_lobby_messages(ctx, data).await?;
 										info!("updated squiroll messages");

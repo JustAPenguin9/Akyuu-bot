@@ -102,6 +102,16 @@ impl LobbyMessage {
 
 		return Ok(result);
 	}
+
+	pub fn count(&self) -> usize {
+		return self.free.len()
+			+ self.novice.len()
+			+ self.veteran.len()
+			+ self.eu.len()
+			+ self.na.len()
+			+ self.sa.len()
+			+ self.asia.len();
+	}
 }
 
 // NOTE: not yet used but should be eventually

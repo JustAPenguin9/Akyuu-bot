@@ -36,14 +36,8 @@ pub async fn squiroll_channel(
 				ctx.reply("missing channel").await?;
 				return Ok(());
 			}
-			let lobby_messages;
-			{
-				let lock = ctx.data().squiroll_messages.lock().await;
-				// FIX: i don't like this clone
-				lobby_messages = (*lock).clone();
-			}
-			for (channelid, _) in lobby_messages {
-				if channel.as_ref().unwrap().id() == channelid {
+			for (channelid, _) in &*ctx.data().squiroll_messages.read().await {
+				if channel.as_ref().unwrap().id().get() == *channelid {
 					ctx.reply("channel already registered").await?;
 					return Ok(());
 				}
@@ -74,10 +68,11 @@ pub async fn squiroll_channel(
 			)
 			.execute(&ctx.data().pool)
 			.await?;
-			{
-				let mut lock = ctx.data().squiroll_messages.lock().await;
-				(*lock).push((channel.unwrap().id().get(), message.id.get()));
-			}
+			ctx.data()
+				.squiroll_messages
+				.write()
+				.await
+				.push((channel.unwrap().id().get(), message.id.get()));
 			info!("saved the message {} to the database and local vec", message.id.get());
 		}
 		"remove" => {

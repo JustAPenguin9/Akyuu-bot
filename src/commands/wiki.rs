@@ -28,7 +28,7 @@ pub async fn wiki(
 		Some(WikiChoices::Yukari) => "Yukari_Yakumo",
 		Some(WikiChoices::Joon) => "Joon_Yorigami",
 		Some(WikiChoices::Controls) => "Controls",
-		Some(WikiChoices::Mechanics) => "Game_Mechanics",
+		Some(WikiChoices::Mechanics) => "Game_mechanics",
 		Some(WikiChoices::Glossary) => "Glossary",
 		Some(WikiChoices::Modding) => "Modding",
 		None => "Antinomy_of_Common_Flowers_Wiki",

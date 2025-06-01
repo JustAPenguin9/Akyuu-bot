@@ -227,7 +227,12 @@ INSERT INTO `moves` (
 		},
 		{
 			"title": "occult b",
-			"damage": 1139,
+			"damage": 1000,
+			"stun": 40
+		},
+		{
+			"title": "occult 6b",
+			"damage": 1193,
 			"stun": 40
 		},
 		{
@@ -278,7 +283,7 @@ INSERT INTO `moves` (
 			"startup": "15f > 60 freeze frames > 6f",
 			"active": 30,
 			"recovery": 25,
-			"damage": 4900,
+			"damage": 4526-6151,
 			"stun": 100
 		}
 	]}'));

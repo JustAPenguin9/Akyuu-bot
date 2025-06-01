@@ -204,7 +204,7 @@ INSERT INTO `moves` (
 			"startup": 15,
 			"active": 27,
 			"recovery": 28,
-			"damage": "1016 (if all hit)",
+			"damage": "1107 (if all hit)",
 			"stun": 0,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/1/1e/Doremy66b.png"
 		}
@@ -242,7 +242,7 @@ INSERT INTO `moves` (
 		},
 		{
 			"title": "spellcard 3",
-			"damage": "2888-3999",
+			"damage": "2888-4581",
 			"stun": 100,
 			"cost": 1400,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/6/6d/Doremy_2.png"
@@ -251,7 +251,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 4800,
+			"damage": 4375-6000,
 			"stun": 100
 		}
 	]}'));

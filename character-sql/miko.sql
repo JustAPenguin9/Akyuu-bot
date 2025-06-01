@@ -49,7 +49,7 @@ INSERT INTO `moves` (
 			"active": "24f",
 			"recovery": "19f",
 			"damage": "1032 (8 hits)",
-			"stun": "32 | 10 (first hit) + 4 per hit"
+			"stun": "32 | 10 (first hit) + 4 per hit",
 			"attatchment": "https://wiki.koumakan.jp/images/aocf/d/de/Miko6a.png?20190213190924"
 		},
 		{
@@ -58,7 +58,7 @@ INSERT INTO `moves` (
 			"active": "24f",
 			"recovery": "20f",
 			"damage": "1100 (9 hits)",
-			"stun": 42 | 10 (first hit) + 4 per hit,
+			"stun": "42 | 10 (first hit) + 4 per hit",
 			"attachment": "https://wiki.koumakan.jp/images/aocf/d/de/Miko6a.png?20190213190924"
 		}
 	]}')),
@@ -349,7 +349,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 5064-6149,
+			"damage": "5064-6149",
 			"stun": 100
 		}
 	]}'));

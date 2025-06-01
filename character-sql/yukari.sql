@@ -283,7 +283,7 @@ INSERT INTO `moves` (
 			"startup": "15f > 60 freeze frames > 6f",
 			"active": 30,
 			"recovery": 25,
-			"damage": 4526-6151,
+			"damage": "4526-6151",
 			"stun": 100
 		}
 	]}'));

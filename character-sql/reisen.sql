@@ -165,7 +165,7 @@ INSERT INTO `moves` (
 		{
 			"title": "6c",
 			"damage": "1350 (if all hit)",
-			"stun": 30 | 5 x6 hits
+			"stun": "30 | 5 x6 hits"
 		}
 	]}')),
 	(@game, @character, '4c', JSON_COMPACT('{ "variations": [
@@ -257,7 +257,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 4375-5875,
+			"damage": "4375-5875",
 			"stun": 100
 		}
 	]}'));

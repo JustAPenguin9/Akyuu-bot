@@ -94,7 +94,7 @@ INSERT INTO `moves` (
 			"startup": "17f",
 			"active": "minimum 9f",
 			"recovery": "16f",
-			"damage": 625,
+			"damage": 706,
 			"stun": 40,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/0/04/Nitorilj8a.gif"
 		}
@@ -279,7 +279,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 5182,
+			"damage": 5090-6478,
 			"stun": 100
 		}
 	]}'));

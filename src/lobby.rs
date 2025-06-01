@@ -157,6 +157,7 @@ pub async fn update_lobby_messages(
 
 		let mut content =
 			format!("The total number of players currently waiting in the lobby is: **{count}**");
+		let mut known_players = Vec::new();
 
 		// free
 		if lobby.free.len() > 0 {
@@ -167,8 +168,10 @@ pub async fn update_lobby_messages(
 				Player::Generic(_) => free += 1,
 				Player::Discord(user_id) => {
 					if let Ok(user) = user_id.to_user(http.http()).await {
+						let name = user.global_name.unwrap_or(user.name);
 						content.push_str("\n> ");
-						content.push_str(&user.global_name.unwrap_or(user.name));
+						content.push_str(name.as_str());
+						known_players.push(name);
 					} else {
 						warn!("unable to find user with the id {user_id}");
 						free += 1;
@@ -192,8 +195,10 @@ pub async fn update_lobby_messages(
 				Player::Generic(_) => novice += 1,
 				Player::Discord(user_id) => {
 					if let Ok(user) = user_id.to_user(http.http()).await {
+						let name = user.global_name.unwrap_or(user.name);
 						content.push_str("\n> ");
-						content.push_str(&user.global_name.unwrap_or(user.name));
+						content.push_str(name.as_str());
+						known_players.push(name);
 					} else {
 						warn!("unable to find user with the id {user_id}");
 						novice += 1;
@@ -217,8 +222,10 @@ pub async fn update_lobby_messages(
 				Player::Generic(_) => veteran += 1,
 				Player::Discord(user_id) => {
 					if let Ok(user) = user_id.to_user(http.http()).await {
+						let name = user.global_name.unwrap_or(user.name);
 						content.push_str("\n> ");
-						content.push_str(&user.global_name.unwrap_or(user.name));
+						content.push_str(name.as_str());
+						known_players.push(name);
 					} else {
 						warn!("unable to find user with the id {user_id}");
 						veteran += 1;
@@ -242,8 +249,10 @@ pub async fn update_lobby_messages(
 				Player::Generic(_) => eu += 1,
 				Player::Discord(user_id) => {
 					if let Ok(user) = user_id.to_user(http.http()).await {
+						let name = user.global_name.unwrap_or(user.name);
 						content.push_str("\n> ");
-						content.push_str(&user.global_name.unwrap_or(user.name));
+						content.push_str(name.as_str());
+						known_players.push(name);
 					} else {
 						warn!("unable to find user with the id {user_id}");
 						eu += 1;
@@ -267,8 +276,10 @@ pub async fn update_lobby_messages(
 				Player::Generic(_) => na += 1,
 				Player::Discord(user_id) => {
 					if let Ok(user) = user_id.to_user(http.http()).await {
+						let name = user.global_name.unwrap_or(user.name);
 						content.push_str("\n> ");
-						content.push_str(&user.global_name.unwrap_or(user.name));
+						content.push_str(name.as_str());
+						known_players.push(name);
 					} else {
 						warn!("unable to find user with the id {user_id}");
 						na += 1;
@@ -292,8 +303,10 @@ pub async fn update_lobby_messages(
 				Player::Generic(_) => sa += 1,
 				Player::Discord(user_id) => {
 					if let Ok(user) = user_id.to_user(http.http()).await {
+						let name = user.global_name.unwrap_or(user.name);
 						content.push_str("\n> ");
-						content.push_str(&user.global_name.unwrap_or(user.name));
+						content.push_str(name.as_str());
+						known_players.push(name);
 					} else {
 						warn!("unable to find user with the id {user_id}");
 						sa += 1;
@@ -317,8 +330,10 @@ pub async fn update_lobby_messages(
 				Player::Generic(_) => asia += 1,
 				Player::Discord(user_id) => {
 					if let Ok(user) = user_id.to_user(http.http()).await {
+						let name = user.global_name.unwrap_or(user.name);
 						content.push_str("\n> ");
-						content.push_str(&user.global_name.unwrap_or(user.name));
+						content.push_str(name.as_str());
+						known_players.push(name);
 					} else {
 						warn!("unable to find user with the id {user_id}");
 						asia += 1;
@@ -334,10 +349,32 @@ pub async fn update_lobby_messages(
 		}
 
 		// updating messages
-		let content = Arc::new(content); // so no clones per thread are needed
+		let total_unknown = free + novice + veteran + eu + na + sa + asia;
+		let mut ping_content = String::from("Now in the lobby: ");
+		ping_content.push_str(&known_players.join(", "));
+		if known_players.len() > 0 {
+			ping_content.push_str(", and ");
+			ping_content.push_str(&total_unknown.to_string());
+			if total_unknown == 1 {
+				ping_content.push_str(" unknown player")
+			} else {
+				ping_content.push_str(" unknown players")
+			}
+		} else {
+			ping_content.push_str(&total_unknown.to_string());
+			if total_unknown == 1 {
+				ping_content.push_str(" unknown player")
+			} else {
+				ping_content.push_str(" unknown players")
+			}
+		}
+		// so no clones per thread are needed
+		let content = Arc::new(content);
+		let ping_content = Arc::new(ping_content);
 		for (channel_id, message_id) in squiroll_messages.read().await.clone() {
 			let http = http.clone();
 			let content = content.clone();
+			let ping_content = ping_content.clone();
 
 			tokio::spawn(async move {
 				let mut message;
@@ -357,10 +394,8 @@ pub async fn update_lobby_messages(
 					// update the message and send a ping
 					let (edit, ping) = tokio::join!(
 						message.edit(&http, EditMessage::new().content(&*content)),
-						ChannelId::new(channel_id).send_message(
-							&http,
-							CreateMessage::new().content("A player has joined the lobby")
-						),
+						ChannelId::new(channel_id)
+							.send_message(&http, CreateMessage::new().content(&*ping_content)),
 					);
 					edit.unwrap_or_else(|e| {
 						error!(

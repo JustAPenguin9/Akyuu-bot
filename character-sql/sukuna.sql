@@ -270,7 +270,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 5255,
+			"damage": 4732-6568,
 			"stun": 100
 		}
 	]}'));

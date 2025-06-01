@@ -124,21 +124,21 @@ INSERT INTO `moves` (
 			"title": "5b",
 			"startup": "15f",
 			"damage": "250 | 448 | 638",
-			"stun": "10 per (max 30)"
+			"stun": "10/10/9 | Hit 1: 10 | Hit 2: 5/hit | Hit 3: 3/hit"
 		}
 	]}')),
 	(@game, @character, '2b', JSON_COMPACT('{ "variations": [
 		{
 			"title": "2b",
 			"damage": "251 | 448 | 638",
-			"stun": "11 per (max 30)"
+			"stun": "10/10/9 | Hit 1: 10 | Hit 2: 5/hit | Hit 3: 3/hit"
 		}
 	]}')),
 	(@game, @character, '8b', JSON_COMPACT('{ "variations": [
 		{
 			"title": "8b",
 			"damage": "252 | 448 | 638",
-			"stun": "12 per (max 30)"
+			"stun": "10/10/9 | Hit 1: 10 | Hit 2: 5/hit | Hit 3: 3/hit"
 		}
 	]}')),
 	(@game, @character, '6b', JSON_COMPACT('{ "variations": [
@@ -283,7 +283,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 5060,
+			"damage": 4812-6325,
 			"stun": 100
 		}
 	]}'));

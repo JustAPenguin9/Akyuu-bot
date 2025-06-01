@@ -176,7 +176,7 @@ INSERT INTO `moves` (
 	(@game, @character, '4c', JSON_COMPACT('{ "variations": [
 		{
 			"title": "4c",
-			"damage": "856 (1 pillar), 3022 (5 pillars)",
+			"damage": "856 (1 plate), 302-3022 (5 plates)",
 			"stun": "12 (1 pillar), 60 (5 pillars)"
 		}
 	]}')),
@@ -261,7 +261,7 @@ INSERT INTO `moves` (
 		},
 		{
 			"title": "spellcard 2",
-			"damage": "3550 (if all hit)",
+			"damage": "3179 (9 hits)",
 			"stun": 100,
 			"cost": 1200,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/7/7c/Futo_1.png"
@@ -275,7 +275,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 4784,
+			"damage": 4160-5980,
 			"stun": 100
 		}
 	]}'));

@@ -281,7 +281,7 @@ INSERT INTO `moves` (
 		{
 			"title": "lastword",
 			"startup": 12,
-			"damage": 5156,
+			"damage": 5060-6446,
 			"stun": 100,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/8/8a/MokouLW.png"
 		}

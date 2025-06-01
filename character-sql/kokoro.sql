@@ -309,7 +309,7 @@ INSERT INTO `moves` (
 		},
 		{
 			"title": "spellcard 2",
-			"damage": "2008",
+			"damage": "2208",
 			"stun": 100,
 			"cost": 700,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/f/fc/Kokoro_1.png"
@@ -325,7 +325,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 5060,
+			"damage": 4675-6325,
 			"stun": 100
 		}
 	]}'));

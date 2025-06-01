@@ -261,7 +261,7 @@ INSERT INTO `moves` (
 			"startup": "10f > 60 freeze frames > 1f",
 			"active": 41,
 			"recovery": 39,
-			"damage": 4925,
+			"damage": 4980-6155,
 			"stun": 100,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/7/74/Tenshi-LW.png"
 		}

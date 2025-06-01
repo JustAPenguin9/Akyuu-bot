@@ -155,8 +155,8 @@ INSERT INTO `moves` (
 		{
 			"title": "5c",
 			"startup": 20,
-			"damage": "375 per, 1357 (if all hit)",
-			"stun": "10 x 4 = [40]"
+			"damage": "375 per hit, 1640 (if all hit, combo rate applied)",
+			"stun": "10 x 5 = [50]"
 		}
 	]}')),
 	(@game, @character, '6c', JSON_COMPACT('{ "variations": [
@@ -240,14 +240,14 @@ INSERT INTO `moves` (
 		},
 		{
 			"title": "spellcard 2",
-			"damage": "3962-4119",
+			"damage": "3962-4888",
 			"stun": 100,
 			"cost": 1400,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/9/99/Jyoon_1.png"
 		},
 		{
 			"title": "spellcard 3",
-			"damage": 5248,
+			"damage": 5755,
 			"stun": 100,
 			"cost": 1200,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/e/ed/Jyoon_2.png"
@@ -256,7 +256,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 4800,
+			"damage": 4625-6000,
 			"stun": 100
 		}
 	]}'));

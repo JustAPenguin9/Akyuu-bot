@@ -190,7 +190,7 @@ INSERT INTO `moves` (
 			"active": 35,
 			"recovery": 22,
 			"damage": 675,
-			"stun": 0,
+			"stun": 40,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/4/42/Usami66a.png"
 		}
 	]}')),
@@ -252,7 +252,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 4928,
+			"damage": 4889-6161,
 			"stun": 100
 		}
 	]}'));

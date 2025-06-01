@@ -165,7 +165,7 @@ INSERT INTO `moves` (
 		{
 			"title": "6c",
 			"damage": "1350 (if all hit)",
-			"stun": 40
+			"stun": 30 | 5 x6 hits
 		}
 	]}')),
 	(@game, @character, '4c', JSON_COMPACT('{ "variations": [
@@ -237,7 +237,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'sc,spellcard', JSON_COMPACT('{ "variations": [
 		{
 			"title": "spellcard 1",
-			"damage": "85 per",
+			"damage": "85 per, 3246 (if all hit)",
 			"stun": "2 per",
 			"cost": 800
 		},
@@ -257,7 +257,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 4700,
+			"damage": 4375-5875,
 			"stun": 100
 		}
 	]}'));

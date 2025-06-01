@@ -48,8 +48,18 @@ INSERT INTO `moves` (
 			"startup": "15f",
 			"active": "24f",
 			"recovery": "19f",
-			"damage": "1100 (500 + 93 per)",
-			"stun": "10 (first hit) + 4 per"
+			"damage": "1032 (8 hits)",
+			"stun": "32 | 10 (first hit) + 4 per hit"
+			"attatchment": "https://wiki.koumakan.jp/images/aocf/d/de/Miko6a.png?20190213190924"
+		},
+		{
+			"title": "red cape 6a",
+			"startup": "15f",
+			"active": "24f",
+			"recovery": "20f",
+			"damage": "1100 (9 hits)",
+			"stun": 42 | 10 (first hit) + 4 per hit,
+			"attachment": "https://wiki.koumakan.jp/images/aocf/d/de/Miko6a.png?20190213190924"
 		}
 	]}')),
 	(@game, @character, '8a', JSON_COMPACT('{ "variations": [
@@ -331,7 +341,7 @@ INSERT INTO `moves` (
 		},
 		{
 			"title": "spellcard 3",
-			"damage": "3206 - 5136",
+			"damage": "3206/4191 with cape",
 			"stun": 100,
 			"cost": 1000
 		}
@@ -339,7 +349,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 4919,
+			"damage": 5064-6149,
 			"stun": 100
 		}
 	]}'));

@@ -262,7 +262,7 @@ INSERT INTO `moves` (
 		},
 		{
 			"title": "spellcard 3",
-			"damage": 1797,
+			"damage": 1873,
 			"stun": 100,
 			"cost": 700,
 			"attachment": "https://wiki.koumakan.jp/images/aocf/b/bf/Kasen_2.png"
@@ -271,7 +271,7 @@ INSERT INTO `moves` (
 	(@game, @character, 'lw,lastword', JSON_COMPACT('{ "variations": [
 		{
 			"title": "lastword",
-			"damage": 5170,
+			"damage": 4675-6462,
 			"stun": 100
 		}
 	]}'));

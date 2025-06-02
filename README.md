@@ -64,6 +64,7 @@ nimiala#8595<br>
 @cabadmdp<br>
 @elysiastarlight<br>
 @gato_rescatador<br>
+@alariuss<br>
 for contributing through Discord
 
 # Links

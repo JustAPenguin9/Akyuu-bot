@@ -84,6 +84,7 @@ async fn main() {
 				links::starthere(),
 				links::links(),
 				links::repository(),
+				wiki::notation(),
 				wiki::wiki(),
 				query::query(),
 				query::query_alias(),

@@ -37,7 +37,8 @@ pub async fn wiki(
 
 	Ok(())
 }
-/// Sends the AoCF notation and keywords image
+
+/// Sends the AoCF numpad notation and key terms image
 #[poise::command(prefix_command, slash_command, aliases("keyterms", "numpad"))]
 pub async fn notation(ctx: Context<'_>) -> Result<(), Error> {
 	ctx.reply("https://wiki.koumakan.jp/images/aocf/f/fd/AoCF-Notations.jpg").await?;

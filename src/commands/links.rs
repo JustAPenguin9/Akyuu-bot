@@ -42,12 +42,3 @@ pub async fn repository(ctx: Context<'_>) -> Result<(), Error> {
 
 	Ok(())
 }
-
-/// Sends a Notation image for AoCF
-#[poise::command(prefix_command, slash_command)]
-pub async fn notation(ctx: Context<'_>) -> Result<(), Error> {
-	ctx.reply("https://wiki.koumakan.jp/images/aocf/f/fd/AoCF-Notations.jpg")
-	.await?;
-
-	Ok(())
-}

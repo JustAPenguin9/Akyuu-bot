@@ -1,0 +1,44 @@
+{
+  "db_name": "MySQL",
+  "query": "SELECT * FROM `guild` WHERE `guild_id` = ?",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": {
+          "type": "Long",
+          "flags": "NOT_NULL | PRIMARY_KEY | UNSIGNED | AUTO_INCREMENT",
+          "max_size": 10
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "guild_id",
+        "type_info": {
+          "type": "LongLong",
+          "flags": "NOT_NULL | UNIQUE_KEY | MULTIPLE_KEY | UNSIGNED | NO_DEFAULT_VALUE",
+          "max_size": 20
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "config",
+        "type_info": {
+          "type": "Blob",
+          "flags": "NOT_NULL | BLOB | BINARY | NO_DEFAULT_VALUE",
+          "max_size": 4294967295
+        }
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "a602921aed7504360105cd3f4ec995e9d4e72d34bd97f764913d154ebcfb8b7e"
+}

@@ -114,11 +114,10 @@ impl LobbyMessage {
 	}
 }
 
-// NOTE: not yet used but should be eventually
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct GuildConfig {
 	#[serde(default, skip_serializing_if = "Option::is_none")]
-	squiroll_messages: Option<Vec<(ChannelId, MessageId)>>,
+	pub squiroll_messages: Option<Vec<(ChannelId, MessageId)>>,
 	// tournament_organisers: Option<Vec<UserId>>,
 }
 

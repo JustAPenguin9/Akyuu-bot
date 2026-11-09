@@ -1,0 +1,7 @@
+[Unit]
+Description=Akyuu container image build
+
+[Build]
+ImageTag=localhost/akyuu-bot:latest
+File=Dockerfile
+# SetWorkingDirectory to be appended through setup-systemd.sh

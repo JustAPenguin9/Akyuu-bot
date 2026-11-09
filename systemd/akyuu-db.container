@@ -1,0 +1,18 @@
+[Unit]
+Description=MariaDB database for Akyuu
+Wants=podman-auto-update.timer
+After=network-online.target
+
+[Container]
+ContainerName=akyuu-db
+Image=docker.io/library/mariadb:latest
+AutoUpdate=registry
+Network=akyuu.network
+Volume=akyuu-db.volume:/var/lib/mysql:Z
+PublishPort=3306:3306
+EnvironmentFile=%h/.config/containers/systemd/akyuu.env
+Environment=MARIADB_DATABASE=akyuu_records
+
+[Service]
+Restart=always
+TimeoutStartSec=500

@@ -1,0 +1,17 @@
+[Unit]
+Description=Akyuu Discord bot
+Wants=akyuu-db.service
+After=network-online.target akyuu-db.service
+
+[Container]
+ContainerName=akyuu-bot
+Image=localhost/akyuu-bot:latest
+AutoUpdate=local
+Network=akyuu.network
+EnvironmentFile=%h/.config/containers/systemd/akyuu.env
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

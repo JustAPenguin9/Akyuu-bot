@@ -39,7 +39,7 @@ pub async fn profile(
 	ctx.send(
 		CreateReply::default().embed(
 			CreateEmbed::new()
-				.colour(0xB3E04D)
+				.colour(crate::AKYUU_GREEN)
 				.title(&user.name)
 				.thumbnail(user.avatar_url().unwrap_or_else(|| user.default_avatar_url()))
 				.field("Wins", wins.to_string(), true)

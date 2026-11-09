@@ -27,6 +27,8 @@ struct Data {
 type Error = Box<dyn std::error::Error + Send + Sync>;
 type Context<'a> = poise::Context<'a, Data, Error>;
 
+const AKYUU_GREEN:u32 = 0xB3E04D;
+
 #[tokio::main]
 async fn main() {
 	tracing_subscriber::fmt::init();

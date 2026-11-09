@@ -10,7 +10,7 @@ pub async fn help(
 	// #[description = "Query the help of a specific command"] command: Option<String>,
 ) -> Result<(), Error> {
 	#[rustfmt::skip]
-	let embed = CreateEmbed::new().colour(0xB3E04D).title("Akyuu commands").fields([
+	let embed = CreateEmbed::new().colour(crate::AKYUU_GREEN).title("Akyuu commands").fields([
 		(
 			"Start here",
 			"If you're new to AoCF call `/starthere` to see the links to \

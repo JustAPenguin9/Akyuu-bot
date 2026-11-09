@@ -127,7 +127,7 @@ fn create_move_embeds(
 	for (n, var) in data.variations.iter().enumerate() {
 		let mut embed = CreateEmbed::new();
 
-		embed = embed.colour(0xB3E04D);
+		embed = embed.colour(crate::AKYUU_GREEN);
 
 		if let Some(title) = &var.title {
 			let real_title = format!("{} {}", character.name(), title);
